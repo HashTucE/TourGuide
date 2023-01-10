@@ -43,8 +43,11 @@ public class UserRepository {
     }
 
 
-
-
+    /**
+     * Initializes a number of internal users and stores them in a Map,
+     * where the keys are the usernames and the values are the User objects.
+     * @return Map<String, User>
+     */
     public Map<String, User> initializeInternalUsers() {
         IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -> {
             String userName = "internalUser" + i;
@@ -59,6 +62,12 @@ public class UserRepository {
         return internalUserMap;
     }
 
+
+    /**
+     * Generates a location historic for a given user by adding 3 randomly generated
+     * VisitedLocation objects to the user's list of visited locations.
+     * @param user User
+     */
     private void generateUserLocationHistory(User user) {
         IntStream.range(0, 3).forEach(i-> user.addToVisitedLocations(
                 new VisitedLocation(user.getUserId(),
@@ -67,18 +76,36 @@ public class UserRepository {
                                     getRandomTime())));
     }
 
+
+    /**
+     * Generates a random double value within a certain range,
+     * which represents a longitude value.
+     * @return double
+     */
     private double generateRandomLongitude() {
         double leftLimit = -180;
         double rightLimit = 180;
         return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
     }
 
+
+    /**
+     * Generates a random double value within a certain range,
+     * which represents a latitude value.
+     * @return double
+     */
     private double generateRandomLatitude() {
         double leftLimit = -85.05112878;
         double rightLimit = 85.05112878;
         return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
     }
 
+
+    /**
+     * Generates a random date-time within the past 30 days
+     * and then converts it to a Date object.
+     * @return Date
+     */
     private Date getRandomTime() {
         LocalDateTime localDateTime = LocalDateTime.now().minusDays(new Random().nextInt(30));
         return Date.from(localDateTime.toInstant(ZoneOffset.UTC));

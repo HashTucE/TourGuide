@@ -46,7 +46,16 @@ public class TourGuideService {
 	}
 
 
-
+	/**
+	 * Retrieves an attraction by its name from a list of attractions.
+	 * First, the method gets a list of attractions.
+	 * Then it uses a for-each loop to iterate through the list of attractions.
+	 * If a match is found, the method returns the attraction object.
+	 * Otherwise, the method throws a NotExistingAttractionException.
+	 * @param attractionName name of attraction
+	 * @return Attraction
+	 * @throws NotExistingAttractionException with attractionName
+	 */
 	public Attraction getAttractionByName(String attractionName) throws NotExistingAttractionException {
 
 		List<Attraction> attractions = gpsUtil.getAttractions();
@@ -61,7 +70,21 @@ public class TourGuideService {
 		throw new NotExistingAttractionException(attractionName);
 	}
 
-	
+
+	/**
+	 * Retrieves a list of trip deals for a given user and attraction.
+	 * First uses the "userName" parameter to get the user object.
+	 * Then it uses the "attractionName" parameter to get the attraction object.
+	 * It then calculates the cumulative rewards points of the user.
+	 * Then it returns a list of providers that have the trip deals available with them.
+	 * Finally, it sets the returned list of providers as the user's "tripDeals"
+	 * and returns the same list of providers.
+	 * @param userName name of user
+	 * @param attractionName name of attraction
+	 * @return List<Provider>
+	 * @throws NotExistingAttractionException with wrong attractionName
+	 * @throws NotExistingUserException with wrong userName
+	 */
 	public List<Provider> getTripDeals(String userName, String attractionName) throws NotExistingAttractionException, NotExistingUserException {
 
 		User user = userService.getUser(userName);
@@ -78,8 +101,15 @@ public class TourGuideService {
 	}
 
 
-
-
+	/**
+	 * Retrieves a list of nearby attractions for a given location.
+	 * First, it gets a list of all available attractions.
+	 * It then uses a parallel stream to iterate through the list of attractions,
+	 * sorting them based on the distance from the visited location.
+	 * It then limits to 5 attractions and collects the results into a list.
+	 * @param visitedLocation VisitedLocation
+	 * @return List<Attraction>
+	 */
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
 
 		return gpsUtil.getAttractions().parallelStream()
@@ -91,7 +121,18 @@ public class TourGuideService {
 	}
 
 
-
+	/**
+	 * Retrieves a list of the closest attraction details to the user based on their last visited location.
+	 * The method starts getting the user object and the last visited location of this user.
+	 * It uses this user location to get a list of the closest attractions.
+	 * It then creates two lists, an closestAttractions list of 5 attractions
+	 * and another list closestAttractionDtoList which stores the ClosestAttractionDto objects.
+	 * Then it uses a for-each loop to iterate through the list of the closest attractions
+	 * and for each attraction it creates a new ClosestAttractionDto object and adds it to the closestAttractionDtoList.
+	 * @param userName String
+	 * @return List<ClosestAttractionDto>
+	 * @throws NotExistingUserException with wrong userName
+	 */
 	public List<ClosestAttractionDto> getClosestAttractionDtoList(String userName) throws NotExistingUserException {
 
 		User user = userService.getUser(userName);

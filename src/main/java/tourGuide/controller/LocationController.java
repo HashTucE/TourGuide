@@ -22,16 +22,26 @@ public class LocationController {
     private UserService userService;
 
 
-
-
-
+    /**
+     * Handles a GET http request to retrieve the last location
+     * of a user, it maps the request to the "/getLocation" endpoint.
+     * @param userName String
+     * @return Location
+     * @throws NotExistingUserException with wrong userName
+     */
     @RequestMapping("/getLocation")
     public Location getLocation(@RequestParam String userName) throws NotExistingUserException {
+
         VisitedLocation visitedLocation = locationService.getUserLocation(userService.getUser(userName));
         return visitedLocation.location;
     }
 
 
+    /**
+     * Handles a GET http request to retrieve the current location
+     * of all the users, it maps the request to the "/getAllCurrentLocations" endpoint.
+     * @return Map<String, Location>
+     */
     @RequestMapping("/getAllCurrentLocations")
     public Map<String, Location> getAllCurrentLocations() {
 

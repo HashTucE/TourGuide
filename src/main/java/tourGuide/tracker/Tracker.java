@@ -30,6 +30,7 @@ public class Tracker extends Thread {
 		executorService.submit(this);
 	}
 
+
 	/**
 	 * Assures to shut down the Tracker thread
 	 */
@@ -37,7 +38,19 @@ public class Tracker extends Thread {
 		stop = true;
 		executorService.shutdownNow();
 	}
-	
+
+
+	/**
+	 * Tracks the location of all users in the system,
+	 * until the thread is interrupted or the stop variable is set to true.
+	 * Enters an infinite loop, where it repeatedly performs the following steps:
+	 * It breaks out of the loop if the current thread has been interrupted or the stop variable is set to true.
+	 * It retrieves a list of all users from the userService.
+	 * It starts the stopwatch and iterates over the list of users to tracks their location.
+	 * It stops the stopwatch and logs the elapsed time in seconds.
+	 * It reset the stopWatch
+	 * It put the thread to sleep for a given interval.
+	 */
 	@Override
 	public void run() {
 		StopWatch stopWatch = new StopWatch();

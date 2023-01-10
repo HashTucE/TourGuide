@@ -17,15 +17,28 @@ public class UserController {
     private UserService userService;
 
 
-
-
-
+    /**
+     * Handles a GET http request to retrieve the preferences of a specific user,
+     * it maps the request to the "/getPreferences" endpoint.
+     * @param userName String
+     * @return UserPreferences
+     * @throws NotExistingUserException with wrong userName
+     */
     @GetMapping("/getPreferences")
     public UserPreferences getUserPreferences(@RequestParam String userName) throws NotExistingUserException {
+
         return userService.getUserPreferences(userName);
     }
 
 
+    /**
+     * Handles a PUT http request to update the preferences of a specific user,
+     * it maps the request to the "/updatePreferences" endpoint.
+     * @param userName String
+     * @param userPreferencesDto UserPreferencesDto
+     * @return ResponseEntity<String>
+     * @throws NotExistingUserException with wrong userName
+     */
     @PutMapping("/updatePreferences")
     public ResponseEntity<String> updateUsePreferences(
             @RequestParam String userName,

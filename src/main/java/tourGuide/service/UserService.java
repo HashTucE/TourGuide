@@ -31,6 +31,15 @@ public class UserService {
     }
 
 
+    /**
+     * Retrieves a user by their name.
+     * The method starts by attempting to retrieve the user from a map object.
+     * It then uses an if statement, if the user variable is null it throws a NotExistingUserException
+     * Otherwise, the method returns the user object.
+     * @param userName String
+     * @return User
+     * @throws NotExistingUserException with wrong userName
+     */
     public User getUser(String userName) throws NotExistingUserException {
 
         User user = usersMap.get(userName);
@@ -41,7 +50,11 @@ public class UserService {
     }
 
 
-
+    /**
+     * Retrieves a list of all users in the system.
+     * The method creates an ArrayList initialized with the values of the usersMap object.
+     * @return List<User>
+     */
     public List<User> getAllUsers() {
 
         List<User> allUsers = new ArrayList<>(usersMap.values());
@@ -50,7 +63,12 @@ public class UserService {
     }
 
 
-
+    /**
+     * Adds a new user to the system.
+     * Checks if a user with the same name already exists.
+     * If the user with the same name doesn't exist, it adds the user to the map.
+     * @param user User
+     */
     public void addUser(User user) {
 
         if(!usersMap.containsKey(user.getUserName())) {
@@ -59,13 +77,26 @@ public class UserService {
     }
 
 
-
+    /**
+     * Retrieves the user preferences for a given user.
+     * @param userName String
+     * @return UserPreferences
+     * @throws NotExistingUserException with wrong userName
+     */
     public UserPreferences getUserPreferences(String userName) throws NotExistingUserException {
 
         return getUser(userName).getUserPreferences();
     }
 
 
+    /**
+     * Updates the user preferences for a given user.
+     * It retrieves the user preferences  and assigns it to a variable.
+     * Finally, it updates the user preferences.
+     * @param userName String
+     * @param userPreferencesDto UserPreferencesDto
+     * @throws NotExistingUserException with wrong userName
+     */
     public void updateUserPreferences(String userName, UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
 
         User user = getUser(userName);

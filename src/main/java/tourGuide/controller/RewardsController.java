@@ -21,8 +21,13 @@ public class RewardsController {
     private UserService userService;
 
 
-
-
+    /**
+     * Handles a GET http request to retrieve the rewards
+     * of a specific user, it maps the request to the "/getRewards" endpoint.
+     * @param userName String
+     * @return List<UserReward>
+     * @throws NotExistingUserException with wrong userName
+     */
     @RequestMapping("/getRewards")
     public List<UserReward> getRewards(@RequestParam String userName) throws NotExistingUserException {
 
