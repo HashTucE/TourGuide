@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package tourGuide.controller;
+
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import tourGuide.dto.UserPreferencesDto;
+import tourGuide.exception.NotExistingUserException;
+import tourGuide.model.UserPreferences;
+import tourGuide.service.UserService;
+
+@RestController
+<span class="nc" id="L14">public class UserController {</span>
+
+    @Autowired
+    private UserService userService;
+
+
+    /**
+     * Handles a GET http request to retrieve the preferences of a specific user,
+     * it maps the request to the &quot;/getPreferences&quot; endpoint.
+     * @param userName String
+     * @return UserPreferences
+     * @throws NotExistingUserException with wrong userName
+     */
+    @GetMapping(&quot;/getPreferences&quot;)
+    public UserPreferences getUserPreferences(@RequestParam String userName) throws NotExistingUserException {
+
+<span class="nc" id="L30">        return userService.getUserPreferences(userName);</span>
+    }
+
+
+    /**
+     * Handles a PUT http request to update the preferences of a specific user,
+     * it maps the request to the &quot;/updatePreferences&quot; endpoint.
+     * @param userName String
+     * @param userPreferencesDto UserPreferencesDto
+     * @return ResponseEntity&lt;String&gt;
+     * @throws NotExistingUserException with wrong userName
+     */
+    @PutMapping(&quot;/updatePreferences&quot;)
+    public ResponseEntity&lt;String&gt; updateUsePreferences(
+            @RequestParam String userName,
+            @RequestBody @Valid UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
+
+<span class="nc" id="L47">        userService.updateUserPreferences(userName, userPreferencesDto);</span>
+
+<span class="nc" id="L49">        return new ResponseEntity&lt;&gt;(&quot;User preferences updated successfully&quot;, HttpStatus.OK);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

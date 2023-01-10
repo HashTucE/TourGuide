@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.TourGuideServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-10T22:02:05" hostname="iMac.local" time="1.198">
+  <properties/>
+  <testcase name="testGetNearByAttractions_validVisitedLocation_returnsSortedAttractions()" classname="tourGuide.service.TourGuideServiceTest" time="1.198"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

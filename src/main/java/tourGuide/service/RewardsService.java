@@ -92,7 +92,7 @@ public class RewardsService {
 	 * @param attraction Attraction
 	 * @return boolean
 	 */
-	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
+	public boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
 		return !(getDistance(attraction, visitedLocation.location) > proximityBuffer);
 	}
 

@@ -8,10 +8,7 @@ import tourGuide.model.User;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Service
 public class LocationService {
@@ -24,63 +21,64 @@ public class LocationService {
 
 
 
-<span class="fc" id="L27">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
-<span class="fc" id="L28">        this.gpsUtil = gpsUtil;</span>
-<span class="fc" id="L29">        this.userService = userService;</span>
-<span class="fc" id="L30">        this.rewardsService = rewardsService;</span>
-<span class="fc" id="L31">    }</span>
+<span class="nc" id="L24">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
+<span class="nc" id="L25">        this.gpsUtil = gpsUtil;</span>
+<span class="nc" id="L26">        this.userService = userService;</span>
+<span class="nc" id="L27">        this.rewardsService = rewardsService;</span>
+<span class="nc" id="L28">    }</span>
 
 
-//    public VisitedLocation trackUserLocation(User user) {
-//
-//        VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
-//        user.addToVisitedLocations(visitedLocation);
-//        rewardsService.calculateRewards(user);
-//
-//        return visitedLocation;
-//    }
-
+    /**
+     * Track the location of a user and add that location to a list of visited locations for that user.
+     * It then calls a method to calculate rewards for the user.
+     * @param user user
+     * @return VisitedLocation
+     */
     public VisitedLocation trackUserLocation(User user) {
-<span class="fc" id="L44">        ExecutorService executor = Executors.newFixedThreadPool(2);</span>
 
-<span class="fc" id="L46">        CompletableFuture&lt;VisitedLocation&gt; visitedLocationFuture = CompletableFuture.supplyAsync(</span>
-<span class="fc" id="L47">                () -&gt; gpsUtil.getUserLocation(user.getUserId()), executor);</span>
+<span class="nc" id="L39">        VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());</span>
+<span class="nc" id="L40">        user.addToVisitedLocations(visitedLocation);</span>
+<span class="nc" id="L41">        rewardsService.calculateRewards(user);</span>
 
-<span class="fc" id="L49">        CompletableFuture&lt;Void&gt; calculateRewardsFuture = visitedLocationFuture.thenAcceptAsync((location) -&gt; {</span>
-<span class="fc" id="L50">            user.addToVisitedLocations(location);</span>
-<span class="fc" id="L51">            rewardsService.calculateRewards(user);</span>
-<span class="fc" id="L52">        }, executor);</span>
-
-<span class="fc" id="L54">        VisitedLocation visitedLocation = visitedLocationFuture.join();</span>
-<span class="fc" id="L55">        calculateRewardsFuture.join();</span>
-
-<span class="fc" id="L57">        executor.shutdown();</span>
-
-<span class="fc" id="L59">        return visitedLocation;</span>
+<span class="nc" id="L43">        return visitedLocation;</span>
     }
 
 
-
-
+    /**
+     * Retrieves the last visited location for a given user.
+     * If the size of the list is greater than 0, it returns the last location visited.
+     * If the list is empty, it  tracks the current location of the user.
+     * @param user User
+     * @return VisitedLocation
+     */
     public VisitedLocation getUserLocation(User user) {
 
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        return (user.getVisitedLocations().size() &gt; 0) ?</span>
-<span class="nc" id="L68">                user.getLastVisitedLocation() :</span>
-<span class="nc" id="L69">                trackUserLocation(user);</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        return (user.getVisitedLocations().size() &gt; 0) ?</span>
+<span class="nc" id="L57">                user.getLastVisitedLocation() :</span>
+<span class="nc" id="L58">                trackUserLocation(user);</span>
     }
 
 
-
+    /**
+     * Retrieves the current locations of all users.
+     * It first retrieves a list of all users.
+     * Then it creates an empty ConcurrentHashMap named locations.
+     * The for loop iterates through the list of users to retrieve the user's last visited location.
+     * @return Map&lt;String, Location&gt;
+     */
     public Map&lt;String, Location&gt; getAllCurrentLocations() {
 
-<span class="nc" id="L76">        List&lt;User&gt; users = userService.getAllUsers();</span>
-<span class="nc" id="L77">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="nc" id="L71">        List&lt;User&gt; users = userService.getAllUsers();</span>
+<span class="nc" id="L72">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
 
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        for (User user : users) {</span>
-<span class="nc" id="L80">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
-<span class="nc" id="L81">        }</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        for (User user : users) {</span>
+<span class="nc" id="L75">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
+<span class="nc" id="L76">        }</span>
 
-<span class="nc" id="L83">        return locations;</span>
+<span class="nc" id="L78">        return locations;</span>
     }
 }
+
+
+
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

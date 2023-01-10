@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExceptionHandlerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.controller</a> &gt; <span class="el_source">ExceptionHandlerController.java</span></div><h1>ExceptionHandlerController.java</h1><pre class="source lang-java linenums">package tourGuide.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import tourGuide.exception.NotExistingAttractionException;
+import tourGuide.exception.NotExistingUserException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@ControllerAdvice
+<span class="nc" id="L16">public class ExceptionHandlerController {</span>
+
+
+    /**
+     * Handles the MethodArgumentNotValidException
+     * that is thrown when the input validation fails.
+     * It starts by create a list of field errors.
+     * It creates a list of string to store the error messages.
+     * Finally, it returns an instance of ResponseEntity containing the
+     * list of error messages and a status code of bad request.
+     * @param ex exception
+     * @return ResponseEntity&lt;List&lt;String&gt;&gt;
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity&lt;List&lt;String&gt;&gt; handleValidationExceptions(MethodArgumentNotValidException ex) {
+<span class="nc" id="L31">        List&lt;FieldError&gt; fieldErrors = ex.getBindingResult().getFieldErrors();</span>
+<span class="nc" id="L32">        List&lt;String&gt; errorMessages = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (FieldError fieldError : fieldErrors) {</span>
+<span class="nc" id="L34">            errorMessages.add(fieldError.getDefaultMessage());</span>
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        return new ResponseEntity&lt;&gt;(errorMessages, HttpStatus.BAD_REQUEST);</span>
+    }
+
+
+    /**
+     * Handles the NotExistingUserException
+     * that is thrown when the user is not found in the system.
+     * It returns an instance of ResponseEntity containing the exception message
+     * and a status code of not found.
+     * @param ex exception
+     * @return ResponseEntity&lt;String&gt;
+     */
+    @ExceptionHandler(NotExistingUserException.class)
+    public ResponseEntity&lt;String&gt; handleNotExistingUserException(NotExistingUserException ex) {
+
+<span class="nc" id="L51">        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);</span>
+    }
+
+
+    /**
+     * Handles the NotExistingAttractionException
+     * that is thrown when the attraction is not found in the system.
+     * It returns an instance of ResponseEntity containing the exception message
+     * and a status code of not found.
+     * @param ex exception
+     * @return ResponseEntity&lt;String&gt;
+     */
+    @ExceptionHandler(NotExistingAttractionException.class)
+    public ResponseEntity&lt;String&gt; handleNotExistingAttractionException(NotExistingAttractionException ex) {
+
+<span class="nc" id="L66">        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

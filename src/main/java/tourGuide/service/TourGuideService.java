@@ -110,6 +110,7 @@ public class TourGuideService {
 	 * @param visitedLocation VisitedLocation
 	 * @return List<Attraction>
 	 */
+
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
 
 		return gpsUtil.getAttractions().parallelStream()
