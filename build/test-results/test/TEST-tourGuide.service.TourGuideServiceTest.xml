@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.TourGuideServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-10T22:02:05" hostname="iMac.local" time="1.198">
+<testsuite name="tourGuide.service.TourGuideServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-11T15:49:07" hostname="iMac.local" time="0.028">
   <properties/>
-  <testcase name="testGetNearByAttractions_validVisitedLocation_returnsSortedAttractions()" classname="tourGuide.service.TourGuideServiceTest" time="1.198"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testGetClosestAttractionDtoList_validInput()" classname="tourGuide.service.TourGuideServiceTest" time="0.007"/>
+  <testcase name="testGetAttractionByName_InvalidAttractionName_throwsNotExistingAttractionException()" classname="tourGuide.service.TourGuideServiceTest" time="0.004"/>
+  <testcase name="testGetAttractionByName_validAttractionName_returnsAttraction()" classname="tourGuide.service.TourGuideServiceTest" time="0.003"/>
+  <testcase name="testGetNearByAttractions_validVisitedLocation_returnsSortedAttractions()" classname="tourGuide.service.TourGuideServiceTest" time="0.006"/>
+  <testcase name="testGetClosestAttractionDtoList_invalidInput()" classname="tourGuide.service.TourGuideServiceTest" time="0.004"/>
+  <system-out><![CDATA[NotExistingAttraction
+a found successfully
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

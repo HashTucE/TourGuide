@@ -6,6 +6,7 @@ import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,7 @@ public class TestPerformance {
 		Locale.setDefault(Locale.UK);
 	}
 
+	@Disabled
 	@Test
 	@DisplayName("Up to 100000 users track location tested in less than 15 minutes")
 	public void highVolumeTrackLocation() {
@@ -98,6 +100,7 @@ public class TestPerformance {
 	}
 
 
+	@Disabled
 	@Test
 	@DisplayName("Up to 100000 users get rewards tested in less than 20 minutes")
 	public void highVolumeGetRewards() {

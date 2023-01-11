@@ -38,7 +38,12 @@ public class UserRepository {
     addShutDownHook();
     }
 
-    private void addShutDownHook() {
+
+    /**
+     * Register a new thread that JVM runs when the application is shutting down,
+     * this thread shut down the tracker thread to save resources
+     */
+    public void addShutDownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread(tracker::stopTracking));
     }
 
@@ -68,7 +73,7 @@ public class UserRepository {
      * VisitedLocation objects to the user's list of visited locations.
      * @param user User
      */
-    private void generateUserLocationHistory(User user) {
+    public void generateUserLocationHistory(User user) {
         IntStream.range(0, 3).forEach(i-> user.addToVisitedLocations(
                 new VisitedLocation(user.getUserId(),
                                     new Location(generateRandomLatitude(),
@@ -82,7 +87,7 @@ public class UserRepository {
      * which represents a longitude value.
      * @return double
      */
-    private double generateRandomLongitude() {
+    public double generateRandomLongitude() {
         double leftLimit = -180;
         double rightLimit = 180;
         return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
@@ -94,7 +99,7 @@ public class UserRepository {
      * which represents a latitude value.
      * @return double
      */
-    private double generateRandomLatitude() {
+    public double generateRandomLatitude() {
         double leftLimit = -85.05112878;
         double rightLimit = 85.05112878;
         return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
@@ -106,7 +111,7 @@ public class UserRepository {
      * and then converts it to a Date object.
      * @return Date
      */
-    private Date getRandomTime() {
+    public Date getRandomTime() {
         LocalDateTime localDateTime = LocalDateTime.now().minusDays(new Random().nextInt(30));
         return Date.from(localDateTime.toInstant(ZoneOffset.UTC));
     }

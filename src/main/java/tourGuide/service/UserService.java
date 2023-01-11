@@ -26,7 +26,7 @@ public class UserService {
 
 
     @PostConstruct
-    private void init() {
+    public void init() {
         usersMap = userRepository.initializeInternalUsers();
     }
 
@@ -91,7 +91,7 @@ public class UserService {
 
     /**
      * Updates the user preferences for a given user.
-     * It retrieves the user preferences  and assigns it to a variable.
+     * It retrieves the user preferences and assigns it to a variable.
      * Finally, it updates the user preferences.
      * @param userName String
      * @param userPreferencesDto UserPreferencesDto

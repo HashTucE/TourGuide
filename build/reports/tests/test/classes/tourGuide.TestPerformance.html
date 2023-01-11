@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TestPerformance</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TestPerformance</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tourGuide.html">tourGuide</a> &gt; TestPerformance</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">2</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox skipped" id="successRate">
+<div class="percent">-</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="skipped">Up to 100000 users get rewards tested in less than 20 minutes</td>
+<td class="skipped">highVolumeGetRewards()</td>
+<td class="skipped">-</td>
+<td class="skipped">ignored</td>
+</tr>
+<tr>
+<td class="skipped">Up to 100000 users track location tested in less than 15 minutes</td>
+<td class="skipped">highVolumeTrackLocation()</td>
+<td class="skipped">-</td>
+<td class="skipped">ignored</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>16:49:02.994 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [TestPerformance]: using SpringBootContextLoader
+16:49:03.007 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.TestPerformance]: no resource found for suffixes {-context.xml, Context.groovy}.
+16:49:03.009 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.TestPerformance]: TestPerformance does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:49:03.052 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [TestPerformance]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+16:49:03.175 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide/build/classes/java/main/tourGuide/Application.class]
+16:49:03.177 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestPerformance
+16:49:03.338 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+16:49:03.341 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+16:49:03.344 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [TestPerformance]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+16:49:03.346 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [TestPerformance], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-01-11T16:49:03.845+01:00  INFO 9882 --- [    Test worker] tourGuide.TestPerformance                : Starting TestPerformance using Java 19.0.1 with PID 9882 (started by hashtuce in /Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide)
+2023-01-11T16:49:03.847+01:00 DEBUG 9882 --- [    Test worker] tourGuide.TestPerformance                : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-11T16:49:03.848+01:00  INFO 9882 --- [    Test worker] tourGuide.TestPerformance                : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-01-11T16:49:05.135+01:00  INFO 9882 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-11T16:49:05.135+01:00 DEBUG 9882 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-11T16:49:05.159+01:00  INFO 9882 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2023-01-11T16:49:05.177+01:00 DEBUG 9882 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-11T16:49:05.178+01:00 DEBUG 9882 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-11T16:49:05.192+01:00 DEBUG 9882 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-11T16:49:05.948+01:00  INFO 9882 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-01-11T16:49:06.013+01:00  INFO 9882 --- [    Test worker] tourGuide.TestPerformance                : Started TestPerformance in 2.608 seconds (process running for 4.374)
+ 
+  _______                _____       _     _      
+ |__   __|              / ____|     (_)   | |     
+    | | ___  _   _ _ __| |  __ _   _ _  __| | ___ 
+    | |/ _ \| | | | '__| | |_ | | | | |/ _` |/ _ \
+    | | (_) | |_| | |  | |__| | |_| | | (_| |  __/
+    |_|\___/ \__,_|_|   \_____|\__,_|_|\__,_|\___|
+ =================================================
+ :: APP ::                                (v1.0.0)
+ 
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.6</a> at 11 janv. 2023, 16:49:07</p>
+</div>
+</div>
+</body>
+</html>

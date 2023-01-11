@@ -21,11 +21,11 @@ public class LocationService {
 
 
 
-<span class="nc" id="L24">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
-<span class="nc" id="L25">        this.gpsUtil = gpsUtil;</span>
-<span class="nc" id="L26">        this.userService = userService;</span>
-<span class="nc" id="L27">        this.rewardsService = rewardsService;</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L24">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
+<span class="fc" id="L25">        this.gpsUtil = gpsUtil;</span>
+<span class="fc" id="L26">        this.userService = userService;</span>
+<span class="fc" id="L27">        this.rewardsService = rewardsService;</span>
+<span class="fc" id="L28">    }</span>
 
 
     /**
@@ -36,11 +36,11 @@ public class LocationService {
      */
     public VisitedLocation trackUserLocation(User user) {
 
-<span class="nc" id="L39">        VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());</span>
-<span class="nc" id="L40">        user.addToVisitedLocations(visitedLocation);</span>
-<span class="nc" id="L41">        rewardsService.calculateRewards(user);</span>
+<span class="fc" id="L39">        VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());</span>
+<span class="fc" id="L40">        user.addToVisitedLocations(visitedLocation);</span>
+<span class="fc" id="L41">        rewardsService.calculateRewards(user);</span>
 
-<span class="nc" id="L43">        return visitedLocation;</span>
+<span class="fc" id="L43">        return visitedLocation;</span>
     }
 
 
@@ -53,8 +53,8 @@ public class LocationService {
      */
     public VisitedLocation getUserLocation(User user) {
 
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        return (user.getVisitedLocations().size() &gt; 0) ?</span>
-<span class="nc" id="L57">                user.getLastVisitedLocation() :</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        return (user.getVisitedLocations().size() &gt; 0) ?</span>
+<span class="fc" id="L57">                user.getLastVisitedLocation() :</span>
 <span class="nc" id="L58">                trackUserLocation(user);</span>
     }
 
@@ -68,14 +68,14 @@ public class LocationService {
      */
     public Map&lt;String, Location&gt; getAllCurrentLocations() {
 
-<span class="nc" id="L71">        List&lt;User&gt; users = userService.getAllUsers();</span>
-<span class="nc" id="L72">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L71">        List&lt;User&gt; users = userService.getAllUsers();</span>
+<span class="fc" id="L72">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
 
-<span class="nc bnc" id="L74" title="All 2 branches missed.">        for (User user : users) {</span>
-<span class="nc" id="L75">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
-<span class="nc" id="L76">        }</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (User user : users) {</span>
+<span class="fc" id="L75">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
+<span class="fc" id="L76">        }</span>
 
-<span class="nc" id="L78">        return locations;</span>
+<span class="fc" id="L78">        return locations;</span>
     }
 }
 

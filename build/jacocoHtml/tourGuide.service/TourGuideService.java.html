@@ -58,16 +58,16 @@ public class TourGuideService {
 	 */
 	public Attraction getAttractionByName(String attractionName) throws NotExistingAttractionException {
 
-<span class="nc" id="L61">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+<span class="fc" id="L61">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
 
-<span class="nc bnc" id="L63" title="All 2 branches missed.">		for (Attraction attraction : attractions) {</span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">			if (attraction.attractionName.equals(attractionName)) {</span>
-<span class="nc" id="L65">				System.out.println(attractionName + &quot; found successfully&quot;);</span>
-<span class="nc" id="L66">				return attraction;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		for (Attraction attraction : attractions) {</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">			if (attraction.attractionName.equals(attractionName)) {</span>
+<span class="fc" id="L65">				System.out.println(attractionName + &quot; found successfully&quot;);</span>
+<span class="fc" id="L66">				return attraction;</span>
 			}
-<span class="nc" id="L68">		}</span>
-<span class="nc" id="L69">		System.out.println(&quot;NotExistingAttraction&quot;);</span>
-<span class="nc" id="L70">		throw new NotExistingAttractionException(attractionName);</span>
+<span class="fc" id="L68">		}</span>
+<span class="fc" id="L69">		System.out.println(&quot;NotExistingAttraction&quot;);</span>
+<span class="fc" id="L70">		throw new NotExistingAttractionException(attractionName);</span>
 	}
 
 
@@ -110,14 +110,15 @@ public class TourGuideService {
 	 * @param visitedLocation VisitedLocation
 	 * @return List&lt;Attraction&gt;
 	 */
+
 	public List&lt;Attraction&gt; getNearByAttractions(VisitedLocation visitedLocation) {
 
-<span class="fc" id="L115">		return gpsUtil.getAttractions().parallelStream()</span>
-<span class="fc" id="L116">				.sorted((a1, a2) -&gt; Double.compare(</span>
-<span class="fc" id="L117">						rewardsService.getDistance(visitedLocation.location, a1),</span>
-<span class="fc" id="L118">						rewardsService.getDistance(visitedLocation.location, a2)))</span>
-<span class="fc" id="L119">				.limit(5)</span>
-<span class="fc" id="L120">				.collect(Collectors.toList());</span>
+<span class="fc" id="L116">		return gpsUtil.getAttractions().parallelStream()</span>
+<span class="fc" id="L117">				.sorted((a1, a2) -&gt; Double.compare(</span>
+<span class="fc" id="L118">						rewardsService.getDistance(visitedLocation.location, a1),</span>
+<span class="fc" id="L119">						rewardsService.getDistance(visitedLocation.location, a2)))</span>
+<span class="fc" id="L120">				.limit(5)</span>
+<span class="fc" id="L121">				.collect(Collectors.toList());</span>
 	}
 
 
@@ -135,21 +136,21 @@ public class TourGuideService {
 	 */
 	public List&lt;ClosestAttractionDto&gt; getClosestAttractionDtoList(String userName) throws NotExistingUserException {
 
-<span class="nc" id="L138">		User user = userService.getUser(userName);</span>
-<span class="nc" id="L139">		Location userLocation = user.getLastVisitedLocation().location;</span>
-<span class="nc" id="L140">		List&lt;Attraction&gt; closestAttractions = new CopyOnWriteArrayList&lt;&gt;(getNearByAttractions(user.getLastVisitedLocation()));</span>
-<span class="nc" id="L141">		List&lt;ClosestAttractionDto&gt; closestAttractionDtoList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L139">		User user = userService.getUser(userName);</span>
+<span class="fc" id="L140">		Location userLocation = user.getLastVisitedLocation().location;</span>
+<span class="fc" id="L141">		List&lt;Attraction&gt; closestAttractions = new CopyOnWriteArrayList&lt;&gt;(getNearByAttractions(user.getLastVisitedLocation()));</span>
+<span class="fc" id="L142">		List&lt;ClosestAttractionDto&gt; closestAttractionDtoList = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L143" title="All 2 branches missed.">		for (Attraction attraction : closestAttractions) {</span>
-<span class="nc" id="L144">			closestAttractionDtoList.add(new ClosestAttractionDto(</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">		for (Attraction attraction : closestAttractions) {</span>
+<span class="fc" id="L145">			closestAttractionDtoList.add(new ClosestAttractionDto(</span>
 					attraction.attractionName,
 					new Location(attraction.latitude, attraction.longitude),
 					userLocation,
-<span class="nc" id="L148">					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),</span>
-<span class="nc" id="L149">					rewardCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId())</span>
+<span class="fc" id="L149">					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),</span>
+<span class="fc" id="L150">					rewardCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId())</span>
 					));
-<span class="nc" id="L151">		}</span>
-<span class="nc" id="L152">		return closestAttractionDtoList;</span>
+<span class="fc" id="L152">		}</span>
+<span class="fc" id="L153">		return closestAttractionDtoList;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

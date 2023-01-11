@@ -13,7 +13,7 @@ import tripPricer.Provider;
 import java.util.List;
 
 @RestController
-<span class="nc" id="L16">public class TourGuideController {</span>
+<span class="fc" id="L16">public class TourGuideController {</span>
 
 	@Autowired
 	private TourGuideService tourGuideService;
@@ -26,7 +26,7 @@ import java.util.List;
      */
     @RequestMapping(&quot;/&quot;)
     public String index() {
-<span class="nc" id="L29">        return &quot;Greetings from TourGuide!&quot;;</span>
+<span class="fc" id="L29">        return &quot;Greetings from TourGuide!&quot;;</span>
     }
 
 
@@ -39,7 +39,7 @@ import java.util.List;
      */
     @RequestMapping(&quot;/getNearbyAttractions&quot;) 
     public List&lt;ClosestAttractionDto&gt; getNearbyAttractions(@RequestParam String userName) throws NotExistingUserException {
-<span class="nc" id="L42">    	return tourGuideService.getClosestAttractionDtoList(userName);</span>
+<span class="fc" id="L42">    	return tourGuideService.getClosestAttractionDtoList(userName);</span>
     }
 
 
@@ -54,7 +54,7 @@ import java.util.List;
      */
     @RequestMapping(&quot;/getTripDeals&quot;)
     public List&lt;Provider&gt; getTripDeals(@RequestParam String userName, @RequestParam String attractionName) throws NotExistingAttractionException, NotExistingUserException {
-<span class="nc" id="L57">    	return tourGuideService.getTripDeals(userName, attractionName);</span>
+<span class="fc" id="L57">    	return tourGuideService.getTripDeals(userName, attractionName);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
