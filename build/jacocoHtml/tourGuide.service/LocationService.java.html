@@ -8,7 +8,7 @@ import tourGuide.model.User;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.*;
 
 @Service
 public class LocationService {
@@ -18,14 +18,19 @@ public class LocationService {
     private final GpsUtil gpsUtil;
     private final UserService userService;
     private final RewardsService rewardsService;
+<span class="fc" id="L21">    private ExecutorService executorService = Executors.newFixedThreadPool(200);</span>
 
 
 
-<span class="fc" id="L24">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
-<span class="fc" id="L25">        this.gpsUtil = gpsUtil;</span>
-<span class="fc" id="L26">        this.userService = userService;</span>
-<span class="fc" id="L27">        this.rewardsService = rewardsService;</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L25">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
+<span class="fc" id="L26">        this.gpsUtil = gpsUtil;</span>
+<span class="fc" id="L27">        this.userService = userService;</span>
+<span class="fc" id="L28">        this.rewardsService = rewardsService;</span>
+<span class="fc" id="L29">    }</span>
+
+
+
+
 
 
     /**
@@ -34,13 +39,15 @@ public class LocationService {
      * @param user user
      * @return VisitedLocation
      */
-    public VisitedLocation trackUserLocation(User user) {
+    public CompletableFuture&lt;VisitedLocation&gt; trackUserLocation(User user) {
 
-<span class="fc" id="L39">        VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());</span>
-<span class="fc" id="L40">        user.addToVisitedLocations(visitedLocation);</span>
-<span class="fc" id="L41">        rewardsService.calculateRewards(user);</span>
-
-<span class="fc" id="L43">        return visitedLocation;</span>
+<span class="fc" id="L44">        return CompletableFuture</span>
+<span class="fc" id="L45">                .supplyAsync(() -&gt; gpsUtil.getUserLocation(user.getUserId()), executorService)</span>
+<span class="fc" id="L46">                .thenApply(visitedLocation -&gt; {</span>
+<span class="fc" id="L47">                    user.addToVisitedLocations(visitedLocation);</span>
+<span class="fc" id="L48">                    rewardsService.calculateRewards(user);</span>
+<span class="fc" id="L49">                    return visitedLocation;</span>
+                });
     }
 
 
@@ -53,9 +60,7 @@ public class LocationService {
      */
     public VisitedLocation getUserLocation(User user) {
 
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        return (user.getVisitedLocations().size() &gt; 0) ?</span>
-<span class="fc" id="L57">                user.getLastVisitedLocation() :</span>
-<span class="nc" id="L58">                trackUserLocation(user);</span>
+<span class="nc" id="L63">        return user.getLastVisitedLocation();</span>
     }
 
 
@@ -68,14 +73,14 @@ public class LocationService {
      */
     public Map&lt;String, Location&gt; getAllCurrentLocations() {
 
-<span class="fc" id="L71">        List&lt;User&gt; users = userService.getAllUsers();</span>
-<span class="fc" id="L72">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="nc" id="L76">        List&lt;User&gt; users = userService.getAllUsers();</span>
+<span class="nc" id="L77">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
 
-<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (User user : users) {</span>
-<span class="fc" id="L75">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
-<span class="fc" id="L76">        }</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        for (User user : users) {</span>
+<span class="nc" id="L80">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
+<span class="nc" id="L81">        }</span>
 
-<span class="fc" id="L78">        return locations;</span>
+<span class="nc" id="L83">        return locations;</span>
     }
 }
 

@@ -4,6 +4,7 @@ import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
@@ -23,6 +24,7 @@ public class UserRepository {
     private final Map<String, User> internalUserMap = new HashMap<>();
 
     public final Tracker tracker;
+//    @Value()
     boolean testMode = true;
 
 

@@ -78,7 +78,7 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateUserLocationHistory_validUser_addsVisitedLocation(){
+    public void generateUserLocationHistory_validUser_addsVisitedLocation() {
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
         int expectedVisitedLocation = 3;
@@ -104,7 +104,7 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateRandomLongitude_returnsDifferentValueEveryTimeCalled(){
+    public void generateRandomLongitude_returnsDifferentValueEveryTimeCalled() {
 
         // Act
         double firstResult = userRepository.generateRandomLongitude();
@@ -127,7 +127,7 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateRandomLatitude_returnsDifferentValueEveryTimeCalled(){
+    public void generateRandomLatitude_returnsDifferentValueEveryTimeCalled() {
 
         // Act
         double firstResult = userRepository.generateRandomLatitude();

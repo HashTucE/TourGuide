@@ -40,7 +40,7 @@ public class UserController {
      * @throws NotExistingUserException with wrong userName
      */
     @PutMapping("/updatePreferences")
-    public ResponseEntity<String> updateUsePreferences(
+    public ResponseEntity<String> updateUserPreferences(
             @RequestParam String userName,
             @RequestBody @Valid UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
 

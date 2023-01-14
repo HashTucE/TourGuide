@@ -19,12 +19,12 @@ public class RewardsService {
     private final int defaultProximityBuffer = 10;
 	private int proximityBuffer = defaultProximityBuffer;
 	private final int attractionProximityRange = 200;
-	private final GpsUtil gpsUtil;
 	private final RewardCentral rewardsCentral;
+	private static List<Attraction> attractions;
 	
 	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {
-		this.gpsUtil = gpsUtil;
 		this.rewardsCentral = rewardCentral;
+		attractions = gpsUtil.getAttractions();
 	}
 
 
@@ -52,14 +52,14 @@ public class RewardsService {
 	 * If the user hasn't been rewarded for visiting the attraction, it checks whether
 	 * the VisitedLocation is close enough to the Attraction and returns a boolean.
 	 * If the VisitedLocation is close enough to the Attraction, the code calls the
-	 * getRewardPoints(attraction, user) method, which presumably calculates the number
+	 * getRewardPoints(attraction, user) method, which calculates the number
 	 * of reward points for the user, and then adds a new UserReward object to the
 	 * user's list of rewards.
 	 * @param user User
 	 */
 	public void calculateRewards(User user) {
+
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<Attraction> attractions = gpsUtil.getAttractions();
 
 		for(VisitedLocation visitedLocation : userLocations) {
 			for(Attraction attraction : attractions) {

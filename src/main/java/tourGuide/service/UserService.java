@@ -58,7 +58,7 @@ public class UserService {
     public List<User> getAllUsers() {
 
         List<User> allUsers = new ArrayList<>(usersMap.values());
-        System.out.println("getAllUsers: allUsers = " + allUsers);
+        System.out.println(usersMap.size() + " users generated successfully");
         return allUsers;
     }
 

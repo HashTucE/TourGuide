@@ -27,7 +27,7 @@ import tourGuide.service.UserService;
     @GetMapping(&quot;/getPreferences&quot;)
     public UserPreferences getUserPreferences(@RequestParam String userName) throws NotExistingUserException {
 
-<span class="fc" id="L30">        return userService.getUserPreferences(userName);</span>
+<span class="nc" id="L30">        return userService.getUserPreferences(userName);</span>
     }
 
 
@@ -40,13 +40,13 @@ import tourGuide.service.UserService;
      * @throws NotExistingUserException with wrong userName
      */
     @PutMapping(&quot;/updatePreferences&quot;)
-    public ResponseEntity&lt;String&gt; updateUsePreferences(
+    public ResponseEntity&lt;String&gt; updateUserPreferences(
             @RequestParam String userName,
             @RequestBody @Valid UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
 
-<span class="fc" id="L47">        userService.updateUserPreferences(userName, userPreferencesDto);</span>
+<span class="nc" id="L47">        userService.updateUserPreferences(userName, userPreferencesDto);</span>
 
-<span class="fc" id="L49">        return new ResponseEntity&lt;&gt;(&quot;User preferences updated successfully&quot;, HttpStatus.OK);</span>
+<span class="nc" id="L49">        return new ResponseEntity&lt;&gt;(&quot;User preferences updated successfully&quot;, HttpStatus.OK);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

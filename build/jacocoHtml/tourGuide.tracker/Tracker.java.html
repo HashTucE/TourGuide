@@ -10,34 +10,35 @@ import tourGuide.service.LocationService;
 import tourGuide.service.UserService;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Tracker extends Thread {
-<span class="fc" id="L18">	private final Logger logger = LoggerFactory.getLogger(Tracker.class);</span>
-<span class="fc" id="L19">	private static final long trackingPollingInterval = TimeUnit.MINUTES.toSeconds(5);</span>
-<span class="fc" id="L20">	private final ExecutorService executorService = Executors.newSingleThreadExecutor();</span>
+<span class="fc" id="L19">	private final Logger logger = LoggerFactory.getLogger(Tracker.class);</span>
+<span class="fc" id="L20">	private static final long trackingPollingInterval = TimeUnit.MINUTES.toSeconds(5);</span>
+<span class="fc" id="L21">	private final ExecutorService executorService = Executors.newSingleThreadExecutor();</span>
 	@Autowired
 	private UserService userService;
 	@Autowired
 	private LocationService locationService;
 
-<span class="fc" id="L26">	private boolean stop = false;</span>
+<span class="fc" id="L27">	private boolean stop = false;</span>
 
-<span class="fc" id="L28">	public Tracker(UserRepository userRepository) {</span>
+<span class="fc" id="L29">	public Tracker(UserRepository userRepository) {</span>
 
-<span class="fc" id="L30">		executorService.submit(this);</span>
-<span class="fc" id="L31">	}</span>
+<span class="fc" id="L31">		executorService.submit(this);</span>
+<span class="fc" id="L32">	}</span>
 
 
 	/**
 	 * Assures to shut down the Tracker thread
 	 */
 	public void stopTracking() {
-<span class="fc" id="L38">		stop = true;</span>
-<span class="fc" id="L39">		executorService.shutdownNow();</span>
-<span class="fc" id="L40">	}</span>
+<span class="fc" id="L39">		stop = true;</span>
+<span class="fc" id="L40">		executorService.shutdownNow();</span>
+<span class="fc" id="L41">	}</span>
 
 
 	/**
@@ -53,19 +54,18 @@ public class Tracker extends Thread {
 	 */
 	@Override
 	public void run() {
-<span class="fc" id="L56">		StopWatch stopWatch = new StopWatch();</span>
+<span class="fc" id="L57">		StopWatch stopWatch = new StopWatch();</span>
 		while(true) {
-<span class="nc bnc" id="L58" title="All 4 branches missed.">			if(Thread.currentThread().isInterrupted() || stop) {</span>
-<span class="nc" id="L59">				logger.debug(&quot;Tracker stopping&quot;);</span>
-<span class="nc" id="L60">				break;</span>
+<span class="nc bnc" id="L59" title="All 4 branches missed.">			if(Thread.currentThread().isInterrupted() || stop) {</span>
+<span class="nc" id="L60">				logger.debug(&quot;Tracker stopping&quot;);</span>
+<span class="nc" id="L61">				break;</span>
 			}
-			
 <span class="nc" id="L63">			List&lt;User&gt; users = userService.getAllUsers();</span>
 <span class="nc" id="L64">			logger.debug(&quot;Begin Tracker. Tracking &quot; + users.size() + &quot; users.&quot;);</span>
 <span class="nc" id="L65">			stopWatch.start();</span>
 <span class="nc" id="L66">			users.forEach(u -&gt; locationService.trackUserLocation(u));</span>
 <span class="nc" id="L67">			stopWatch.stop();</span>
-<span class="nc" id="L68">			logger.debug(&quot;Tracker Time Elapsed: &quot; + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + &quot; seconds.&quot;); </span>
+<span class="nc" id="L68">			logger.debug(&quot;Tracker Time Elapsed: &quot; + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + &quot; seconds.&quot;);</span>
 <span class="nc" id="L69">			stopWatch.reset();</span>
 			try {
 <span class="nc" id="L71">				logger.debug(&quot;Tracker sleeping&quot;);</span>
@@ -74,7 +74,6 @@ public class Tracker extends Thread {
 <span class="nc" id="L74">				break;</span>
 <span class="nc" id="L75">			}</span>
 <span class="nc" id="L76">		}</span>
-		
-<span class="nc" id="L78">	}</span>
+<span class="nc" id="L77">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

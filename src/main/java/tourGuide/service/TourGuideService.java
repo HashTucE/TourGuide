@@ -18,7 +18,6 @@ import tripPricer.TripPricer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
@@ -110,7 +109,6 @@ public class TourGuideService {
 	 * @param visitedLocation VisitedLocation
 	 * @return List<Attraction>
 	 */
-
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
 
 		return gpsUtil.getAttractions().parallelStream()

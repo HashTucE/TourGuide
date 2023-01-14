@@ -58,14 +58,14 @@ public class UserControllerTest {
 
 
     @Test
-    public void updateUsePreferences_validInput_returnsSuccessResponse() throws NotExistingUserException {
+    public void updateUserPreferences_validInput_returnsSuccessResponse() throws NotExistingUserException {
 
         // Arrange
         String userName = "a";
         UserPreferencesDto userPreferencesDto = new UserPreferencesDto();
 
         // Act
-        ResponseEntity<String> response = userController.updateUsePreferences(userName, userPreferencesDto);
+        ResponseEntity<String> response = userController.updateUserPreferences(userName, userPreferencesDto);
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -75,7 +75,7 @@ public class UserControllerTest {
 
 
     @Test
-    public void updateUsePreferences_invalidInput_throwsNotExistingUserException() throws NotExistingUserException {
+    public void updateUserPreferences_invalidInput_throwsNotExistingUserException() throws NotExistingUserException {
 
         // Arrange
         String userName = "unknown";
@@ -84,7 +84,7 @@ public class UserControllerTest {
 
         // Act
         // Assert
-        assertThrows(NotExistingUserException.class, () -> userController.updateUsePreferences(userName, userPreferencesDto));
+        assertThrows(NotExistingUserException.class, () -> userController.updateUserPreferences(userName, userPreferencesDto));
     }
 
 

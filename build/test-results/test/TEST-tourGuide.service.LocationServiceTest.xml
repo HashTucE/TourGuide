@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.LocationServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-11T15:49:07" hostname="iMac.local" time="0.03">
-  <properties/>
-  <testcase name="testGetUserLocation()" classname="tourGuide.service.LocationServiceTest" time="0.024"/>
-  <testcase name="testTrackUserLocation()" classname="tourGuide.service.LocationServiceTest" time="0.003"/>
-  <testcase name="testGetAllCurrentLocations()" classname="tourGuide.service.LocationServiceTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

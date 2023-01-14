@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.controller.LocationControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-11T15:49:06" hostname="iMac.local" time="0.742">
-  <properties/>
-  <testcase name="testGetAllCurrentLocations()" classname="tourGuide.controller.LocationControllerTest" time="0.727"/>
-  <testcase name="testGetLocation_Positive()" classname="tourGuide.controller.LocationControllerTest" time="0.008"/>
-  <testcase name="testGetLocation_Negative()" classname="tourGuide.controller.LocationControllerTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
