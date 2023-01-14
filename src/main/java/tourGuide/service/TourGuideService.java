@@ -95,8 +95,14 @@ public class TourGuideService {
 														user.getUserPreferences().getNumberOfChildren(),
 														user.getUserPreferences().getTripDuration(),
 														cumulativeRewardPoints);
-		user.setTripDeals(providers);
-		return providers;
+		// filter providers by price range
+		List<Provider> filteredProviders = providers.stream()
+				.filter(provider -> provider.price >= user.getUserPreferences().getLowerPricePoint().getNumber().doubleValue()
+						&& provider.price <= user.getUserPreferences().getHighPricePoint().getNumber().doubleValue())
+				.collect(Collectors.toList());
+
+		user.setTripDeals(filteredProviders);
+		return filteredProviders;
 	}
 
 

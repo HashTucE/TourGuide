@@ -6,6 +6,11 @@ import jakarta.validation.constraints.Min;
 <span class="nc" id="L6">public class UserPreferencesDto {</span>
 
 
+    @Min(value = 0, message = &quot;lower price cannot be negative&quot;)
+    private int lowerPricePoint;
+
+    @Min(value = 0, message = &quot;high price cannot be negative&quot;)
+    private int highPricePoint;
 
     @Min(value = 1, message = &quot;at least 1 night minimum&quot;)
     private int tripDuration;
@@ -17,28 +22,45 @@ import jakarta.validation.constraints.Min;
     private int numberOfChildren;
 
 
+
+    public int getLowerPricePoint() {
+<span class="nc" id="L27">        return lowerPricePoint;</span>
+    }
+
+    public void setLowerPricePoint(int lowerPricePoint) {
+<span class="nc" id="L31">        this.lowerPricePoint = lowerPricePoint;</span>
+<span class="nc" id="L32">    }</span>
+
+    public int getHighPricePoint() {
+<span class="nc" id="L35">        return highPricePoint;</span>
+    }
+
+    public void setHighPricePoint(int highPricePoint) {
+<span class="nc" id="L39">        this.highPricePoint = highPricePoint;</span>
+<span class="nc" id="L40">    }</span>
+
     public int getTripDuration() {
-<span class="nc" id="L21">        return tripDuration;</span>
+<span class="nc" id="L43">        return tripDuration;</span>
     }
 
     public void setTripDuration(int tripDuration) {
-<span class="nc" id="L25">        this.tripDuration = tripDuration;</span>
-<span class="nc" id="L26">    }</span>
+<span class="nc" id="L47">        this.tripDuration = tripDuration;</span>
+<span class="nc" id="L48">    }</span>
 
     public int getNumberOfAdults() {
-<span class="nc" id="L29">        return numberOfAdults;</span>
+<span class="nc" id="L51">        return numberOfAdults;</span>
     }
 
     public void setNumberOfAdults(int numberOfAdults) {
-<span class="nc" id="L33">        this.numberOfAdults = numberOfAdults;</span>
-<span class="nc" id="L34">    }</span>
+<span class="nc" id="L55">        this.numberOfAdults = numberOfAdults;</span>
+<span class="nc" id="L56">    }</span>
 
     public int getNumberOfChildren() {
-<span class="nc" id="L37">        return numberOfChildren;</span>
+<span class="nc" id="L59">        return numberOfChildren;</span>
     }
 
     public void setNumberOfChildren(int numberOfChildren) {
-<span class="nc" id="L41">        this.numberOfChildren = numberOfChildren;</span>
-<span class="nc" id="L42">    }</span>
+<span class="nc" id="L63">        this.numberOfChildren = numberOfChildren;</span>
+<span class="nc" id="L64">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

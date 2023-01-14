@@ -6,6 +6,11 @@ import jakarta.validation.constraints.Min;
 public class UserPreferencesDto {
 
 
+    @Min(value = 0, message = "lower price cannot be negative")
+    private int lowerPricePoint;
+
+    @Min(value = 0, message = "high price cannot be negative")
+    private int highPricePoint;
 
     @Min(value = 1, message = "at least 1 night minimum")
     private int tripDuration;
@@ -16,6 +21,23 @@ public class UserPreferencesDto {
     @Min(value = 0, message = "children number cannot be negative")
     private int numberOfChildren;
 
+
+
+    public int getLowerPricePoint() {
+        return lowerPricePoint;
+    }
+
+    public void setLowerPricePoint(int lowerPricePoint) {
+        this.lowerPricePoint = lowerPricePoint;
+    }
+
+    public int getHighPricePoint() {
+        return highPricePoint;
+    }
+
+    public void setHighPricePoint(int highPricePoint) {
+        this.highPricePoint = highPricePoint;
+    }
 
     public int getTripDuration() {
         return tripDuration;

@@ -11,6 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import tourGuide.model.User;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -24,6 +26,8 @@ public class LocationServiceTest {
     @Mock
     private RewardsService rewardsService;
     @Mock
+    private ExecutorService executorService;
+    @Mock
     private UserService userService;
     @InjectMocks
     private LocationService locationService;
@@ -32,21 +36,21 @@ public class LocationServiceTest {
 
 //    @Test
 //    public void testTrackUserLocation() {
-//
 //        // Arrange
 //        UUID id = new UUID(12312, 12312);
 //        User user = new User(id, "a", "a", "a");
-//        VisitedLocation expectedVisitedLocation = new VisitedLocation(
-//                id, new Location(40.730610, -73.935242), new Date());
-//        when(gpsUtil.getUserLocation(user.getUserId())).thenReturn(expectedVisitedLocation);
+//        VisitedLocation vl = new VisitedLocation(
+//                new UUID(12312, 12312),
+//                new Location(10,20),
+//                new Date());
+//        when(gpsUtil.getUserLocation(user.getUserId())).thenReturn(new VisitedLocation(id, vl.location, new Date()));
 //
 //        // Act
-//        VisitedLocation actualVisitedLocation = locationService.trackUserLocation(user);
+//        CompletableFuture<VisitedLocation> future = locationService.trackUserLocation(user);
 //
 //        // Assert
-//        assertEquals(expectedVisitedLocation, actualVisitedLocation);
-//        assertEquals(1, user.getVisitedLocations().size());
-//        assertEquals(expectedVisitedLocation, user.getVisitedLocations().get(0));
+//        assertTrue(future.isDone());
+//        assertTrue(future.join() instanceof VisitedLocation);
 //        verify(gpsUtil, times(1)).getUserLocation(user.getUserId());
 //        verify(rewardsService, times(1)).calculateRewards(user);
 //    }

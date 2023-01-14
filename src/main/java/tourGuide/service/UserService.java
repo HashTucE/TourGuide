@@ -1,6 +1,7 @@
 package tourGuide.service;
 
 import jakarta.annotation.PostConstruct;
+import org.javamoney.moneta.Money;
 import org.springframework.stereotype.Service;
 import tourGuide.dto.UserPreferencesDto;
 import tourGuide.exception.NotExistingUserException;
@@ -8,6 +9,8 @@ import tourGuide.model.User;
 import tourGuide.model.UserPreferences;
 import tourGuide.repository.UserRepository;
 
+import javax.money.CurrencyUnit;
+import javax.money.Monetary;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -102,6 +105,8 @@ public class UserService {
         User user = getUser(userName);
 
         UserPreferences userPreferencesToUpdate = user.getUserPreferences();
+        userPreferencesToUpdate.setLowerPricePoint(Money.of(userPreferencesDto.getLowerPricePoint(), Monetary.getCurrency("USD")));
+        userPreferencesToUpdate.setHighPricePoint(Money.of(userPreferencesDto.getHighPricePoint(), Monetary.getCurrency("USD")));
         userPreferencesToUpdate.setTripDuration(userPreferencesDto.getTripDuration());
         userPreferencesToUpdate.setNumberOfAdults(userPreferencesDto.getNumberOfAdults());
         userPreferencesToUpdate.setNumberOfChildren(userPreferencesDto.getNumberOfChildren());
