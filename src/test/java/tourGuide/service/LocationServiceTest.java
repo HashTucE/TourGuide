@@ -12,10 +12,10 @@ import tourGuide.model.User;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class LocationServiceTest {
@@ -26,34 +26,44 @@ public class LocationServiceTest {
     @Mock
     private RewardsService rewardsService;
     @Mock
-    private ExecutorService executorService;
-    @Mock
     private UserService userService;
     @InjectMocks
     private LocationService locationService;
 
 
 
-//    @Test
-//    public void testTrackUserLocation() {
-//        // Arrange
-//        UUID id = new UUID(12312, 12312);
-//        User user = new User(id, "a", "a", "a");
-//        VisitedLocation vl = new VisitedLocation(
-//                new UUID(12312, 12312),
-//                new Location(10,20),
-//                new Date());
-//        when(gpsUtil.getUserLocation(user.getUserId())).thenReturn(new VisitedLocation(id, vl.location, new Date()));
-//
-//        // Act
-//        CompletableFuture<VisitedLocation> future = locationService.trackUserLocation(user);
-//
-//        // Assert
-//        assertTrue(future.isDone());
-//        assertTrue(future.join() instanceof VisitedLocation);
-//        verify(gpsUtil, times(1)).getUserLocation(user.getUserId());
-//        verify(rewardsService, times(1)).calculateRewards(user);
-//    }
+    @Test
+    public void trackUserLocation_validUser_locationTracked() throws ExecutionException, InterruptedException {
+
+        // Arrange
+        UUID id = new UUID(12312, 12312);
+        User user = new User(id, "a", "a", "a");
+        Location expectedLocation = new Location(1.0, 2.0);
+        when(gpsUtil.getUserLocation(user.getUserId())).thenReturn(new VisitedLocation(user.getUserId(), expectedLocation, new Date()));
+        rewardsService.calculateRewards(user);
+
+        // Act
+        CompletableFuture<VisitedLocation> result = locationService.trackUserLocation(user);
+        VisitedLocation trackedLocation = result.get();
+
+        // Assert
+        assertEquals(expectedLocation, trackedLocation.location);
+        assertTrue(user.getVisitedLocations().contains(trackedLocation));
+    }
+
+
+    @Test
+    public void trackUserLocation_invalidUser_exceptionThrown() {
+
+        // Arrange
+        User user = null;
+
+        // Act
+        CompletableFuture<VisitedLocation> result = locationService.trackUserLocation(user);
+
+        // Assert
+        assertThrows(ExecutionException.class, result::get);
+    }
 
 
     @Test

@@ -17,6 +17,7 @@ import tourGuide.dto.ClosestAttractionDto;
 import tourGuide.exception.NotExistingAttractionException;
 import tourGuide.exception.NotExistingUserException;
 import tourGuide.model.User;
+import tripPricer.TripPricer;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -24,13 +25,14 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class TourGuideServiceTest {
 
 
+    @Mock
+    private TripPricer tripPricer;
     @Mock
     private GpsUtil gpsUtil;
     @Mock
@@ -80,6 +82,71 @@ public class TourGuideServiceTest {
         // Assert
         assertThrows(NotExistingAttractionException.class, () -> tourGuideService.getAttractionByName(attractionName));
     }
+
+
+//    @Test
+//    public void getTripDeals_WhenValidInputs_ShouldReturnFilteredProviders() throws NotExistingAttractionException, NotExistingUserException {
+//
+//        // Arrange
+//        String userName = "testUser";
+//        String attractionName = "testAttraction";
+//        User user = new User(UUID.randomUUID(), userName, "p", "e");
+//        Money low = Money.of(new BigDecimal(110), "USD");
+//        Money high = Money.of(new BigDecimal(130), "USD");
+//        user.setUserPreferences(new UserPreferences(low, high, 1, 1, 0));
+//        Attraction attraction = new Attraction(attractionName, "testCity", "testState", 0, 0);
+//        List<Provider> providers = List.of(
+//                new Provider(attraction.attractionId, "Provider1", 150),
+//                new Provider(attraction.attractionId, "Provider2", 120),
+//                new Provider(attraction.attractionId, "Provider3", 180),
+//                new Provider(attraction.attractionId, "Provider4", 210),
+//                new Provider(attraction.attractionId, "Provider5", 250));
+//
+//        List<Provider> expectedProviders = List.of(
+//                new Provider(attraction.attractionId, "Provider2", 120));
+//
+//        when(userService.getUser(userName)).thenReturn(user);
+//        doReturn(attraction).when(tourGuideService).getAttractionByName(attractionName);
+//        when(tripPricer.getPrice(anyString(), any(), anyInt(), anyInt(), anyInt(), anyInt())).thenReturn(providers);
+//
+//        // Act
+//        List<Provider> filteredProviders = tourGuideService.getTripDeals(userName, attractionName);
+//
+//        // Assert
+//        assertEquals(expectedProviders, filteredProviders);
+//    }
+
+
+    @Test
+    public void getTripDeals_WhenInvalidAttraction_ShouldThrowNotExistingAttractionException() throws NotExistingUserException, NotExistingAttractionException {
+
+        // Arrange
+        String userName = "testUser";
+        String attractionName = "testAttraction";
+        User user = new User(UUID.randomUUID(), userName, "p", "e");
+        when(userService.getUser(userName)).thenReturn(user);
+        doThrow(NotExistingAttractionException.class).when(tourGuideService).getAttractionByName(attractionName);
+
+        // Act
+        // Assert
+        assertThrows(NotExistingAttractionException.class, () -> tourGuideService.getTripDeals(userName, attractionName));
+    }
+
+
+    @Test
+    public void getTripDeals_WhenInvalidUser_ShouldThrowNotExistingUserException() throws NotExistingUserException {
+
+        // Arrange
+        String userName = "testUser";
+        String attractionName = "testAttraction";
+        doThrow(NotExistingUserException.class).when(userService).getUser(userName);
+
+        // Act
+        // Assert
+        assertThrows(NotExistingUserException.class, () -> tourGuideService.getTripDeals(userName, attractionName));
+    }
+
+
 
 
     @Test
@@ -150,7 +217,6 @@ public class TourGuideServiceTest {
         assertEquals("b", closestAttractionDtoList.get(1).getAttractionName());
         assertEquals("c", closestAttractionDtoList.get(2).getAttractionName());
         assertEquals(user.getLastVisitedLocation().location, closestAttractionDtoList.get(0).getUserLocation());
-//        assertEquals(50, closestAttractionDtoList.get(0).getDistance(), 0.1);
         assertEquals(10, closestAttractionDtoList.get(0).getRewardPoints());
     }
 

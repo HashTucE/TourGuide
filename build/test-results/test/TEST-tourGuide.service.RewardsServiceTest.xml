@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.RewardsServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-17T22:01:18" hostname="iMac.local" time="1.871">
+  <properties/>
+  <testcase name="testIsWithinAttractionProximity_outsideRange()" classname="tourGuide.service.RewardsServiceTest" time="1.697"/>
+  <testcase name="testGetRewardPoints()" classname="tourGuide.service.RewardsServiceTest" time="0.111"/>
+  <testcase name="testGetUserRewards()" classname="tourGuide.service.RewardsServiceTest" time="0.01"/>
+  <testcase name="testNearAttraction_withinProximityBuffer()" classname="tourGuide.service.RewardsServiceTest" time="0.026"/>
+  <testcase name="testIsWithinAttractionProximity_withinRange()" classname="tourGuide.service.RewardsServiceTest" time="0.003"/>
+  <testcase name="testNearAttraction_outsideProximityBuffer()" classname="tourGuide.service.RewardsServiceTest" time="0.011"/>
+  <testcase name="testGetDistance()" classname="tourGuide.service.RewardsServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[janv. 17, 2023 11:01:19 PM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+INFO: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+]]></system-err>
+</testsuite>

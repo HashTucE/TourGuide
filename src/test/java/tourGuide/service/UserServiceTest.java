@@ -35,7 +35,7 @@ public class UserServiceTest {
 
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
-        when(userRepository.initializeInternalUsers()).thenReturn(Map.of("a", user));
+        when(userRepository.getInternalUsersMap()).thenReturn(Map.of("a", user));
         userService.init();
 
         // Act
@@ -50,7 +50,7 @@ public class UserServiceTest {
     public void testGetUser_InvalidInput() {
 
         // Arrange
-        when(userRepository.initializeInternalUsers()).thenReturn(new HashMap<>());
+        when(userRepository.getInternalUsersMap()).thenReturn(new HashMap<>());
         userService.init();
 
         // Assert
@@ -69,7 +69,7 @@ public class UserServiceTest {
         userMap.put(user1.getUserName(), user1);
         userMap.put(user2.getUserName(), user2);
         userMap.put(user3.getUserName(), user3);
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -88,7 +88,7 @@ public class UserServiceTest {
     public void testGetAllUsers_withEmptyList() {
         // Arrange
         Map<String, User> userMap = new HashMap<>();
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -106,7 +106,7 @@ public class UserServiceTest {
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
         Map<String, User> userMap = new HashMap<>();
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -126,7 +126,7 @@ public class UserServiceTest {
         User user2 = new User(UUID.randomUUID(), "a", "b", "b");
         Map<String, User> userMap = new HashMap<>();
         userMap.put(user1.getUserName(), user1);
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -147,7 +147,7 @@ public class UserServiceTest {
         user.setUserPreferences(userPreferences);
         Map<String, User> userMap = new HashMap<>();
         userMap.put(user.getUserName(), user);
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -163,7 +163,7 @@ public class UserServiceTest {
 
         // Arrange
         Map<String, User> userMap = new HashMap<>();
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -192,7 +192,7 @@ public class UserServiceTest {
         userPreferencesDto.setNumberOfAdults(2);
         userPreferencesDto.setNumberOfChildren(1);
 
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act
@@ -211,7 +211,7 @@ public class UserServiceTest {
         // Arrange
         UserPreferencesDto userPreferencesDto = new UserPreferencesDto();
         Map<String, User> userMap = new HashMap<>();
-        when(userRepository.initializeInternalUsers()).thenReturn(userMap);
+        when(userRepository.getInternalUsersMap()).thenReturn(userMap);
         userService.init();
 
         // Act

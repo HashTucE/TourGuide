@@ -9,7 +9,11 @@ import rewardCentral.RewardCentral;
 import tourGuide.model.User;
 import tourGuide.model.UserReward;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class RewardsService {
@@ -20,8 +24,10 @@ public class RewardsService {
 	private int proximityBuffer = defaultProximityBuffer;
 	private final int attractionProximityRange = 200;
 	private final RewardCentral rewardsCentral;
-	private static List<Attraction> attractions;
-	
+	private List<Attraction> attractions;
+	private final ExecutorService executorService = Executors.newFixedThreadPool(70);
+	private static final Object globalLock = new Object();
+
 	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {
 		this.rewardsCentral = rewardCentral;
 		attractions = gpsUtil.getAttractions();
@@ -59,17 +65,27 @@ public class RewardsService {
 	 */
 	public void calculateRewards(User user) {
 
-		List<VisitedLocation> userLocations = user.getVisitedLocations();
-
-		for(VisitedLocation visitedLocation : userLocations) {
-			for(Attraction attraction : attractions) {
-				if(user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(attraction.attractionName))) {
-					if(nearAttraction(visitedLocation, attraction)) {
-						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
+		// Create a list to store the future tasks
+		List<CompletableFuture<Void>> futures = new ArrayList<>();
+		for (Attraction attraction : attractions) {
+			// For each attraction, create a future task to calculate the user's rewards for that attraction
+			CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+				for (VisitedLocation visitedLocation : user.getVisitedLocations()) {
+					if(user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(attraction.attractionName))) {
+						if (nearAttraction(visitedLocation, attraction)) {
+							int points = getRewardPoints(attraction, user);
+							// Synchronize the user object using the global lock
+							synchronized (globalLock) {
+								user.addUserReward(new UserReward(visitedLocation, attraction, points));
+							}
+						}
 					}
 				}
-			}
+			}, executorService);
+			futures.add(future);
 		}
+		// Wait for all the future tasks to complete
+		CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
 	}
 
 

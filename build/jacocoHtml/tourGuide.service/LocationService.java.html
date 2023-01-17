@@ -18,7 +18,7 @@ public class LocationService {
     private final GpsUtil gpsUtil;
     private final UserService userService;
     private final RewardsService rewardsService;
-<span class="fc" id="L21">    private final ExecutorService executorService = Executors.newFixedThreadPool(200);</span>
+<span class="fc" id="L21">    private final ExecutorService executorService = Executors.newFixedThreadPool(70);</span>
 
 
 
@@ -60,7 +60,7 @@ public class LocationService {
      */
     public VisitedLocation getUserLocation(User user) {
 
-<span class="nc" id="L63">        return user.getLastVisitedLocation();</span>
+<span class="fc" id="L63">        return user.getLastVisitedLocation();</span>
     }
 
 
@@ -73,14 +73,14 @@ public class LocationService {
      */
     public Map&lt;String, Location&gt; getAllCurrentLocations() {
 
-<span class="nc" id="L76">        List&lt;User&gt; users = userService.getAllUsers();</span>
-<span class="nc" id="L77">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L76">        List&lt;User&gt; users = userService.getAllUsers();</span>
+<span class="fc" id="L77">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
 
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        for (User user : users) {</span>
-<span class="nc" id="L80">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
-<span class="nc" id="L81">        }</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        for (User user : users) {</span>
+<span class="fc" id="L80">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
+<span class="fc" id="L81">        }</span>
 
-<span class="nc" id="L83">        return locations;</span>
+<span class="fc" id="L83">        return locations;</span>
     }
 }
 

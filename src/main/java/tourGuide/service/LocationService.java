@@ -18,7 +18,7 @@ public class LocationService {
     private final GpsUtil gpsUtil;
     private final UserService userService;
     private final RewardsService rewardsService;
-    private final ExecutorService executorService = Executors.newFixedThreadPool(200);
+    private final ExecutorService executorService = Executors.newFixedThreadPool(70);
 
 
 

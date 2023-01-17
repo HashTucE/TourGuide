@@ -1,6 +1,7 @@
 package tourGuide.service;
 
 
+import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
@@ -23,16 +24,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
+
 @ExtendWith(MockitoExtension.class)
 public class RewardsServiceTest {
 
 
     @Mock
+    private GpsUtil gpsUtil;
+    @Mock
     private RewardCentral rewardCentral;
     @Spy
     @InjectMocks
     private RewardsService rewardsService;
-
+    private User user;
+    private List<Attraction> attractions;
 
 
     @Test
@@ -57,6 +62,25 @@ public class RewardsServiceTest {
         // Assert
         assertEquals(rewards, returnedRewards);
     }
+
+
+//    @Test
+//    public void testCalculateRewards() {
+//
+//        VisitedLocation location1 = new VisitedLocation(user.getUserId(), new Location(33.817595, -117.922008), new Date());
+//        VisitedLocation location2 = new VisitedLocation(user.getUserId(), new Location(34.1381, -118.3533), new Date());
+//        user.addToVisitedLocations(location1);
+//        user.addToVisitedLocations(location2);
+//
+//        rewardsService.calculateRewards(user);
+//
+//        List<UserReward> rewards = user.getUserRewards();
+//        assertEquals(2, rewards.size());
+//        assertEquals("Disneyland", rewards.get(0).attraction.attractionName);
+//        assertEquals("Universal Studios", rewards.get(1).attraction.attractionName);
+//        assertEquals(100, rewards.get(0).getRewardPoints());
+//        assertEquals(100, rewards.get(1).getRewardPoints());
+//    }
 
 
     @Test

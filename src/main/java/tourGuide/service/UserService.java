@@ -9,7 +9,6 @@ import tourGuide.model.User;
 import tourGuide.model.UserPreferences;
 import tourGuide.repository.UserRepository;
 
-import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +29,7 @@ public class UserService {
 
     @PostConstruct
     public void init() {
-        usersMap = userRepository.initializeInternalUsers();
+        usersMap = userRepository.getInternalUsersMap();
     }
 
 
@@ -60,9 +59,7 @@ public class UserService {
      */
     public List<User> getAllUsers() {
 
-        List<User> allUsers = new ArrayList<>(usersMap.values());
-        System.out.println(usersMap.size() + " users generated successfully");
-        return allUsers;
+        return new ArrayList<>(usersMap.values());
     }
 
 

@@ -4,7 +4,6 @@ import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.model.User;
@@ -22,9 +21,7 @@ public class UserRepository {
 
     private final Logger logger = LoggerFactory.getLogger(UserRepository.class);
     private final Map<String, User> internalUserMap = new HashMap<>();
-
     public final Tracker tracker;
-//    @Value()
     boolean testMode = true;
 
 
@@ -67,6 +64,38 @@ public class UserRepository {
         });
         logger.debug("Created " + InternalTestHelper.getInternalUserNumber() + " internal test users.");
         return internalUserMap;
+    }
+
+
+    /**
+     * Return the internalUserMap
+     * @return userMap
+     */
+    public Map<String, User> getInternalUsersMap() {
+        return internalUserMap;
+    }
+
+
+    /**
+     * Initializes a number of internal users and stores them in a Map,
+     * where the keys are the usernames and the values are the User objects.
+     * This method target the performance test because it allows to set the users number
+     * and does not include the generation of location history.
+     * @param usersNumber number of users
+     */
+    public void preparePerformanceTest(int usersNumber) {
+
+        InternalTestHelper.setInternalUserNumber(usersNumber);
+        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -> {
+            String userName = "internalUser" + i;
+            String phone = "000";
+            String email = userName + "@tourGuide.com";
+            User user = new User(UUID.randomUUID(), userName, phone, email);
+
+            internalUserMap.put(userName, user);
+        });
+        logger.debug("Created " + InternalTestHelper.getInternalUserNumber() + " internal test users without history.");
+        tracker.stopTracking();
     }
 
 
