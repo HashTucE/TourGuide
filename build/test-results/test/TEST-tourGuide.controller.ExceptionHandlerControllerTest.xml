@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.controller.ExceptionHandlerControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-17T22:01:26" hostname="iMac.local" time="0.02">
+<testsuite name="tourGuide.controller.ExceptionHandlerControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-18T21:23:58" hostname="iMac.local" time="0.042">
   <properties/>
-  <testcase name="handleValidationExceptions_ValidMethodArgumentNotValidException_ReturnsBadRequestWithErrorMessages()" classname="tourGuide.controller.ExceptionHandlerControllerTest" time="0.016"/>
-  <testcase name="handleNotExistingAttractionException_validNotExistingAttractionException_returnsNotFound()" classname="tourGuide.controller.ExceptionHandlerControllerTest" time="0.001"/>
+  <testcase name="handleValidationExceptions_ValidMethodArgumentNotValidException_ReturnsBadRequestWithErrorMessages()" classname="tourGuide.controller.ExceptionHandlerControllerTest" time="0.037"/>
+  <testcase name="handleNotExistingAttractionException_validNotExistingAttractionException_returnsNotFound()" classname="tourGuide.controller.ExceptionHandlerControllerTest" time="0.002"/>
   <testcase name="handleNotExistingUserException_validNotExistingUserException_returnsNotFound()" classname="tourGuide.controller.ExceptionHandlerControllerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.464s</div>
+<div class="counter">2.114s</div>
 <p>duration</p>
 </div>
 </td>
@@ -66,9 +66,6 @@
 <li>
 <a href="#tab1">Standard output</a>
 </li>
-<li>
-<a href="#tab2">Standard error</a>
-</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -84,13 +81,13 @@
 <tr>
 <td class="success">Up to 100000 users get rewards tested in less than 20 minutes</td>
 <td class="success">highVolumeGetRewards()</td>
-<td class="success">1.278s</td>
+<td class="success">1.315s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Up to 100000 users track location tested in less than 15 minutes</td>
 <td class="success">highVolumeTrackLocation()</td>
-<td class="success">0.186s</td>
+<td class="success">0.799s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -98,16 +95,16 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>23:01:20.564 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [TestPerformance]: using SpringBootContextLoader
-23:01:20.572 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.TestPerformance]: no resource found for suffixes {-context.xml, Context.groovy}.
-23:01:20.574 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.TestPerformance]: TestPerformance does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-23:01:20.630 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [TestPerformance]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-23:01:20.814 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide/build/classes/java/main/tourGuide/Application.class]
-23:01:20.816 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestPerformance
-23:01:21.156 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-23:01:21.163 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-23:01:21.167 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [TestPerformance]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-23:01:21.169 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [TestPerformance], class annotated with @DirtiesContext [false] with mode [null]
+<pre>22:23:52.248 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [TestPerformance]: using SpringBootContextLoader
+22:23:52.266 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.TestPerformance]: no resource found for suffixes {-context.xml, Context.groovy}.
+22:23:52.268 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.TestPerformance]: TestPerformance does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:23:52.332 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [TestPerformance]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+22:23:52.532 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide/build/classes/java/main/tourGuide/Application.class]
+22:23:52.534 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestPerformance
+22:23:52.758 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+22:23:52.761 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+22:23:52.764 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [TestPerformance]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+22:23:52.766 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [TestPerformance], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -117,15 +114,16 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.1)
 
-2023-01-17T23:01:21.969+01:00  INFO 3078 --- [    Test worker] tourGuide.TestPerformance                : Starting TestPerformance using Java 19.0.1 with PID 3078 (started by hashtuce in /Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide)
-2023-01-17T23:01:21.971+01:00 DEBUG 3078 --- [    Test worker] tourGuide.TestPerformance                : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-17T23:01:21.972+01:00  INFO 3078 --- [    Test worker] tourGuide.TestPerformance                : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-01-17T23:01:24.075+01:00  INFO 3078 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
-2023-01-17T23:01:24.075+01:00 DEBUG 3078 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
-2023-01-17T23:01:24.093+01:00 DEBUG 3078 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
-2023-01-17T23:01:24.093+01:00 DEBUG 3078 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
-2023-01-17T23:01:25.236+01:00  INFO 3078 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-01-17T23:01:25.345+01:00  INFO 3078 --- [    Test worker] tourGuide.TestPerformance                : Started TestPerformance in 4.073 seconds (process running for 9.334)
+2023-01-18T22:23:53.302+01:00  INFO 16507 --- [    Test worker] tourGuide.TestPerformance                : Starting TestPerformance using Java 19.0.1 with PID 16507 (started by hashtuce in /Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide)
+2023-01-18T22:23:53.304+01:00 DEBUG 16507 --- [    Test worker] tourGuide.TestPerformance                : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-18T22:23:53.305+01:00  INFO 16507 --- [    Test worker] tourGuide.TestPerformance                : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-01-18T22:23:54.767+01:00  INFO 16507 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-18T22:23:54.767+01:00 DEBUG 16507 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-18T22:23:54.798+01:00  INFO 16507 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2023-01-18T22:23:54.817+01:00 DEBUG 16507 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-18T22:23:54.818+01:00 DEBUG 16507 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-18T22:23:55.716+01:00  INFO 16507 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-01-18T22:23:55.784+01:00  INFO 16507 --- [    Test worker] tourGuide.TestPerformance                : Started TestPerformance in 2.946 seconds (process running for 5.655)
  
   _______                _____       _     _      
  |__   __|              / ____|     (_)   | |     
@@ -136,18 +134,10 @@
  =================================================
  :: APP ::                                (v1.0.0)
  
-2023-01-17T23:01:25.513+01:00 DEBUG 3078 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users without history.
+2023-01-18T22:23:56.510+01:00 DEBUG 16507 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users without history.
 100 users tracked correctly
 highVolumeTrackLocation: Time Elapsed: 0 seconds.
-2023-01-17T23:01:25.689+01:00 DEBUG 3078 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users without history.
-</pre>
-</span>
-</div>
-<div id="tab2" class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>[2023.01.17 23:01:21] (Coverage): Error during class instrumentation: org.springframework.boot.logging.log4j2.Log4J2LoggingSystem: java.lang.RuntimeException: java.io.IOException: Class org/apache/logging/log4j/core/config/composite/CompositeConfiguration not found
-[2023.01.17 23:01:22] (Coverage): Error during class instrumentation: io.micrometer.core.instrument.binder.kafka.KafkaMetrics: java.lang.RuntimeException: java.io.IOException: Class org/apache/kafka/common/MetricName not found
+2023-01-18T22:23:56.702+01:00 DEBUG 16507 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users without history.
 </pre>
 </span>
 </div>
@@ -159,7 +149,7 @@ highVolumeTrackLocation: Time Elapsed: 0 seconds.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6</a> at 17 janv. 2023, 23:01:27</p>
+<a href="http://www.gradle.org">Gradle 7.6</a> at 18 janv. 2023, 22:23:59</p>
 </div>
 </div>
 </body>

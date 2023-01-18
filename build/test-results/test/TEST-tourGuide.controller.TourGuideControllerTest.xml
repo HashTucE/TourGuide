@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.controller.TourGuideControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-17T22:01:27" hostname="iMac.local" time="0.061">
+<testsuite name="tourGuide.controller.TourGuideControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-18T21:23:58" hostname="iMac.local" time="0.062">
   <properties/>
-  <testcase name="testGetTripDeals_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.039"/>
-  <testcase name="testGetTripDeals_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
-  <testcase name="testGetTripDeals_Negative2()" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
+  <testcase name="testGetTripDeals_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.038"/>
+  <testcase name="testGetTripDeals_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.004"/>
+  <testcase name="testGetTripDeals_Negative2()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
   <testcase name="testGetNearbyAttractions_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
-  <testcase name="testGetNearbyAttractions_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
+  <testcase name="testGetNearbyAttractions_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
   <testcase name="testIndex_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
-  <testcase name="testIndex_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.004"/>
+  <testcase name="testIndex_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

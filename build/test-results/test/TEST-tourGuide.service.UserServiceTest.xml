@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.UserServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-01-17T22:01:27" hostname="iMac.local" time="0.078">
+<testsuite name="tourGuide.service.UserServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-01-18T21:23:58" hostname="iMac.local" time="0.048">
   <properties/>
-  <testcase name="updateUserPreferences_withValidInput_updatesUserPreferences()" classname="tourGuide.service.UserServiceTest" time="0.048"/>
+  <testcase name="updateUserPreferences_withValidInput_updatesUserPreferences()" classname="tourGuide.service.UserServiceTest" time="0.029"/>
   <testcase name="updateUserPreferences_withInvalidUserName_throwsException()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="addUser_withDuplicateUsername_doesNotAddUser()" classname="tourGuide.service.UserServiceTest" time="0.003"/>
-  <testcase name="testGetUser_validInput()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="addUser_withDuplicateUsername_doesNotAddUser()" classname="tourGuide.service.UserServiceTest" time="0.001"/>
+  <testcase name="testGetUser_validInput()" classname="tourGuide.service.UserServiceTest" time="0.001"/>
   <testcase name="getUserPreferences_withInvalidUserName_throwsException()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="testGetUser_InvalidInput()" classname="tourGuide.service.UserServiceTest" time="0.003"/>
+  <testcase name="testGetUser_InvalidInput()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
   <testcase name="getUserPreferences_withValidUserName_returnsUserPreferences()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="addUser_withValidUser_addsUserToMap()" classname="tourGuide.service.UserServiceTest" time="0.003"/>
-  <testcase name="testGetAllUsers_withEmptyList()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="testGetAllUsers_withUsers()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="addUser_withValidUser_addsUserToMap()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="testGetAllUsers_withEmptyList()" classname="tourGuide.service.UserServiceTest" time="0.001"/>
+  <testcase name="testGetAllUsers_withUsers()" classname="tourGuide.service.UserServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

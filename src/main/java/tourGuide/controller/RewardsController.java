@@ -31,6 +31,7 @@ public class RewardsController {
     @RequestMapping("/getRewards")
     public List<UserReward> getRewards(@RequestParam String userName) throws NotExistingUserException {
 
+        rewardsService.calculateRewards(userService.getUser(userName));
         return rewardsService.getUserRewards(userService.getUser(userName));
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.LocationServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-17T22:01:27" hostname="iMac.local" time="0.014">
+<testsuite name="tourGuide.service.LocationServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-18T21:23:58" hostname="iMac.local" time="0.03">
   <properties/>
-  <testcase name="testGetUserLocation()" classname="tourGuide.service.LocationServiceTest" time="0.002"/>
+  <testcase name="testGetUserLocation()" classname="tourGuide.service.LocationServiceTest" time="0.019"/>
   <testcase name="testGetAllCurrentLocations()" classname="tourGuide.service.LocationServiceTest" time="0.003"/>
   <testcase name="trackUserLocation_invalidUser_exceptionThrown()" classname="tourGuide.service.LocationServiceTest" time="0.003"/>
   <testcase name="trackUserLocation_validUser_locationTracked()" classname="tourGuide.service.LocationServiceTest" time="0.003"/>

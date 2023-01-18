@@ -8,7 +8,6 @@ import gpsUtil.location.VisitedLocation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import rewardCentral.RewardCentral;
@@ -29,15 +28,13 @@ import static org.mockito.Mockito.when;
 public class RewardsServiceTest {
 
 
-    @Mock
+    @Spy
     private GpsUtil gpsUtil;
-    @Mock
+    @Spy
     private RewardCentral rewardCentral;
     @Spy
     @InjectMocks
     private RewardsService rewardsService;
-    private User user;
-    private List<Attraction> attractions;
 
 
     @Test
@@ -65,22 +62,36 @@ public class RewardsServiceTest {
 
 
 //    @Test
-//    public void testCalculateRewards() {
+//    public void calculateRewards_shouldCalculateCorrectRewardsForUser() {
 //
+//        // Arrange
+//        User user = new User(UUID.randomUUID(), "a", "a", "a");
 //        VisitedLocation location1 = new VisitedLocation(user.getUserId(), new Location(33.817595, -117.922008), new Date());
-//        VisitedLocation location2 = new VisitedLocation(user.getUserId(), new Location(34.1381, -118.3533), new Date());
+//        VisitedLocation location2 = new VisitedLocation(user.getUserId(), new Location(43.582767, -110.821999), new Date());
 //        user.addToVisitedLocations(location1);
 //        user.addToVisitedLocations(location2);
+//        Attraction attraction1 = new Attraction("a", "a", "a", 33.817595, 117.922008);
+//        Attraction attraction2 = new Attraction("a", "a", "a", 4.1381, 118.3533);
+//        List<Attraction> attractions = new ArrayList<>();
+//        attractions.add(attraction1);
+//        attractions.add(attraction2);
+//        doReturn(attractions).when(gpsUtil).getAttractions();
+//        when(gpsUtil.getAttractions()).thenReturn(attractions);
 //
+//        // Act
 //        rewardsService.calculateRewards(user);
+//        verify(gpsUtil, times(1)).getAttractions();
 //
+//
+//        // Assert
 //        List<UserReward> rewards = user.getUserRewards();
-//        assertEquals(2, rewards.size());
-//        assertEquals("Disneyland", rewards.get(0).attraction.attractionName);
-//        assertEquals("Universal Studios", rewards.get(1).attraction.attractionName);
-//        assertEquals(100, rewards.get(0).getRewardPoints());
-//        assertEquals(100, rewards.get(1).getRewardPoints());
+//        assertEquals(1, rewards.size());
+//        assertEquals("Attraction 1", rewards.get(0).attraction.attractionName);
+//        assertEquals(5, rewards.get(0).getRewardPoints());
+//        assertEquals("Attraction 2", rewards.get(1).attraction.attractionName);
+//        assertEquals(10, rewards.get(1).getRewardPoints());
 //    }
+
 
 
     @Test
