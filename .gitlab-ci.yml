@@ -1,4 +1,4 @@
-image: gradle:alpine
+image: openjdk:19-alpine
 
 stages:
   - build
