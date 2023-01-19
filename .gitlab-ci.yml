@@ -12,7 +12,7 @@ before_script:
 
 build:
   stage: build
-  script: gradle --info --build-cache assemble
+  script: gradle --debug --build-cache assemble
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
