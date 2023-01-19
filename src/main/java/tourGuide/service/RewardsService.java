@@ -4,6 +4,8 @@ import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import rewardCentral.RewardCentral;
 import tourGuide.model.User;
@@ -28,6 +30,8 @@ public class RewardsService {
 	private final ExecutorService executorService = Executors.newFixedThreadPool(70);
 	private static final Object globalLock = new Object();
 
+	private static final Logger log = LogManager.getLogger(RewardsService.class);
+
 	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {
 		this.rewardsCentral = rewardCentral;
 		attractions = gpsUtil.getAttractions();
@@ -49,6 +53,8 @@ public class RewardsService {
 	 * @return List<UserReward>
 	 */
 	public List<UserReward> getUserRewards(User user) {
+
+		log.info("List of UserReward returned by getUserRewards with " + user.getUserName());
 		return user.getUserRewards();
 	}
 
@@ -86,6 +92,7 @@ public class RewardsService {
 		}
 		// Wait for all the future tasks to complete
 		CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
+		log.info("Rewards of " + user.getUserName() + " calculated by calculateRewards");
 	}
 
 
@@ -97,6 +104,8 @@ public class RewardsService {
 	 * @return boolean
 	 */
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
+
+		log.info("isWithinAttractionProximity called with " + attraction.attractionName);
 		return !(getDistance(attraction, location) > attractionProximityRange);
 	}
 
@@ -109,6 +118,8 @@ public class RewardsService {
 	 * @return boolean
 	 */
 	public boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
+
+		log.info("nearAttraction called with " + attraction.attractionName);
 		return !(getDistance(attraction, visitedLocation.location) > proximityBuffer);
 	}
 
@@ -120,6 +131,8 @@ public class RewardsService {
 	 * @return int RewardPoints
 	 */
 	public int getRewardPoints(Attraction attraction, User user) {
+
+		log.info("getRewardPoints called with " + attraction.attractionName + " and " + user.getUserName());
 		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
 	}
 
@@ -135,6 +148,8 @@ public class RewardsService {
 	 * @return distance
 	 */
 	public double getDistance(Location loc1, Location loc2) {
+
+		log.info("getDistance called");
         double lat1 = Math.toRadians(loc1.latitude);
         double lon1 = Math.toRadians(loc1.longitude);
         double lat2 = Math.toRadians(loc2.latitude);
@@ -145,5 +160,6 @@ public class RewardsService {
 
         double nauticalMiles = 60 * Math.toDegrees(angle);
 		return STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;
+
 	}
 }

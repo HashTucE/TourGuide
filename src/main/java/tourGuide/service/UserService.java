@@ -1,6 +1,8 @@
 package tourGuide.service;
 
 import jakarta.annotation.PostConstruct;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javamoney.moneta.Money;
 import org.springframework.stereotype.Service;
 import tourGuide.dto.UserPreferencesDto;
@@ -20,6 +22,8 @@ public class UserService {
 
     private Map<String, User> usersMap;
     private final UserRepository userRepository;
+
+    private static final Logger log = LogManager.getLogger(UserService.class);
 
 
     public UserService(UserRepository userRepository) {
@@ -46,8 +50,10 @@ public class UserService {
 
         User user = usersMap.get(userName);
         if (user == null) {
+            log.error("getUser called with wrong userName");
             throw new NotExistingUserException(userName);
         }
+        log.info(userName + " returned by getUser");
         return user;
     }
 
@@ -59,6 +65,7 @@ public class UserService {
      */
     public List<User> getAllUsers() {
 
+        log.info("List of all users returned by getAllUsers");
         return new ArrayList<>(usersMap.values());
     }
 
@@ -73,6 +80,7 @@ public class UserService {
 
         if(!usersMap.containsKey(user.getUserName())) {
             usersMap.put(user.getUserName(), user);
+            log.info(user.getUserName() + " added from addUser");
         }
     }
 
@@ -85,6 +93,7 @@ public class UserService {
      */
     public UserPreferences getUserPreferences(String userName) throws NotExistingUserException {
 
+        log.info(userName + "'s preferences returned from getUserPreferences");
         return getUser(userName).getUserPreferences();
     }
 
@@ -107,6 +116,7 @@ public class UserService {
         userPreferencesToUpdate.setTripDuration(userPreferencesDto.getTripDuration());
         userPreferencesToUpdate.setNumberOfAdults(userPreferencesDto.getNumberOfAdults());
         userPreferencesToUpdate.setNumberOfChildren(userPreferencesDto.getNumberOfChildren());
+        log.info(userName + "'s preferences returned from updateUserPreferences");
     }
 
 }

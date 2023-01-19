@@ -4,8 +4,8 @@ import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import rewardCentral.RewardCentral;
 import tourGuide.dto.ClosestAttractionDto;
@@ -18,7 +18,6 @@ import tripPricer.TripPricer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,7 +25,7 @@ public class TourGuideService {
 
 
 
-	private final Logger logger = LoggerFactory.getLogger(TourGuideService.class);
+	private static final Logger log = LogManager.getLogger(TourGuideService.class);
 	private final GpsUtil gpsUtil;
 	private final RewardCentral rewardCentral;
 	private final RewardsService rewardsService;
@@ -61,11 +60,11 @@ public class TourGuideService {
 
 		for (Attraction attraction : attractions) {
 			if (attraction.attractionName.equals(attractionName)) {
-				System.out.println(attractionName + " found successfully");
+				log.info(attractionName + "'s objet returned from getAttractionByName");
 				return attraction;
 			}
 		}
-		System.out.println("NotExistingAttraction");
+		log.error("getAttractionByName throw NotExistingAttractionException for " + attractionName);
 		throw new NotExistingAttractionException(attractionName);
 	}
 
@@ -102,6 +101,7 @@ public class TourGuideService {
 				.collect(Collectors.toList());
 
 		user.setTripDeals(filteredProviders);
+		log.info("Provider List returned from getTripDeals with " + userName + " and " + attractionName);
 		return filteredProviders;
 	}
 
@@ -117,6 +117,7 @@ public class TourGuideService {
 	 */
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
 
+		log.info("getNearByAttractions returned a list of the 5 nearest attractions");
 		return gpsUtil.getAttractions().parallelStream()
 				.sorted((a1, a2) -> Double.compare(
 						rewardsService.getDistance(visitedLocation.location, a1),
@@ -142,7 +143,7 @@ public class TourGuideService {
 
 		User user = userService.getUser(userName);
 		Location userLocation = user.getLastVisitedLocation().location;
-		List<Attraction> closestAttractions = new CopyOnWriteArrayList<>(getNearByAttractions(user.getLastVisitedLocation()));
+		List<Attraction> closestAttractions = new ArrayList<>(getNearByAttractions(user.getLastVisitedLocation()));
 		List<ClosestAttractionDto> closestAttractionDtoList = new ArrayList<>();
 
 		for (Attraction attraction : closestAttractions) {
@@ -154,6 +155,7 @@ public class TourGuideService {
 					rewardCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId())
 					));
 		}
+		log.info("getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from " + userName);
 		return closestAttractionDtoList;
 	}
 }

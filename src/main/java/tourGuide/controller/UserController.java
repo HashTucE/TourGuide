@@ -1,6 +1,8 @@
 package tourGuide.controller;
 
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    private static final Logger log = LogManager.getLogger(UserController.class);
 
 
     /**
@@ -27,6 +30,7 @@ public class UserController {
     @GetMapping("/getPreferences")
     public UserPreferences getUserPreferences(@RequestParam String userName) throws NotExistingUserException {
 
+        log.info("GET request received to /getPreferences");
         return userService.getUserPreferences(userName);
     }
 
@@ -45,7 +49,7 @@ public class UserController {
             @RequestBody @Valid UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
 
         userService.updateUserPreferences(userName, userPreferencesDto);
-
+        log.info("PUT request received to /updatePreferences");
         return new ResponseEntity<>("User preferences updated successfully", HttpStatus.OK);
     }
 }

@@ -1,5 +1,7 @@
 package tourGuide.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +21,7 @@ public class RewardsController {
     private RewardsService rewardsService;
     @Autowired
     private UserService userService;
+    private static final Logger log = LogManager.getLogger(RewardsController.class);
 
 
     /**
@@ -31,6 +34,7 @@ public class RewardsController {
     @RequestMapping("/getRewards")
     public List<UserReward> getRewards(@RequestParam String userName) throws NotExistingUserException {
 
+        log.info("GET request received to /getRewards");
         rewardsService.calculateRewards(userService.getUser(userName));
         return rewardsService.getUserRewards(userService.getUser(userName));
     }

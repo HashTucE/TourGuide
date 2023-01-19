@@ -28,12 +28,12 @@ import java.util.List;
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity&lt;List&lt;String&gt;&gt; handleValidationExceptions(MethodArgumentNotValidException ex) {
-<span class="fc" id="L31">        List&lt;FieldError&gt; fieldErrors = ex.getBindingResult().getFieldErrors();</span>
-<span class="fc" id="L32">        List&lt;String&gt; errorMessages = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (FieldError fieldError : fieldErrors) {</span>
-<span class="fc" id="L34">            errorMessages.add(fieldError.getDefaultMessage());</span>
-<span class="fc" id="L35">        }</span>
-<span class="fc" id="L36">        return new ResponseEntity&lt;&gt;(errorMessages, HttpStatus.BAD_REQUEST);</span>
+<span class="nc" id="L31">        List&lt;FieldError&gt; fieldErrors = ex.getBindingResult().getFieldErrors();</span>
+<span class="nc" id="L32">        List&lt;String&gt; errorMessages = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (FieldError fieldError : fieldErrors) {</span>
+<span class="nc" id="L34">            errorMessages.add(fieldError.getDefaultMessage());</span>
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        return new ResponseEntity&lt;&gt;(errorMessages, HttpStatus.BAD_REQUEST);</span>
     }
 
 
@@ -48,7 +48,7 @@ import java.util.List;
     @ExceptionHandler(NotExistingUserException.class)
     public ResponseEntity&lt;String&gt; handleNotExistingUserException(NotExistingUserException ex) {
 
-<span class="fc" id="L51">        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);</span>
+<span class="nc" id="L51">        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);</span>
     }
 
 
@@ -63,7 +63,7 @@ import java.util.List;
     @ExceptionHandler(NotExistingAttractionException.class)
     public ResponseEntity&lt;String&gt; handleNotExistingAttractionException(NotExistingAttractionException ex) {
 
-<span class="fc" id="L66">        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);</span>
+<span class="nc" id="L66">        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);</span>
     }
 
 }

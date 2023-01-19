@@ -3,6 +3,8 @@ package tourGuide.service;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import tourGuide.model.User;
 
@@ -19,6 +21,7 @@ public class LocationService {
     private final UserService userService;
     private final RewardsService rewardsService;
     private final ExecutorService executorService = Executors.newFixedThreadPool(70);
+    private static final Logger log = LogManager.getLogger(LocationService.class);
 
 
 
@@ -41,6 +44,7 @@ public class LocationService {
      */
     public CompletableFuture<VisitedLocation> trackUserLocation(User user) {
 
+        log.info("VisitedLocation returned by trackUserLocation with " + user.getUserName());
         return CompletableFuture
                 .supplyAsync(() -> gpsUtil.getUserLocation(user.getUserId()), executorService)
                 .thenApply(visitedLocation -> {
@@ -60,6 +64,7 @@ public class LocationService {
      */
     public VisitedLocation getUserLocation(User user) {
 
+        log.info("VisitedLocation returned by getUserLocation with " + user.getUserName());
         return user.getLastVisitedLocation();
     }
 
@@ -79,7 +84,7 @@ public class LocationService {
         for (User user : users) {
             locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);
         }
-
+        log.info("All users location returned by getAllCurrentLocations");
         return locations;
     }
 }
