@@ -75,7 +75,7 @@ public class TestPerformance {
 	public void highVolumeTrackLocation() {
 
 		// Users should be incremented up to 100,000, and test finishes within 15 minutes
-		userRepository.preparePerformanceTest(100);
+		userRepository.preparePerformanceTest(100000);
 
 		List<User> allUsers = userService.getAllUsers();
 
@@ -120,7 +120,7 @@ public class TestPerformance {
 	public void highVolumeGetRewards() {
 
 		// Users should be incremented up to 100,000, and test finishes within 20 minutes
-		int usersNumber = 100;
+		int usersNumber = 100000;
 		userRepository.preparePerformanceTest(usersNumber);
 
 		StopWatch stopWatch = new StopWatch();

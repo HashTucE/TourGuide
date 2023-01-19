@@ -1,12 +1,10 @@
 package tourGuide.repository;
 
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import tourGuide.model.User;
-import tourGuide.tracker.Tracker;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -19,63 +17,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserRepositoryTest {
 
 
-
-
-    private Tracker tracker;
     @InjectMocks
     private UserRepository userRepository;
 
 
-
-//    @Test
-//    public void addShutDownHook_whenCalled_addsShutdownHook() {
-//
-//        // Arrange
-//        // Act
-//        userRepository.addShutDownHook();
-//        // Assert
-//        verify(tracker, times(1)).stopTracking();
-//    }
-
-
-//    @Test
-//    public void addShutDownHook_whenCalled_notAddShutdownHook() {
-//
-//        // Arrange
-//        // Act
-//        userRepository.addShutDownHook();
-//
-//        // Assert
-//        verify(tracker, never()).stopTracking();
-//    }
-
-
-//    @Test
-//    public void initializeInternalUsers_returnsCorrectNumberOfInternalUsers(){
-//
-//        // Arrange
-//        int expectedUserNumber = 3;
-//        when(internalTestHelper.getInternalUserNumber()).thenReturn(expectedUserNumber);
-//
-//        // Act
-//        Map<String, User> result = userRepository.initializeInternalUsers();
-//
-//        // Assert
-//        assertEquals(expectedUserNumber, result.size());
-//    }
-
-
-//    @Test
-//    public void initializeInternalUsers_internalHelperReturnInvalidNumber_throwsIllegalArgumentException(){
-//
-//        // Arrange
-//        int expectedUserNumber = -3;
-//        when(internalTestHelper.getInternalUserNumber()).thenReturn(expectedUserNumber);
-//
-//        // Act
-//        // Assert
-//        assertThrows(IllegalArgumentException.class, () -> userRepository.initializeInternalUsers());
-//    }
 
 
     @Test

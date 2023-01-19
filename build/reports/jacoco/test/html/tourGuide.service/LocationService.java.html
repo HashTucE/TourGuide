@@ -20,16 +20,16 @@ public class LocationService {
     private final GpsUtil gpsUtil;
     private final UserService userService;
     private final RewardsService rewardsService;
-<span class="nc" id="L23">    private final ExecutorService executorService = Executors.newFixedThreadPool(70);</span>
-<span class="nc" id="L24">    private static final Logger log = LogManager.getLogger(LocationService.class);</span>
+<span class="fc" id="L23">    private final ExecutorService executorService = Executors.newFixedThreadPool(70);</span>
+<span class="fc" id="L24">    private static final Logger log = LogManager.getLogger(LocationService.class);</span>
 
 
 
-<span class="nc" id="L28">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
-<span class="nc" id="L29">        this.gpsUtil = gpsUtil;</span>
-<span class="nc" id="L30">        this.userService = userService;</span>
-<span class="nc" id="L31">        this.rewardsService = rewardsService;</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L28">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
+<span class="fc" id="L29">        this.gpsUtil = gpsUtil;</span>
+<span class="fc" id="L30">        this.userService = userService;</span>
+<span class="fc" id="L31">        this.rewardsService = rewardsService;</span>
+<span class="fc" id="L32">    }</span>
 
 
 

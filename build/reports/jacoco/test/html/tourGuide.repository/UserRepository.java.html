@@ -72,7 +72,7 @@ public class UserRepository {
      * @return userMap
      */
     public Map&lt;String, User&gt; getInternalUsersMap() {
-<span class="nc" id="L75">        return internalUserMap;</span>
+<span class="fc" id="L75">        return internalUserMap;</span>
     }
 
 
@@ -85,18 +85,18 @@ public class UserRepository {
      */
     public void preparePerformanceTest(int usersNumber) {
 
-<span class="nc" id="L88">        InternalTestHelper.setInternalUserNumber(usersNumber);</span>
-<span class="nc" id="L89">        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
-<span class="nc" id="L90">            String userName = &quot;internalUser&quot; + i;</span>
-<span class="nc" id="L91">            String phone = &quot;000&quot;;</span>
-<span class="nc" id="L92">            String email = userName + &quot;@tourGuide.com&quot;;</span>
-<span class="nc" id="L93">            User user = new User(UUID.randomUUID(), userName, phone, email);</span>
+<span class="fc" id="L88">        InternalTestHelper.setInternalUserNumber(usersNumber);</span>
+<span class="fc" id="L89">        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
+<span class="fc" id="L90">            String userName = &quot;internalUser&quot; + i;</span>
+<span class="fc" id="L91">            String phone = &quot;000&quot;;</span>
+<span class="fc" id="L92">            String email = userName + &quot;@tourGuide.com&quot;;</span>
+<span class="fc" id="L93">            User user = new User(UUID.randomUUID(), userName, phone, email);</span>
 
-<span class="nc" id="L95">            internalUserMap.put(userName, user);</span>
-<span class="nc" id="L96">        });</span>
-<span class="nc" id="L97">        logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users without history.&quot;);</span>
-<span class="nc" id="L98">        tracker.stopTracking();</span>
-<span class="nc" id="L99">    }</span>
+<span class="fc" id="L95">            internalUserMap.put(userName, user);</span>
+<span class="fc" id="L96">        });</span>
+<span class="fc" id="L97">        logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users without history.&quot;);</span>
+<span class="fc" id="L98">        tracker.stopTracking();</span>
+<span class="fc" id="L99">    }</span>
 
 
     /**
