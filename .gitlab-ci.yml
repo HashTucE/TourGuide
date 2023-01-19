@@ -1,4 +1,4 @@
-image: gradle:alpine-java:jdk19
+image: gradle:alpine
 
 stages:
   - build
@@ -9,7 +9,7 @@ stages:
 before_script:
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
-  - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk
+  - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home
   - export JAVA_HOME
 
 build:
