@@ -9,8 +9,8 @@ stages:
 before_script:
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
-#  - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home
-#  - export JAVA_HOME
+  - JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/bin
+  - export JAVA_HOME
 
 build:
   stage: build
