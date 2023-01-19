@@ -28,9 +28,9 @@ public class RewardsService {
 	private final RewardCentral rewardsCentral;
 	private List&lt;Attraction&gt; attractions;
 <span class="nc" id="L30">	private final ExecutorService executorService = Executors.newFixedThreadPool(70);</span>
-<span class="fc" id="L31">	private static final Object globalLock = new Object();</span>
+<span class="nc" id="L31">	private static final Object globalLock = new Object();</span>
 
-<span class="fc" id="L33">	private static final Logger log = LogManager.getLogger(RewardsService.class);</span>
+<span class="nc" id="L33">	private static final Logger log = LogManager.getLogger(RewardsService.class);</span>
 
 <span class="nc" id="L35">	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {</span>
 <span class="nc" id="L36">		this.rewardsCentral = rewardCentral;</span>

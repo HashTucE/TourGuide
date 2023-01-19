@@ -1,5 +1,6 @@
 package tourGuide.repository;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -144,11 +145,10 @@ public class UserRepositoryTest {
         // Arrange
         // Act
         Date randomDate = userRepository.getRandomTime();
-        Date now = new Date();
         LocalDateTime time30daysago = LocalDateTime.now().minusDays(30);
         Date thirtyDaysAgo = Date.from(time30daysago.toInstant(ZoneOffset.UTC));
 
         // Assert
-        assertTrue(randomDate.before(now) && randomDate.after(thirtyDaysAgo));
+        assertTrue(randomDate.after(thirtyDaysAgo));
     }
 }

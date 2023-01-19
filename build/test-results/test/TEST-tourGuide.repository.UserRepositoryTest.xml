@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.repository.UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-19T17:06:53" hostname="iMac.local" time="0.848">
+  <properties/>
+  <testcase name="getRandomTime_returnsValidRandomDate()" classname="tourGuide.repository.UserRepositoryTest" time="0.848"/>
+  <system-out><![CDATA[18:06:54.660 [Test worker] INFO tourGuide.repository.UserRepository - TestMode enabled
+18:06:54.671 [Test worker] DEBUG tourGuide.repository.UserRepository - Initializing users
+18:06:54.742 [Test worker] DEBUG tourGuide.repository.UserRepository - Created 100 internal test users.
+18:06:54.742 [Test worker] DEBUG tourGuide.repository.UserRepository - Finished initializing users
+]]></system-out>
+  <system-err><![CDATA[janv. 19, 2023 6:06:54 PM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+INFO: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+]]></system-err>
+</testsuite>
