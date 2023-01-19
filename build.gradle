@@ -7,8 +7,6 @@ buildscript {
     }
 }
 
-
-
 plugins {
     id 'java'
     id 'eclipse'
@@ -18,10 +16,8 @@ plugins {
     id 'jacoco'
 }
 
-
 bootJar {
     archivesBaseName = 'tourGuide'
-    archiveVersion =  '1.0.0'
 }
 
 
@@ -68,15 +64,9 @@ jacoco {
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
     reports {
-        csv {
-            enabled false
-        }
-        xml {
-            enabled false
-        }
-        html {
-            enabled true
-        }
+        csv.required = false
+        xml.required = false
+        html.required = true
     }
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
