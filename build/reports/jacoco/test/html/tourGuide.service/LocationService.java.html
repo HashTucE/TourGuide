@@ -3,6 +3,8 @@
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import tourGuide.model.User;
 
@@ -18,15 +20,16 @@ public class LocationService {
     private final GpsUtil gpsUtil;
     private final UserService userService;
     private final RewardsService rewardsService;
-<span class="fc" id="L21">    private final ExecutorService executorService = Executors.newFixedThreadPool(70);</span>
+<span class="fc" id="L23">    private final ExecutorService executorService = Executors.newFixedThreadPool(70);</span>
+<span class="fc" id="L24">    private static final Logger log = LogManager.getLogger(LocationService.class);</span>
 
 
 
-<span class="fc" id="L25">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
-<span class="fc" id="L26">        this.gpsUtil = gpsUtil;</span>
-<span class="fc" id="L27">        this.userService = userService;</span>
-<span class="fc" id="L28">        this.rewardsService = rewardsService;</span>
-<span class="fc" id="L29">    }</span>
+<span class="fc" id="L28">    public LocationService(GpsUtil gpsUtil, UserService userService, RewardsService rewardsService) {</span>
+<span class="fc" id="L29">        this.gpsUtil = gpsUtil;</span>
+<span class="fc" id="L30">        this.userService = userService;</span>
+<span class="fc" id="L31">        this.rewardsService = rewardsService;</span>
+<span class="fc" id="L32">    }</span>
 
 
 
@@ -41,12 +44,13 @@ public class LocationService {
      */
     public CompletableFuture&lt;VisitedLocation&gt; trackUserLocation(User user) {
 
-<span class="nc" id="L44">        return CompletableFuture</span>
-<span class="nc" id="L45">                .supplyAsync(() -&gt; gpsUtil.getUserLocation(user.getUserId()), executorService)</span>
-<span class="nc" id="L46">                .thenApply(visitedLocation -&gt; {</span>
-<span class="nc" id="L47">                    user.addToVisitedLocations(visitedLocation);</span>
-<span class="nc" id="L48">                    rewardsService.calculateRewards(user);</span>
-<span class="nc" id="L49">                    return visitedLocation;</span>
+<span class="fc" id="L47">        log.info(&quot;VisitedLocation returned by trackUserLocation with &quot;);</span>
+<span class="fc" id="L48">        return CompletableFuture</span>
+<span class="pc" id="L49">                .supplyAsync(() -&gt; gpsUtil.getUserLocation(user.getUserId()), executorService)</span>
+<span class="fc" id="L50">                .thenApply(visitedLocation -&gt; {</span>
+<span class="nc" id="L51">                    user.addToVisitedLocations(visitedLocation);</span>
+<span class="nc" id="L52">                    rewardsService.calculateRewards(user);</span>
+<span class="nc" id="L53">                    return visitedLocation;</span>
                 });
     }
 
@@ -60,7 +64,8 @@ public class LocationService {
      */
     public VisitedLocation getUserLocation(User user) {
 
-<span class="nc" id="L63">        return user.getLastVisitedLocation();</span>
+<span class="nc" id="L67">        log.info(&quot;VisitedLocation returned by getUserLocation with &quot; + user.getUserName());</span>
+<span class="nc" id="L68">        return user.getLastVisitedLocation();</span>
     }
 
 
@@ -73,14 +78,14 @@ public class LocationService {
      */
     public Map&lt;String, Location&gt; getAllCurrentLocations() {
 
-<span class="nc" id="L76">        List&lt;User&gt; users = userService.getAllUsers();</span>
-<span class="nc" id="L77">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="nc" id="L81">        List&lt;User&gt; users = userService.getAllUsers();</span>
+<span class="nc" id="L82">        Map&lt;String, Location&gt; locations = new ConcurrentHashMap&lt;&gt;();</span>
 
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        for (User user : users) {</span>
-<span class="nc" id="L80">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
-<span class="nc" id="L81">        }</span>
-
-<span class="nc" id="L83">        return locations;</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        for (User user : users) {</span>
+<span class="nc" id="L85">            locations.put(String.valueOf(user.getUserId()), user.getLastVisitedLocation().location);</span>
+<span class="nc" id="L86">        }</span>
+<span class="nc" id="L87">        log.info(&quot;All users location returned by getAllCurrentLocations&quot;);</span>
+<span class="nc" id="L88">        return locations;</span>
     }
 }
 

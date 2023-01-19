@@ -19,23 +19,23 @@ public class UserRepository {
     // Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
 
 
-<span class="fc" id="L22">    private final Logger logger = LoggerFactory.getLogger(UserRepository.class);</span>
-<span class="fc" id="L23">    private final Map&lt;String, User&gt; internalUserMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L22">    private final Logger logger = LoggerFactory.getLogger(UserRepository.class);</span>
+<span class="nc" id="L23">    private final Map&lt;String, User&gt; internalUserMap = new HashMap&lt;&gt;();</span>
     public final Tracker tracker;
-<span class="fc" id="L25">    boolean testMode = true;</span>
+<span class="nc" id="L25">    boolean testMode = true;</span>
 
 
-<span class="fc" id="L28">    public UserRepository() {</span>
+<span class="nc" id="L28">    public UserRepository() {</span>
 
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">    if(testMode) {</span>
-<span class="fc" id="L31">        logger.info(&quot;TestMode enabled&quot;);</span>
-<span class="fc" id="L32">        logger.debug(&quot;Initializing users&quot;);</span>
-<span class="fc" id="L33">        initializeInternalUsers();</span>
-<span class="fc" id="L34">        logger.debug(&quot;Finished initializing users&quot;);</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">    if(testMode) {</span>
+<span class="nc" id="L31">        logger.info(&quot;TestMode enabled&quot;);</span>
+<span class="nc" id="L32">        logger.debug(&quot;Initializing users&quot;);</span>
+<span class="nc" id="L33">        initializeInternalUsers();</span>
+<span class="nc" id="L34">        logger.debug(&quot;Finished initializing users&quot;);</span>
     }
-<span class="fc" id="L36">    tracker = new Tracker(this);</span>
-<span class="fc" id="L37">    addShutDownHook();</span>
-<span class="fc" id="L38">    }</span>
+<span class="nc" id="L36">    tracker = new Tracker(this);</span>
+<span class="nc" id="L37">    addShutDownHook();</span>
+<span class="nc" id="L38">    }</span>
 
 
     /**
@@ -43,8 +43,8 @@ public class UserRepository {
      * this thread shut down the tracker thread to save resources
      */
     public void addShutDownHook() {
-<span class="fc" id="L46">        Runtime.getRuntime().addShutdownHook(new Thread(tracker::stopTracking));</span>
-<span class="fc" id="L47">    }</span>
+<span class="nc" id="L46">        Runtime.getRuntime().addShutdownHook(new Thread(tracker::stopTracking));</span>
+<span class="nc" id="L47">    }</span>
 
 
     /**
@@ -53,17 +53,17 @@ public class UserRepository {
      * @return Map&lt;String, User&gt;
      */
     public Map&lt;String, User&gt; initializeInternalUsers() {
-<span class="fc" id="L56">        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
-<span class="fc" id="L57">            String userName = &quot;internalUser&quot; + i;</span>
-<span class="fc" id="L58">            String phone = &quot;000&quot;;</span>
-<span class="fc" id="L59">            String email = userName + &quot;@tourGuide.com&quot;;</span>
-<span class="fc" id="L60">            User user = new User(UUID.randomUUID(), userName, phone, email);</span>
-<span class="fc" id="L61">            generateUserLocationHistory(user);</span>
+<span class="nc" id="L56">        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
+<span class="nc" id="L57">            String userName = &quot;internalUser&quot; + i;</span>
+<span class="nc" id="L58">            String phone = &quot;000&quot;;</span>
+<span class="nc" id="L59">            String email = userName + &quot;@tourGuide.com&quot;;</span>
+<span class="nc" id="L60">            User user = new User(UUID.randomUUID(), userName, phone, email);</span>
+<span class="nc" id="L61">            generateUserLocationHistory(user);</span>
 
-<span class="fc" id="L63">            internalUserMap.put(userName, user);</span>
-<span class="fc" id="L64">        });</span>
-<span class="fc" id="L65">        logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users.&quot;);</span>
-<span class="fc" id="L66">        return internalUserMap;</span>
+<span class="nc" id="L63">            internalUserMap.put(userName, user);</span>
+<span class="nc" id="L64">        });</span>
+<span class="nc" id="L65">        logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users.&quot;);</span>
+<span class="nc" id="L66">        return internalUserMap;</span>
     }
 
 
@@ -72,7 +72,7 @@ public class UserRepository {
      * @return userMap
      */
     public Map&lt;String, User&gt; getInternalUsersMap() {
-<span class="fc" id="L75">        return internalUserMap;</span>
+<span class="nc" id="L75">        return internalUserMap;</span>
     }
 
 
@@ -85,18 +85,18 @@ public class UserRepository {
      */
     public void preparePerformanceTest(int usersNumber) {
 
-<span class="fc" id="L88">        InternalTestHelper.setInternalUserNumber(usersNumber);</span>
-<span class="fc" id="L89">        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
-<span class="fc" id="L90">            String userName = &quot;internalUser&quot; + i;</span>
-<span class="fc" id="L91">            String phone = &quot;000&quot;;</span>
-<span class="fc" id="L92">            String email = userName + &quot;@tourGuide.com&quot;;</span>
-<span class="fc" id="L93">            User user = new User(UUID.randomUUID(), userName, phone, email);</span>
+<span class="nc" id="L88">        InternalTestHelper.setInternalUserNumber(usersNumber);</span>
+<span class="nc" id="L89">        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -&gt; {</span>
+<span class="nc" id="L90">            String userName = &quot;internalUser&quot; + i;</span>
+<span class="nc" id="L91">            String phone = &quot;000&quot;;</span>
+<span class="nc" id="L92">            String email = userName + &quot;@tourGuide.com&quot;;</span>
+<span class="nc" id="L93">            User user = new User(UUID.randomUUID(), userName, phone, email);</span>
 
-<span class="fc" id="L95">            internalUserMap.put(userName, user);</span>
-<span class="fc" id="L96">        });</span>
-<span class="fc" id="L97">        logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users without history.&quot;);</span>
-<span class="fc" id="L98">        tracker.stopTracking();</span>
-<span class="fc" id="L99">    }</span>
+<span class="nc" id="L95">            internalUserMap.put(userName, user);</span>
+<span class="nc" id="L96">        });</span>
+<span class="nc" id="L97">        logger.debug(&quot;Created &quot; + InternalTestHelper.getInternalUserNumber() + &quot; internal test users without history.&quot;);</span>
+<span class="nc" id="L98">        tracker.stopTracking();</span>
+<span class="nc" id="L99">    }</span>
 
 
     /**
@@ -105,12 +105,12 @@ public class UserRepository {
      * @param user User
      */
     public void generateUserLocationHistory(User user) {
-<span class="fc" id="L108">        IntStream.range(0, 3).forEach(i-&gt; user.addToVisitedLocations(</span>
-<span class="fc" id="L109">                new VisitedLocation(user.getUserId(),</span>
-<span class="fc" id="L110">                                    new Location(generateRandomLatitude(),</span>
-<span class="fc" id="L111">                                    generateRandomLongitude()),</span>
-<span class="fc" id="L112">                                    getRandomTime())));</span>
-<span class="fc" id="L113">    }</span>
+<span class="nc" id="L108">        IntStream.range(0, 3).forEach(i-&gt; user.addToVisitedLocations(</span>
+<span class="nc" id="L109">                new VisitedLocation(user.getUserId(),</span>
+<span class="nc" id="L110">                                    new Location(generateRandomLatitude(),</span>
+<span class="nc" id="L111">                                    generateRandomLongitude()),</span>
+<span class="nc" id="L112">                                    getRandomTime())));</span>
+<span class="nc" id="L113">    }</span>
 
 
     /**
@@ -119,9 +119,9 @@ public class UserRepository {
      * @return double
      */
     public double generateRandomLongitude() {
-<span class="fc" id="L122">        double leftLimit = -180;</span>
-<span class="fc" id="L123">        double rightLimit = 180;</span>
-<span class="fc" id="L124">        return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
+<span class="nc" id="L122">        double leftLimit = -180;</span>
+<span class="nc" id="L123">        double rightLimit = 180;</span>
+<span class="nc" id="L124">        return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
     }
 
 
@@ -131,9 +131,9 @@ public class UserRepository {
      * @return double
      */
     public double generateRandomLatitude() {
-<span class="fc" id="L134">        double leftLimit = -85.05112878;</span>
-<span class="fc" id="L135">        double rightLimit = 85.05112878;</span>
-<span class="fc" id="L136">        return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
+<span class="nc" id="L134">        double leftLimit = -85.05112878;</span>
+<span class="nc" id="L135">        double rightLimit = 85.05112878;</span>
+<span class="nc" id="L136">        return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);</span>
     }
 
 
@@ -143,8 +143,8 @@ public class UserRepository {
      * @return Date
      */
     public Date getRandomTime() {
-<span class="fc" id="L146">        LocalDateTime localDateTime = LocalDateTime.now().minusDays(new Random().nextInt(30));</span>
-<span class="fc" id="L147">        return Date.from(localDateTime.toInstant(ZoneOffset.UTC));</span>
+<span class="nc" id="L146">        LocalDateTime localDateTime = LocalDateTime.now().minusDays(new Random().nextInt(30));</span>
+<span class="nc" id="L147">        return Date.from(localDateTime.toInstant(ZoneOffset.UTC));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

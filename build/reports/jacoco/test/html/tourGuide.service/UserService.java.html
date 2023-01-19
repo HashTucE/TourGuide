@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.service</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package tourGuide.service;
 
 import jakarta.annotation.PostConstruct;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javamoney.moneta.Money;
 import org.springframework.stereotype.Service;
 import tourGuide.dto.UserPreferencesDto;
@@ -21,16 +23,18 @@ public class UserService {
     private Map&lt;String, User&gt; usersMap;
     private final UserRepository userRepository;
 
+<span class="fc" id="L26">    private static final Logger log = LogManager.getLogger(UserService.class);</span>
 
-<span class="fc" id="L25">    public UserService(UserRepository userRepository) {</span>
-<span class="fc" id="L26">        this.userRepository = userRepository;</span>
-<span class="fc" id="L27">    }</span>
+
+<span class="nc" id="L29">    public UserService(UserRepository userRepository) {</span>
+<span class="nc" id="L30">        this.userRepository = userRepository;</span>
+<span class="nc" id="L31">    }</span>
 
 
     @PostConstruct
     public void init() {
-<span class="fc" id="L32">        usersMap = userRepository.getInternalUsersMap();</span>
-<span class="fc" id="L33">    }</span>
+<span class="nc" id="L36">        usersMap = userRepository.getInternalUsersMap();</span>
+<span class="nc" id="L37">    }</span>
 
 
     /**
@@ -44,11 +48,13 @@ public class UserService {
      */
     public User getUser(String userName) throws NotExistingUserException {
 
-<span class="nc" id="L47">        User user = usersMap.get(userName);</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (user == null) {</span>
-<span class="nc" id="L49">            throw new NotExistingUserException(userName);</span>
+<span class="nc" id="L51">        User user = usersMap.get(userName);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (user == null) {</span>
+<span class="nc" id="L53">            log.error(&quot;getUser called with wrong userName&quot;);</span>
+<span class="nc" id="L54">            throw new NotExistingUserException(userName);</span>
         }
-<span class="nc" id="L51">        return user;</span>
+<span class="nc" id="L56">        log.info(userName + &quot; returned by getUser&quot;);</span>
+<span class="nc" id="L57">        return user;</span>
     }
 
 
@@ -59,7 +65,8 @@ public class UserService {
      */
     public List&lt;User&gt; getAllUsers() {
 
-<span class="fc" id="L62">        return new ArrayList&lt;&gt;(usersMap.values());</span>
+<span class="nc" id="L68">        log.info(&quot;List of all users returned by getAllUsers&quot;);</span>
+<span class="nc" id="L69">        return new ArrayList&lt;&gt;(usersMap.values());</span>
     }
 
 
@@ -71,10 +78,11 @@ public class UserService {
      */
     public void addUser(User user) {
 
-<span class="nc bnc" id="L74" title="All 2 branches missed.">        if(!usersMap.containsKey(user.getUserName())) {</span>
-<span class="nc" id="L75">            usersMap.put(user.getUserName(), user);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if(!usersMap.containsKey(user.getUserName())) {</span>
+<span class="nc" id="L82">            usersMap.put(user.getUserName(), user);</span>
+<span class="nc" id="L83">            log.info(user.getUserName() + &quot; added from addUser&quot;);</span>
         }
-<span class="nc" id="L77">    }</span>
+<span class="nc" id="L85">    }</span>
 
 
     /**
@@ -85,7 +93,8 @@ public class UserService {
      */
     public UserPreferences getUserPreferences(String userName) throws NotExistingUserException {
 
-<span class="nc" id="L88">        return getUser(userName).getUserPreferences();</span>
+<span class="nc" id="L96">        log.info(userName + &quot;'s preferences returned from getUserPreferences&quot;);</span>
+<span class="nc" id="L97">        return getUser(userName).getUserPreferences();</span>
     }
 
 
@@ -99,15 +108,16 @@ public class UserService {
      */
     public void updateUserPreferences(String userName, UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
 
-<span class="nc" id="L102">        User user = getUser(userName);</span>
+<span class="nc" id="L111">        User user = getUser(userName);</span>
 
-<span class="nc" id="L104">        UserPreferences userPreferencesToUpdate = user.getUserPreferences();</span>
-<span class="nc" id="L105">        userPreferencesToUpdate.setLowerPricePoint(Money.of(userPreferencesDto.getLowerPricePoint(), Monetary.getCurrency(&quot;USD&quot;)));</span>
-<span class="nc" id="L106">        userPreferencesToUpdate.setHighPricePoint(Money.of(userPreferencesDto.getHighPricePoint(), Monetary.getCurrency(&quot;USD&quot;)));</span>
-<span class="nc" id="L107">        userPreferencesToUpdate.setTripDuration(userPreferencesDto.getTripDuration());</span>
-<span class="nc" id="L108">        userPreferencesToUpdate.setNumberOfAdults(userPreferencesDto.getNumberOfAdults());</span>
-<span class="nc" id="L109">        userPreferencesToUpdate.setNumberOfChildren(userPreferencesDto.getNumberOfChildren());</span>
-<span class="nc" id="L110">    }</span>
+<span class="nc" id="L113">        UserPreferences userPreferencesToUpdate = user.getUserPreferences();</span>
+<span class="nc" id="L114">        userPreferencesToUpdate.setLowerPricePoint(Money.of(userPreferencesDto.getLowerPricePoint(), Monetary.getCurrency(&quot;USD&quot;)));</span>
+<span class="nc" id="L115">        userPreferencesToUpdate.setHighPricePoint(Money.of(userPreferencesDto.getHighPricePoint(), Monetary.getCurrency(&quot;USD&quot;)));</span>
+<span class="nc" id="L116">        userPreferencesToUpdate.setTripDuration(userPreferencesDto.getTripDuration());</span>
+<span class="nc" id="L117">        userPreferencesToUpdate.setNumberOfAdults(userPreferencesDto.getNumberOfAdults());</span>
+<span class="nc" id="L118">        userPreferencesToUpdate.setNumberOfChildren(userPreferencesDto.getNumberOfChildren());</span>
+<span class="nc" id="L119">        log.info(userName + &quot;'s preferences returned from updateUserPreferences&quot;);</span>
+<span class="nc" id="L120">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

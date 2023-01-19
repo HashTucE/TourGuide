@@ -44,7 +44,7 @@ public class LocationService {
      */
     public CompletableFuture<VisitedLocation> trackUserLocation(User user) {
 
-        log.info("VisitedLocation returned by trackUserLocation with " + user.getUserName());
+        log.info("VisitedLocation returned by trackUserLocation");
         return CompletableFuture
                 .supplyAsync(() -> gpsUtil.getUserLocation(user.getUserId()), executorService)
                 .thenApply(visitedLocation -> {

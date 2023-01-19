@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package tourGuide.controller;
 
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +13,11 @@ import tourGuide.model.UserPreferences;
 import tourGuide.service.UserService;
 
 @RestController
-<span class="fc" id="L14">public class UserController {</span>
+<span class="nc" id="L16">public class UserController {</span>
 
     @Autowired
     private UserService userService;
+<span class="nc" id="L20">    private static final Logger log = LogManager.getLogger(UserController.class);</span>
 
 
     /**
@@ -27,7 +30,8 @@ import tourGuide.service.UserService;
     @GetMapping(&quot;/getPreferences&quot;)
     public UserPreferences getUserPreferences(@RequestParam String userName) throws NotExistingUserException {
 
-<span class="nc" id="L30">        return userService.getUserPreferences(userName);</span>
+<span class="nc" id="L33">        log.info(&quot;GET request received to /getPreferences&quot;);</span>
+<span class="nc" id="L34">        return userService.getUserPreferences(userName);</span>
     }
 
 
@@ -44,9 +48,9 @@ import tourGuide.service.UserService;
             @RequestParam String userName,
             @RequestBody @Valid UserPreferencesDto userPreferencesDto) throws NotExistingUserException {
 
-<span class="nc" id="L47">        userService.updateUserPreferences(userName, userPreferencesDto);</span>
-
-<span class="nc" id="L49">        return new ResponseEntity&lt;&gt;(&quot;User preferences updated successfully&quot;, HttpStatus.OK);</span>
+<span class="nc" id="L51">        userService.updateUserPreferences(userName, userPreferencesDto);</span>
+<span class="nc" id="L52">        log.info(&quot;PUT request received to /updatePreferences&quot;);</span>
+<span class="nc" id="L53">        return new ResponseEntity&lt;&gt;(&quot;User preferences updated successfully&quot;, HttpStatus.OK);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
