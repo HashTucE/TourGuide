@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.TourGuideServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-20T13:46:42" hostname="iMac.local" time="0.053">
+  <properties/>
+  <testcase name="getTripDeals_WhenInvalidUser_ShouldThrowNotExistingUserException()" classname="tourGuide.service.TourGuideServiceTest" time="0.022"/>
+  <testcase name="testGetClosestAttractionDtoList_validInput()" classname="tourGuide.service.TourGuideServiceTest" time="0.006"/>
+  <testcase name="testGetAttractionByName_InvalidAttractionName_throwsNotExistingAttractionException()" classname="tourGuide.service.TourGuideServiceTest" time="0.003"/>
+  <testcase name="testGetAttractionByName_validAttractionName_returnsAttraction()" classname="tourGuide.service.TourGuideServiceTest" time="0.002"/>
+  <testcase name="getTripDeals_WhenInvalidAttraction_ShouldThrowNotExistingAttractionException()" classname="tourGuide.service.TourGuideServiceTest" time="0.003"/>
+  <testcase name="testGetNearByAttractions_validVisitedLocation_returnsSortedAttractions()" classname="tourGuide.service.TourGuideServiceTest" time="0.01"/>
+  <testcase name="testGetClosestAttractionDtoList_invalidInput()" classname="tourGuide.service.TourGuideServiceTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-20T14:46:42.948+01:00  INFO 5134 --- [    Test worker] tourGuide.service.TourGuideService       : getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from John
+2023-01-20T14:46:42.951+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.TourGuideService       : getAttractionByName throw NotExistingAttractionException for Invalid Attraction
+2023-01-20T14:46:42.954+01:00  INFO 5134 --- [    Test worker] tourGuide.service.TourGuideService       : a's objet returned from getAttractionByName
+2023-01-20T14:46:42.960+01:00  INFO 5134 --- [    Test worker] tourGuide.service.TourGuideService       : getNearByAttractions returned a list of the 5 nearest attractions
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

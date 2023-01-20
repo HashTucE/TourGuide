@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.repository.UserRepositoryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-01-20T13:46:42" hostname="iMac.local" time="0.054">
+  <properties/>
+  <testcase name="generateRandomLongitude_returnsRandomDoubleInRange()" classname="tourGuide.repository.UserRepositoryTest" time="0.013"/>
+  <testcase name="generateUserLocationHistory_validUser_addsVisitedLocation()" classname="tourGuide.repository.UserRepositoryTest" time="0.012"/>
+  <testcase name="getRandomTime_returnsValidRandomDate()" classname="tourGuide.repository.UserRepositoryTest" time="0.008"/>
+  <testcase name="generateRandomLongitude_returnsDifferentValueEveryTimeCalled()" classname="tourGuide.repository.UserRepositoryTest" time="0.006"/>
+  <testcase name="generateRandomLatitude_returnsRandomDoubleInRange()" classname="tourGuide.repository.UserRepositoryTest" time="0.007"/>
+  <testcase name="generateRandomLatitude_returnsDifferentValueEveryTimeCalled()" classname="tourGuide.repository.UserRepositoryTest" time="0.005"/>
+  <system-out><![CDATA[2023-01-20T14:46:42.626+01:00  INFO 5134 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-20T14:46:42.626+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-20T14:46:42.636+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-20T14:46:42.636+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-20T14:46:42.639+01:00  INFO 5134 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-20T14:46:42.639+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-20T14:46:42.648+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-20T14:46:42.648+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-20T14:46:42.651+01:00  INFO 5134 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-20T14:46:42.651+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-20T14:46:42.657+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-20T14:46:42.657+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-20T14:46:42.659+01:00  INFO 5134 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-20T14:46:42.659+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-20T14:46:42.664+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-20T14:46:42.664+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-20T14:46:42.666+01:00  INFO 5134 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-20T14:46:42.666+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-20T14:46:42.672+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-20T14:46:42.672+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+2023-01-20T14:46:42.674+01:00  INFO 5134 --- [    Test worker] tourGuide.repository.UserRepository      : TestMode enabled
+2023-01-20T14:46:42.674+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Initializing users
+2023-01-20T14:46:42.678+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Created 100 internal test users.
+2023-01-20T14:46:42.678+01:00 DEBUG 5134 --- [    Test worker] tourGuide.repository.UserRepository      : Finished initializing users
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

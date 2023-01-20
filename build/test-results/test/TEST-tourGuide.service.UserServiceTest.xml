@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.UserServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-01-20T13:46:42" hostname="iMac.local" time="0.065">
+  <properties/>
+  <testcase name="updateUserPreferences_withValidInput_updatesUserPreferences()" classname="tourGuide.service.UserServiceTest" time="0.038"/>
+  <testcase name="updateUserPreferences_withInvalidUserName_throwsException()" classname="tourGuide.service.UserServiceTest" time="0.003"/>
+  <testcase name="addUser_withDuplicateUsername_doesNotAddUser()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="testGetUser_validInput()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="getUserPreferences_withInvalidUserName_throwsException()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="testGetUser_InvalidInput()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="getUserPreferences_withValidUserName_returnsUserPreferences()" classname="tourGuide.service.UserServiceTest" time="0.003"/>
+  <testcase name="addUser_withValidUser_addsUserToMap()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="testGetAllUsers_withEmptyList()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="testGetAllUsers_withUsers()" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <system-out><![CDATA[2023-01-20T14:46:43.012+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
+2023-01-20T14:46:43.012+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a's preferences returned from updateUserPreferences
+2023-01-20T14:46:43.016+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-20T14:46:43.022+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
+2023-01-20T14:46:43.025+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : invalidUsername's preferences returned from getUserPreferences
+2023-01-20T14:46:43.025+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-20T14:46:43.028+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-20T14:46:43.031+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a's preferences returned from getUserPreferences
+2023-01-20T14:46:43.031+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
+2023-01-20T14:46:43.034+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a added from addUser
+2023-01-20T14:46:43.036+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : List of all users returned by getAllUsers
+2023-01-20T14:46:43.039+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : List of all users returned by getAllUsers
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

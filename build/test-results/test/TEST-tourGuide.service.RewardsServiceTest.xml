@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.RewardsServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-20T13:46:42" hostname="iMac.local" time="0.199">
+  <properties/>
+  <testcase name="testIsWithinAttractionProximity_outsideRange()" classname="tourGuide.service.RewardsServiceTest" time="0.039"/>
+  <testcase name="testGetRewardPoints()" classname="tourGuide.service.RewardsServiceTest" time="0.081"/>
+  <testcase name="testGetUserRewards()" classname="tourGuide.service.RewardsServiceTest" time="0.018"/>
+  <testcase name="testNearAttraction_withinProximityBuffer()" classname="tourGuide.service.RewardsServiceTest" time="0.015"/>
+  <testcase name="testIsWithinAttractionProximity_withinRange()" classname="tourGuide.service.RewardsServiceTest" time="0.013"/>
+  <testcase name="testNearAttraction_outsideProximityBuffer()" classname="tourGuide.service.RewardsServiceTest" time="0.015"/>
+  <testcase name="testGetDistance()" classname="tourGuide.service.RewardsServiceTest" time="0.015"/>
+  <system-out><![CDATA[2023-01-20T14:46:42.755+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : isWithinAttractionProximity called with Eiffel Tower
+2023-01-20T14:46:42.755+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-20T14:46:42.838+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : getRewardPoints called with Eiffel Tower and a
+2023-01-20T14:46:42.856+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : List of UserReward returned by getUserRewards with a
+2023-01-20T14:46:42.871+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : nearAttraction called with Eiffel Tower
+2023-01-20T14:46:42.885+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : isWithinAttractionProximity called with Eiffel Tower
+2023-01-20T14:46:42.886+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-20T14:46:42.901+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : nearAttraction called with Eiffel Tower
+2023-01-20T14:46:42.916+01:00  INFO 5134 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

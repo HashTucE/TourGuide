@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.controller.TourGuideControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-20T13:46:42" hostname="iMac.local" time="0.056">
+  <properties/>
+  <testcase name="testGetTripDeals_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.036"/>
+  <testcase name="testGetTripDeals_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
+  <testcase name="testGetTripDeals_Negative2()" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
+  <testcase name="testGetNearbyAttractions_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
+  <testcase name="testGetNearbyAttractions_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
+  <testcase name="testIndex_Positive()" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
+  <testcase name="testIndex_Negative()" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-20T14:46:42.575+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getTripDeals
+2023-01-20T14:46:42.579+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getTripDeals
+2023-01-20T14:46:42.582+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getTripDeals
+2023-01-20T14:46:42.586+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getNearbyAttractions
+2023-01-20T14:46:42.589+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getNearbyAttractions
+2023-01-20T14:46:42.592+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /
+2023-01-20T14:46:42.594+01:00  INFO 5134 --- [    Test worker] t.controller.TourGuideController         : GET request received to /
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

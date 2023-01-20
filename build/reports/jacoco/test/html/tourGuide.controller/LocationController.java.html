@@ -34,9 +34,9 @@ import java.util.Map;
     @RequestMapping(&quot;/getLocation&quot;)
     public Location getLocation(@RequestParam String userName) throws NotExistingUserException {
 
-<span class="nc" id="L37">        log.info(&quot;GET request received to /getLocation&quot;);</span>
-<span class="nc" id="L38">        VisitedLocation visitedLocation = locationService.getUserLocation(userService.getUser(userName));</span>
-<span class="nc" id="L39">        return visitedLocation.location;</span>
+<span class="fc" id="L37">        log.info(&quot;GET request received to /getLocation&quot;);</span>
+<span class="fc" id="L38">        VisitedLocation visitedLocation = locationService.getUserLocation(userService.getUser(userName));</span>
+<span class="fc" id="L39">        return visitedLocation.location;</span>
     }
 
 
@@ -48,8 +48,8 @@ import java.util.Map;
     @RequestMapping(&quot;/getAllCurrentLocations&quot;)
     public Map&lt;String, Location&gt; getAllCurrentLocations() {
 
-<span class="nc" id="L51">        log.info(&quot;GET request received to /getAllCurrentLocations&quot;);</span>
-<span class="nc" id="L52">        return locationService.getAllCurrentLocations();</span>
+<span class="fc" id="L51">        log.info(&quot;GET request received to /getAllCurrentLocations&quot;);</span>
+<span class="fc" id="L52">        return locationService.getAllCurrentLocations();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
