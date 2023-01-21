@@ -7,7 +7,6 @@ import gpsUtil.location.VisitedLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import rewardCentral.RewardCentral;
 import tourGuide.dto.ClosestAttractionDto;
 import tourGuide.exception.NotExistingAttractionException;
 import tourGuide.exception.NotExistingUserException;
@@ -27,7 +26,6 @@ public class TourGuideService {
 
 	private static final Logger log = LogManager.getLogger(TourGuideService.class);
 	private final GpsUtil gpsUtil;
-	private final RewardCentral rewardCentral;
 	private final RewardsService rewardsService;
 	private final UserService userService;
 	private final TripPricer tripPricer = new TripPricer();
@@ -36,12 +34,12 @@ public class TourGuideService {
 
 
 
-	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService, RewardCentral rewardCentral) {
+	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService) {
 		this.gpsUtil = gpsUtil;
 		this.rewardsService = rewardsService;
 		this.userService = userService;
-		this.rewardCentral = rewardCentral;
 	}
+
 
 
 	/**
@@ -89,11 +87,11 @@ public class TourGuideService {
 		Attraction attraction = getAttractionByName(attractionName);
 		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();
 		List<Provider> providers = tripPricer.getPrice(tripPricerApiKey,
-														attraction.attractionId,
-														user.getUserPreferences().getNumberOfAdults(),
-														user.getUserPreferences().getNumberOfChildren(),
-														user.getUserPreferences().getTripDuration(),
-														cumulativeRewardPoints);
+				attraction.attractionId,
+				user.getUserPreferences().getNumberOfAdults(),
+				user.getUserPreferences().getNumberOfChildren(),
+				user.getUserPreferences().getTripDuration(),
+				cumulativeRewardPoints);
 		// filter providers by price range
 		List<Provider> filteredProviders = providers.stream()
 				.filter(provider -> provider.price >= user.getUserPreferences().getLowerPricePoint().getNumber().doubleValue()
@@ -152,8 +150,8 @@ public class TourGuideService {
 					new Location(attraction.latitude, attraction.longitude),
 					userLocation,
 					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),
-					rewardCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId())
-					));
+					rewardsService.getAttractionRewardPoints(attraction.attractionId, user.getUserId())
+			));
 		}
 		log.info("getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from " + userName);
 		return closestAttractionDtoList;

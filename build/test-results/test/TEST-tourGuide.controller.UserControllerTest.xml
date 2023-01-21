@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.controller.UserControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-20T13:46:42" hostname="iMac.local" time="0.025">
+<testsuite name="tourGuide.controller.UserControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-21T20:13:53" hostname="iMac.local" time="0.021">
   <properties/>
   <testcase name="getUserPreferences_validInput_returnsUserPreferences()" classname="tourGuide.controller.UserControllerTest" time="0.003"/>
-  <testcase name="updateUserPreferences_validInput_returnsSuccessResponse()" classname="tourGuide.controller.UserControllerTest" time="0.012"/>
-  <testcase name="getUserPreferences_invalidInput_throwsNotExistingUserException()" classname="tourGuide.controller.UserControllerTest" time="0.004"/>
-  <testcase name="updateUserPreferences_invalidInput_throwsNotExistingUserException()" classname="tourGuide.controller.UserControllerTest" time="0.004"/>
-  <system-out><![CDATA[2023-01-20T14:46:42.600+01:00  INFO 5134 --- [    Test worker] tourGuide.controller.UserController      : GET request received to /getPreferences
-2023-01-20T14:46:42.603+01:00  INFO 5134 --- [    Test worker] tourGuide.controller.UserController      : PUT request received to /updatePreferences
-2023-01-20T14:46:42.616+01:00  INFO 5134 --- [    Test worker] tourGuide.controller.UserController      : GET request received to /getPreferences
+  <testcase name="updateUserPreferences_validInput_returnsSuccessResponse()" classname="tourGuide.controller.UserControllerTest" time="0.01"/>
+  <testcase name="getUserPreferences_invalidInput_throwsNotExistingUserException()" classname="tourGuide.controller.UserControllerTest" time="0.002"/>
+  <testcase name="updateUserPreferences_invalidInput_throwsNotExistingUserException()" classname="tourGuide.controller.UserControllerTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-21T21:13:53.280+01:00  INFO 3620 --- [    Test worker] tourGuide.controller.UserController      : GET request received to /getPreferences
+2023-01-21T21:13:53.283+01:00  INFO 3620 --- [    Test worker] tourGuide.controller.UserController      : PUT request received to /updatePreferences
+2023-01-21T21:13:53.294+01:00  INFO 3620 --- [    Test worker] tourGuide.controller.UserController      : GET request received to /getPreferences
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -39,8 +39,6 @@ public class TourGuideServiceTest {
     private RewardsService rewardsService;
     @Mock
     private UserService userService;
-    @Mock
-    private RewardCentral rewardCentral;
     @Spy
     @InjectMocks
     private TourGuideService tourGuideService;
@@ -203,9 +201,9 @@ public class TourGuideServiceTest {
         Mockito.lenient().when(rewardsService.getDistance(userLocation, new Location(45.5231, -122.6761))).thenReturn(500.0);
         Mockito.lenient().when(rewardsService.getDistance(userLocation, new Location(45.5236, -122.6765))).thenReturn(200.0);
         Mockito.lenient().when(rewardsService.getDistance(userLocation, new Location(45.5241, -122.6769))).thenReturn(50.0);
-        when(rewardCentral.getAttractionRewardPoints(attraction1.attractionId, id)).thenReturn(10);
-        when(rewardCentral.getAttractionRewardPoints(attraction2.attractionId, id)).thenReturn(20);
-        when(rewardCentral.getAttractionRewardPoints(attraction3.attractionId, id)).thenReturn(30);
+        when(rewardsService.getAttractionRewardPoints(attraction1.attractionId, id)).thenReturn(10);
+        when(rewardsService.getAttractionRewardPoints(attraction2.attractionId, id)).thenReturn(20);
+        when(rewardsService.getAttractionRewardPoints(attraction3.attractionId, id)).thenReturn(30);
 
         // Act
         List<ClosestAttractionDto> closestAttractionDtoList = tourGuideService.getClosestAttractionDtoList(user.getUserName());

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.058s</div>
+<div class="counter">0.064s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">addUser_withDuplicateUsername_doesNotAddUser()</td>
-<td class="success">0.002s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -89,17 +89,17 @@
 </tr>
 <tr>
 <td class="success">getUserPreferences_withInvalidUserName_throwsException()</td>
-<td class="success">0.002s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">getUserPreferences_withValidUserName_returnsUserPreferences()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testGetAllUsers_withEmptyList()</td>
+<td class="success">getUserPreferences_withValidUserName_returnsUserPreferences()</td>
 <td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAllUsers_withEmptyList()</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -109,12 +109,12 @@
 </tr>
 <tr>
 <td class="success">testGetUser_InvalidInput()</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetUser_validInput()</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -124,7 +124,7 @@
 </tr>
 <tr>
 <td class="success">updateUserPreferences_withValidInput_updatesUserPreferences()</td>
-<td class="success">0.038s</td>
+<td class="success">0.040s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -132,18 +132,18 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-01-20T14:46:43.012+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
-2023-01-20T14:46:43.012+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a's preferences returned from updateUserPreferences
-2023-01-20T14:46:43.016+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
-2023-01-20T14:46:43.022+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
-2023-01-20T14:46:43.025+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : invalidUsername's preferences returned from getUserPreferences
-2023-01-20T14:46:43.025+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
-2023-01-20T14:46:43.028+01:00 ERROR 5134 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
-2023-01-20T14:46:43.031+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a's preferences returned from getUserPreferences
-2023-01-20T14:46:43.031+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
-2023-01-20T14:46:43.034+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : a added from addUser
-2023-01-20T14:46:43.036+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : List of all users returned by getAllUsers
-2023-01-20T14:46:43.039+01:00  INFO 5134 --- [    Test worker] tourGuide.service.UserService            : List of all users returned by getAllUsers
+<pre>2023-01-21T21:13:54.547+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
+2023-01-21T21:13:54.547+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : a's preferences returned from updateUserPreferences
+2023-01-21T21:13:54.550+01:00 ERROR 3620 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-21T21:13:54.559+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
+2023-01-21T21:13:54.562+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : invalidUsername's preferences returned from getUserPreferences
+2023-01-21T21:13:54.562+01:00 ERROR 3620 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-21T21:13:54.565+01:00 ERROR 3620 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-21T21:13:54.568+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : a's preferences returned from getUserPreferences
+2023-01-21T21:13:54.568+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : a returned by getUser
+2023-01-21T21:13:54.571+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : a added from addUser
+2023-01-21T21:13:54.573+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : List of all users returned by getAllUsers
+2023-01-21T21:13:54.575+01:00  INFO 3620 --- [    Test worker] tourGuide.service.UserService            : List of all users returned by getAllUsers
 </pre>
 </span>
 </div>
@@ -155,7 +155,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6</a> at 20 janv. 2023, 14:46:43</p>
+<a href="http://www.gradle.org">Gradle 7.6</a> at 21 janv. 2023, 21:13:54</p>
 </div>
 </div>
 </body>

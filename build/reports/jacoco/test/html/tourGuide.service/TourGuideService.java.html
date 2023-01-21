@@ -7,7 +7,6 @@ import gpsUtil.location.VisitedLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import rewardCentral.RewardCentral;
 import tourGuide.dto.ClosestAttractionDto;
 import tourGuide.exception.NotExistingAttractionException;
 import tourGuide.exception.NotExistingUserException;
@@ -25,23 +24,22 @@ public class TourGuideService {
 
 
 
-<span class="fc" id="L28">	private static final Logger log = LogManager.getLogger(TourGuideService.class);</span>
+<span class="fc" id="L27">	private static final Logger log = LogManager.getLogger(TourGuideService.class);</span>
 	private final GpsUtil gpsUtil;
-	private final RewardCentral rewardCentral;
 	private final RewardsService rewardsService;
 	private final UserService userService;
-<span class="fc" id="L33">	private final TripPricer tripPricer = new TripPricer();</span>
+<span class="fc" id="L31">	private final TripPricer tripPricer = new TripPricer();</span>
 	private static final String tripPricerApiKey = &quot;test-server-api-key&quot;;
 
 
 
 
-<span class="fc" id="L39">	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService, RewardCentral rewardCentral) {</span>
-<span class="fc" id="L40">		this.gpsUtil = gpsUtil;</span>
-<span class="fc" id="L41">		this.rewardsService = rewardsService;</span>
-<span class="fc" id="L42">		this.userService = userService;</span>
-<span class="fc" id="L43">		this.rewardCentral = rewardCentral;</span>
-<span class="fc" id="L44">	}</span>
+<span class="fc" id="L37">	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService) {</span>
+<span class="fc" id="L38">		this.gpsUtil = gpsUtil;</span>
+<span class="fc" id="L39">		this.rewardsService = rewardsService;</span>
+<span class="fc" id="L40">		this.userService = userService;</span>
+<span class="fc" id="L41">	}</span>
+
 
 
 	/**
@@ -56,16 +54,16 @@ public class TourGuideService {
 	 */
 	public Attraction getAttractionByName(String attractionName) throws NotExistingAttractionException {
 
-<span class="fc" id="L59">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+<span class="fc" id="L57">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
 
-<span class="fc bfc" id="L61" title="All 2 branches covered.">		for (Attraction attraction : attractions) {</span>
-<span class="fc bfc" id="L62" title="All 2 branches covered.">			if (attraction.attractionName.equals(attractionName)) {</span>
-<span class="fc" id="L63">				log.info(attractionName + &quot;'s objet returned from getAttractionByName&quot;);</span>
-<span class="fc" id="L64">				return attraction;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		for (Attraction attraction : attractions) {</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">			if (attraction.attractionName.equals(attractionName)) {</span>
+<span class="fc" id="L61">				log.info(attractionName + &quot;'s objet returned from getAttractionByName&quot;);</span>
+<span class="fc" id="L62">				return attraction;</span>
 			}
-<span class="fc" id="L66">		}</span>
-<span class="fc" id="L67">		log.error(&quot;getAttractionByName throw NotExistingAttractionException for &quot; + attractionName);</span>
-<span class="fc" id="L68">		throw new NotExistingAttractionException(attractionName);</span>
+<span class="fc" id="L64">		}</span>
+<span class="fc" id="L65">		log.error(&quot;getAttractionByName throw NotExistingAttractionException for &quot; + attractionName);</span>
+<span class="fc" id="L66">		throw new NotExistingAttractionException(attractionName);</span>
 	}
 
 
@@ -85,24 +83,24 @@ public class TourGuideService {
 	 */
 	public List&lt;Provider&gt; getTripDeals(String userName, String attractionName) throws NotExistingAttractionException, NotExistingUserException {
 
-<span class="fc" id="L88">		User user = userService.getUser(userName);</span>
-<span class="nc" id="L89">		Attraction attraction = getAttractionByName(attractionName);</span>
-<span class="nc" id="L90">		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();</span>
-<span class="nc" id="L91">		List&lt;Provider&gt; providers = tripPricer.getPrice(tripPricerApiKey,</span>
-														attraction.attractionId,
-<span class="nc" id="L93">														user.getUserPreferences().getNumberOfAdults(),</span>
-<span class="nc" id="L94">														user.getUserPreferences().getNumberOfChildren(),</span>
-<span class="nc" id="L95">														user.getUserPreferences().getTripDuration(),</span>
-														cumulativeRewardPoints);
+<span class="fc" id="L86">		User user = userService.getUser(userName);</span>
+<span class="nc" id="L87">		Attraction attraction = getAttractionByName(attractionName);</span>
+<span class="nc" id="L88">		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();</span>
+<span class="nc" id="L89">		List&lt;Provider&gt; providers = tripPricer.getPrice(tripPricerApiKey,</span>
+				attraction.attractionId,
+<span class="nc" id="L91">				user.getUserPreferences().getNumberOfAdults(),</span>
+<span class="nc" id="L92">				user.getUserPreferences().getNumberOfChildren(),</span>
+<span class="nc" id="L93">				user.getUserPreferences().getTripDuration(),</span>
+				cumulativeRewardPoints);
 		// filter providers by price range
-<span class="nc" id="L98">		List&lt;Provider&gt; filteredProviders = providers.stream()</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">				.filter(provider -&gt; provider.price &gt;= user.getUserPreferences().getLowerPricePoint().getNumber().doubleValue()</span>
-<span class="nc bnc" id="L100" title="All 2 branches missed.">						&amp;&amp; provider.price &lt;= user.getUserPreferences().getHighPricePoint().getNumber().doubleValue())</span>
-<span class="nc" id="L101">				.collect(Collectors.toList());</span>
+<span class="nc" id="L96">		List&lt;Provider&gt; filteredProviders = providers.stream()</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">				.filter(provider -&gt; provider.price &gt;= user.getUserPreferences().getLowerPricePoint().getNumber().doubleValue()</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">						&amp;&amp; provider.price &lt;= user.getUserPreferences().getHighPricePoint().getNumber().doubleValue())</span>
+<span class="nc" id="L99">				.collect(Collectors.toList());</span>
 
-<span class="nc" id="L103">		user.setTripDeals(filteredProviders);</span>
-<span class="nc" id="L104">		log.info(&quot;Provider List returned from getTripDeals with &quot; + userName + &quot; and &quot; + attractionName);</span>
-<span class="nc" id="L105">		return filteredProviders;</span>
+<span class="nc" id="L101">		user.setTripDeals(filteredProviders);</span>
+<span class="nc" id="L102">		log.info(&quot;Provider List returned from getTripDeals with &quot; + userName + &quot; and &quot; + attractionName);</span>
+<span class="nc" id="L103">		return filteredProviders;</span>
 	}
 
 
@@ -117,13 +115,13 @@ public class TourGuideService {
 	 */
 	public List&lt;Attraction&gt; getNearByAttractions(VisitedLocation visitedLocation) {
 
-<span class="fc" id="L120">		log.info(&quot;getNearByAttractions returned a list of the 5 nearest attractions&quot;);</span>
-<span class="fc" id="L121">		return gpsUtil.getAttractions().parallelStream()</span>
-<span class="fc" id="L122">				.sorted((a1, a2) -&gt; Double.compare(</span>
-<span class="fc" id="L123">						rewardsService.getDistance(visitedLocation.location, a1),</span>
-<span class="fc" id="L124">						rewardsService.getDistance(visitedLocation.location, a2)))</span>
-<span class="fc" id="L125">				.limit(5)</span>
-<span class="fc" id="L126">				.collect(Collectors.toList());</span>
+<span class="fc" id="L118">		log.info(&quot;getNearByAttractions returned a list of the 5 nearest attractions&quot;);</span>
+<span class="fc" id="L119">		return gpsUtil.getAttractions().parallelStream()</span>
+<span class="fc" id="L120">				.sorted((a1, a2) -&gt; Double.compare(</span>
+<span class="fc" id="L121">						rewardsService.getDistance(visitedLocation.location, a1),</span>
+<span class="fc" id="L122">						rewardsService.getDistance(visitedLocation.location, a2)))</span>
+<span class="fc" id="L123">				.limit(5)</span>
+<span class="fc" id="L124">				.collect(Collectors.toList());</span>
 	}
 
 
@@ -141,22 +139,22 @@ public class TourGuideService {
 	 */
 	public List&lt;ClosestAttractionDto&gt; getClosestAttractionDtoList(String userName) throws NotExistingUserException {
 
-<span class="fc" id="L144">		User user = userService.getUser(userName);</span>
-<span class="fc" id="L145">		Location userLocation = user.getLastVisitedLocation().location;</span>
-<span class="fc" id="L146">		List&lt;Attraction&gt; closestAttractions = new ArrayList&lt;&gt;(getNearByAttractions(user.getLastVisitedLocation()));</span>
-<span class="fc" id="L147">		List&lt;ClosestAttractionDto&gt; closestAttractionDtoList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L142">		User user = userService.getUser(userName);</span>
+<span class="fc" id="L143">		Location userLocation = user.getLastVisitedLocation().location;</span>
+<span class="fc" id="L144">		List&lt;Attraction&gt; closestAttractions = new ArrayList&lt;&gt;(getNearByAttractions(user.getLastVisitedLocation()));</span>
+<span class="fc" id="L145">		List&lt;ClosestAttractionDto&gt; closestAttractionDtoList = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L149" title="All 2 branches covered.">		for (Attraction attraction : closestAttractions) {</span>
-<span class="fc" id="L150">			closestAttractionDtoList.add(new ClosestAttractionDto(</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">		for (Attraction attraction : closestAttractions) {</span>
+<span class="fc" id="L148">			closestAttractionDtoList.add(new ClosestAttractionDto(</span>
 					attraction.attractionName,
 					new Location(attraction.latitude, attraction.longitude),
 					userLocation,
-<span class="fc" id="L154">					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),</span>
-<span class="fc" id="L155">					rewardCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId())</span>
-					));
-<span class="fc" id="L157">		}</span>
-<span class="fc" id="L158">		log.info(&quot;getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from &quot; + userName);</span>
-<span class="fc" id="L159">		return closestAttractionDtoList;</span>
+<span class="fc" id="L152">					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),</span>
+<span class="fc" id="L153">					rewardsService.getAttractionRewardPoints(attraction.attractionId, user.getUserId())</span>
+			));
+<span class="fc" id="L155">		}</span>
+<span class="fc" id="L156">		log.info(&quot;getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from &quot; + userName);</span>
+<span class="fc" id="L157">		return closestAttractionDtoList;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

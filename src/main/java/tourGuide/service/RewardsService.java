@@ -13,20 +13,21 @@ import tourGuide.model.UserReward;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Service
 public class RewardsService {
-    private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
+	private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
 
 	// proximity in miles
-    private final int defaultProximityBuffer = 10;
+	private final int defaultProximityBuffer = 10;
 	private int proximityBuffer = defaultProximityBuffer;
 	private final int attractionProximityRange = 200;
 	private final RewardCentral rewardsCentral;
-	private List<Attraction> attractions;
+	private final List<Attraction> attractions;
 	private final ExecutorService executorService = Executors.newFixedThreadPool(70);
 	private static final Object globalLock = new Object();
 
@@ -150,16 +151,30 @@ public class RewardsService {
 	public double getDistance(Location loc1, Location loc2) {
 
 		log.info("getDistance called");
-        double lat1 = Math.toRadians(loc1.latitude);
-        double lon1 = Math.toRadians(loc1.longitude);
-        double lat2 = Math.toRadians(loc2.latitude);
-        double lon2 = Math.toRadians(loc2.longitude);
+		double lat1 = Math.toRadians(loc1.latitude);
+		double lon1 = Math.toRadians(loc1.longitude);
+		double lat2 = Math.toRadians(loc2.latitude);
+		double lon2 = Math.toRadians(loc2.longitude);
 
-        double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)
-                               + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
+		double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)
+				+ Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
 
-        double nauticalMiles = 60 * Math.toDegrees(angle);
+		double nauticalMiles = 60 * Math.toDegrees(angle);
 		return STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;
 
+	}
+
+
+	/**
+	 * Call getAttractionRewardPoints from RewardsService
+	 * Calculate the reward points from an attraction
+	 * @param attractionId id of the attraction
+	 * @param userId id of the user
+	 * @return reward points
+	 */
+	public int getAttractionRewardPoints(UUID attractionId, UUID userId) {
+
+		log.info("getAttractionRewardPoints called from RewardsService");
+		return rewardsCentral.getAttractionRewardPoints(attractionId, userId);
 	}
 }
