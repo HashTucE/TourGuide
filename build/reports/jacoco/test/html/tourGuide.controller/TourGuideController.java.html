@@ -30,8 +30,8 @@ import java.util.List;
     @RequestMapping(&quot;/&quot;)
     public String index() {
 
-<span class="fc" id="L33">        log.info(&quot;GET request received to /&quot;);</span>
-<span class="fc" id="L34">        return &quot;Greetings from TourGuide!&quot;;</span>
+<span class="nc" id="L33">        log.info(&quot;GET request received to /&quot;);</span>
+<span class="nc" id="L34">        return &quot;Greetings from TourGuide!&quot;;</span>
     }
 
 
@@ -45,8 +45,8 @@ import java.util.List;
     @RequestMapping(&quot;/getNearbyAttractions&quot;) 
     public List&lt;ClosestAttractionDto&gt; getNearbyAttractions(@RequestParam String userName) throws NotExistingUserException {
 
-<span class="fc" id="L48">        log.info(&quot;GET request received to /getNearbyAttractions&quot;);</span>
-<span class="fc" id="L49">    	return tourGuideService.getClosestAttractionDtoList(userName);</span>
+<span class="nc" id="L48">        log.info(&quot;GET request received to /getNearbyAttractions&quot;);</span>
+<span class="nc" id="L49">    	return tourGuideService.getClosestAttractionDtoList(userName);</span>
     }
 
 
@@ -62,8 +62,8 @@ import java.util.List;
     @RequestMapping(&quot;/getTripDeals&quot;)
     public List&lt;Provider&gt; getTripDeals(@RequestParam String userName, @RequestParam String attractionName) throws NotExistingAttractionException, NotExistingUserException {
 
-<span class="fc" id="L65">        log.info(&quot;GET request received to /getTripDeals&quot;);</span>
-<span class="fc" id="L66">    	return tourGuideService.getTripDeals(userName, attractionName);</span>
+<span class="nc" id="L65">        log.info(&quot;GET request received to /getTripDeals&quot;);</span>
+<span class="nc" id="L66">    	return tourGuideService.getTripDeals(userName, attractionName);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
