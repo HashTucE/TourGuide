@@ -23,9 +23,8 @@ public class RewardsService {
 	private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
 
 	// proximity in miles
-	private final int defaultProximityBuffer = 10;
-	private int proximityBuffer = defaultProximityBuffer;
-	private final int attractionProximityRange = 200;
+	private int proximityBuffer = 10;
+
 	private final RewardCentral rewardsCentral;
 	private final List<Attraction> attractions;
 	private final ExecutorService executorService = Executors.newFixedThreadPool(70);
@@ -43,9 +42,6 @@ public class RewardsService {
 		this.proximityBuffer = proximityBuffer;
 	}
 
-	public void setDefaultProximityBuffer() {
-		proximityBuffer = defaultProximityBuffer;
-	}
 
 
 	/**
@@ -58,6 +54,13 @@ public class RewardsService {
 		log.info("List of UserReward returned by getUserRewards with " + user.getUserName());
 		return user.getUserRewards();
 	}
+
+
+	/**
+	 * This method exist only because when attractions was mocker into test, empty list was returned
+	 * @return attraction list
+	 */
+	public List<Attraction> getAttractions() {return attractions;}
 
 
 	/**
@@ -74,7 +77,7 @@ public class RewardsService {
 
 		// Create a list to store the future tasks
 		List<CompletableFuture<Void>> futures = new ArrayList<>();
-		for (Attraction attraction : attractions) {
+		for (Attraction attraction : getAttractions()) {
 			// For each attraction, create a future task to calculate the user's rewards for that attraction
 			CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
 				for (VisitedLocation visitedLocation : user.getVisitedLocations()) {
@@ -84,6 +87,7 @@ public class RewardsService {
 							// Synchronize the user object using the global lock
 							synchronized (globalLock) {
 								user.addUserReward(new UserReward(visitedLocation, attraction, points));
+								log.info("Rewards of " + user.getUserName() + " calculated by calculateRewards");
 							}
 						}
 					}
@@ -93,22 +97,9 @@ public class RewardsService {
 		}
 		// Wait for all the future tasks to complete
 		CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
-		log.info("Rewards of " + user.getUserName() + " calculated by calculateRewards");
+
 	}
 
-
-	/**
-	 * Checks whether a given location is within a certain proximity of an attraction.
-	 * Returns true if the location is within the proximity of the attraction.
-	 * @param attraction Attraction
-	 * @param location Location
-	 * @return boolean
-	 */
-	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
-
-		log.info("isWithinAttractionProximity called with " + attraction.attractionName);
-		return !(getDistance(attraction, location) > attractionProximityRange);
-	}
 
 
 	/**
@@ -121,6 +112,7 @@ public class RewardsService {
 	public boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
 
 		log.info("nearAttraction called with " + attraction.attractionName);
+
 		return !(getDistance(attraction, visitedLocation.location) > proximityBuffer);
 	}
 

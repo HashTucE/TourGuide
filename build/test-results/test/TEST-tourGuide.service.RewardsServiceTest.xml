@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.service.RewardsServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-01-22T15:10:40" hostname="iMac.local" time="0.031">
+  <properties/>
+  <testcase name="testGetRewardPoints()" classname="tourGuide.service.RewardsServiceTest" time="0.016"/>
+  <testcase name="testGetUserRewards()" classname="tourGuide.service.RewardsServiceTest" time="0.002"/>
+  <testcase name="testNearAttraction_withinProximityBuffer()" classname="tourGuide.service.RewardsServiceTest" time="0.002"/>
+  <testcase name="calculateRewards_shouldCalculateCorrectRewardsForUser()" classname="tourGuide.service.RewardsServiceTest" time="0.004"/>
+  <testcase name="testNearAttraction_outsideProximityBuffer()" classname="tourGuide.service.RewardsServiceTest" time="0.003"/>
+  <testcase name="testGetDistance()" classname="tourGuide.service.RewardsServiceTest" time="0.002"/>
+  <system-out><![CDATA[2023-01-22T16:10:40.510+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getRewardPoints called with Eiffel Tower and a
+2023-01-22T16:10:40.512+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : List of UserReward returned by getUserRewards with a
+2023-01-22T16:10:40.515+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : nearAttraction called with Eiffel Tower
+2023-01-22T16:10:40.519+01:00  INFO 5507 --- [ool-24-thread-2] tourGuide.service.RewardsService         : nearAttraction called with Attraction 2
+2023-01-22T16:10:40.519+01:00  INFO 5507 --- [ool-24-thread-1] tourGuide.service.RewardsService         : nearAttraction called with Attraction 1
+2023-01-22T16:10:40.519+01:00  INFO 5507 --- [ool-24-thread-2] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:40.519+01:00  INFO 5507 --- [ool-24-thread-1] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:40.520+01:00  INFO 5507 --- [ool-24-thread-2] tourGuide.service.RewardsService         : nearAttraction called with Attraction 2
+2023-01-22T16:10:40.520+01:00  INFO 5507 --- [ool-24-thread-1] tourGuide.service.RewardsService         : Rewards of userTest calculated by calculateRewards
+2023-01-22T16:10:40.520+01:00  INFO 5507 --- [ool-24-thread-2] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:40.520+01:00  INFO 5507 --- [ool-24-thread-2] tourGuide.service.RewardsService         : Rewards of userTest calculated by calculateRewards
+2023-01-22T16:10:40.522+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : nearAttraction called with Eiffel Tower
+2023-01-22T16:10:40.525+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

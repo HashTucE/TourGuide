@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - RewardsIT</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>RewardsIT</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tourGuide.integration.html">tourGuide.integration</a> &gt; RewardsIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.022s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getRewardsIT()</td>
+<td class="success">0.022s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2023-01-22T16:10:38.620+01:00  INFO 5507 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.integration.RewardsIT]: RewardsIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-01-22T16:10:38.623+01:00  INFO 5507 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.integration.RewardsIT
+2023-01-22T16:10:38.630+01:00  INFO 5507 --- [    Test worker] tourGuide.controller.RewardsController   : GET request received to /getRewards
+2023-01-22T16:10:38.630+01:00  INFO 5507 --- [    Test worker] tourGuide.service.UserService            : internalUser0 returned by getUser
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-1] tourGuide.service.RewardsService         : nearAttraction called with Disneyland
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-3] tourGuide.service.RewardsService         : nearAttraction called with Mojave National Preserve
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-3] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-3] tourGuide.service.RewardsService         : nearAttraction called with Mojave National Preserve
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-2] tourGuide.service.RewardsService         : nearAttraction called with Jackson Hole
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-6] tourGuide.service.RewardsService         : nearAttraction called with Hot Springs National Park
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-6] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-6] tourGuide.service.RewardsService         : nearAttraction called with Hot Springs National Park
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-6] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-6] tourGuide.service.RewardsService         : nearAttraction called with Hot Springs National Park
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-6] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-1] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-1] tourGuide.service.RewardsService         : nearAttraction called with Disneyland
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-4] tourGuide.service.RewardsService         : nearAttraction called with Joshua Tree National Park
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-4] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-7] tourGuide.service.RewardsService         : nearAttraction called with Kartchner Caverns State Park
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-3] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-7] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-7] tourGuide.service.RewardsService         : nearAttraction called with Kartchner Caverns State Park
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-7] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-7] tourGuide.service.RewardsService         : nearAttraction called with Kartchner Caverns State Park
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-7] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.631+01:00  INFO 5507 --- [pool-8-thread-5] tourGuide.service.RewardsService         : nearAttraction called with Buffalo National River
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-5] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-5] tourGuide.service.RewardsService         : nearAttraction called with Buffalo National River
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-5] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-5] tourGuide.service.RewardsService         : nearAttraction called with Buffalo National River
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-5] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-9] tourGuide.service.RewardsService         : nearAttraction called with Flowers Bakery of London
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-9] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-2] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-2] tourGuide.service.RewardsService         : nearAttraction called with Jackson Hole
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-2] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-2] tourGuide.service.RewardsService         : nearAttraction called with Jackson Hole
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-2] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-1] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-1] tourGuide.service.RewardsService         : nearAttraction called with Disneyland
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [ool-8-thread-10] tourGuide.service.RewardsService         : nearAttraction called with McKinley Tower
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-4] tourGuide.service.RewardsService         : nearAttraction called with Joshua Tree National Park
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-4] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-4] tourGuide.service.RewardsService         : nearAttraction called with Joshua Tree National Park
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-4] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-3] tourGuide.service.RewardsService         : nearAttraction called with Mojave National Preserve
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-3] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.632+01:00  INFO 5507 --- [pool-8-thread-8] tourGuide.service.RewardsService         : nearAttraction called with Legend Valley
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-9] tourGuide.service.RewardsService         : nearAttraction called with Flowers Bakery of London
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-11] tourGuide.service.RewardsService         : nearAttraction called with Flatiron Building
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-11] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-11] tourGuide.service.RewardsService         : nearAttraction called with Flatiron Building
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-11] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-11] tourGuide.service.RewardsService         : nearAttraction called with Flatiron Building
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [pool-8-thread-1] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-12] tourGuide.service.RewardsService         : nearAttraction called with Fallingwater
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-12] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-12] tourGuide.service.RewardsService         : nearAttraction called with Fallingwater
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-12] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-12] tourGuide.service.RewardsService         : nearAttraction called with Fallingwater
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-12] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.633+01:00  INFO 5507 --- [ool-8-thread-10] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-10] tourGuide.service.RewardsService         : nearAttraction called with McKinley Tower
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-10] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-10] tourGuide.service.RewardsService         : nearAttraction called with McKinley Tower
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-10] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-14] tourGuide.service.RewardsService         : nearAttraction called with Roger Dean Stadium
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [pool-8-thread-8] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [pool-8-thread-8] tourGuide.service.RewardsService         : nearAttraction called with Legend Valley
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [pool-8-thread-9] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [pool-8-thread-9] tourGuide.service.RewardsService         : nearAttraction called with Flowers Bakery of London
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [pool-8-thread-9] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-11] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.634+01:00  INFO 5507 --- [ool-8-thread-13] tourGuide.service.RewardsService         : nearAttraction called with Union Station
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-15] tourGuide.service.RewardsService         : nearAttraction called with Texas Memorial Stadium
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-15] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-15] tourGuide.service.RewardsService         : nearAttraction called with Texas Memorial Stadium
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-15] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-14] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-14] tourGuide.service.RewardsService         : nearAttraction called with Roger Dean Stadium
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-14] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-14] tourGuide.service.RewardsService         : nearAttraction called with Roger Dean Stadium
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [pool-8-thread-8] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [pool-8-thread-8] tourGuide.service.RewardsService         : nearAttraction called with Legend Valley
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [pool-8-thread-8] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-16] tourGuide.service.RewardsService         : nearAttraction called with Bryant-Denny Stadium
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-16] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-16] tourGuide.service.RewardsService         : nearAttraction called with Bryant-Denny Stadium
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-16] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-17] tourGuide.service.RewardsService         : nearAttraction called with Tiger Stadium
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-17] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-17] tourGuide.service.RewardsService         : nearAttraction called with Tiger Stadium
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-17] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-17] tourGuide.service.RewardsService         : nearAttraction called with Tiger Stadium
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-17] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-13] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-13] tourGuide.service.RewardsService         : nearAttraction called with Union Station
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-13] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-13] tourGuide.service.RewardsService         : nearAttraction called with Union Station
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-13] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-15] tourGuide.service.RewardsService         : nearAttraction called with Texas Memorial Stadium
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-19] tourGuide.service.RewardsService         : nearAttraction called with Kyle Field
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-19] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.635+01:00  INFO 5507 --- [ool-8-thread-14] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-19] tourGuide.service.RewardsService         : nearAttraction called with Kyle Field
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-19] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-19] tourGuide.service.RewardsService         : nearAttraction called with Kyle Field
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-16] tourGuide.service.RewardsService         : nearAttraction called with Bryant-Denny Stadium
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-16] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-20] tourGuide.service.RewardsService         : nearAttraction called with San Diego Zoo
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-20] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-20] tourGuide.service.RewardsService         : nearAttraction called with San Diego Zoo
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-18] tourGuide.service.RewardsService         : nearAttraction called with Neyland Stadium
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-18] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-18] tourGuide.service.RewardsService         : nearAttraction called with Neyland Stadium
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-18] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-18] tourGuide.service.RewardsService         : nearAttraction called with Neyland Stadium
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-18] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-21] tourGuide.service.RewardsService         : nearAttraction called with Zoo Tampa at Lowry Park
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-21] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-21] tourGuide.service.RewardsService         : nearAttraction called with Zoo Tampa at Lowry Park
+2023-01-22T16:10:38.636+01:00  INFO 5507 --- [ool-8-thread-15] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-19] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-22] tourGuide.service.RewardsService         : nearAttraction called with Franklin Park Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-22] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-20] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-22] tourGuide.service.RewardsService         : nearAttraction called with Franklin Park Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-20] tourGuide.service.RewardsService         : nearAttraction called with San Diego Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-20] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.637+01:00  INFO 5507 --- [ool-8-thread-21] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-21] tourGuide.service.RewardsService         : nearAttraction called with Zoo Tampa at Lowry Park
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-21] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-22] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-22] tourGuide.service.RewardsService         : nearAttraction called with Franklin Park Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-22] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-23] tourGuide.service.RewardsService         : nearAttraction called with El Paso Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-23] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-23] tourGuide.service.RewardsService         : nearAttraction called with El Paso Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-23] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-23] tourGuide.service.RewardsService         : nearAttraction called with El Paso Zoo
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-23] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.638+01:00  INFO 5507 --- [ool-8-thread-24] tourGuide.service.RewardsService         : nearAttraction called with Kansas City Zoo
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-24] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-24] tourGuide.service.RewardsService         : nearAttraction called with Kansas City Zoo
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-24] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-24] tourGuide.service.RewardsService         : nearAttraction called with Kansas City Zoo
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-25] tourGuide.service.RewardsService         : nearAttraction called with Bronx Zoo
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-25] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-25] tourGuide.service.RewardsService         : nearAttraction called with Bronx Zoo
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-25] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-25] tourGuide.service.RewardsService         : nearAttraction called with Bronx Zoo
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-24] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-25] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-26] tourGuide.service.RewardsService         : nearAttraction called with Cinderella Castle
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-26] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-26] tourGuide.service.RewardsService         : nearAttraction called with Cinderella Castle
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-26] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-26] tourGuide.service.RewardsService         : nearAttraction called with Cinderella Castle
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [ool-8-thread-26] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T16:10:38.639+01:00  INFO 5507 --- [    Test worker] tourGuide.service.UserService            : internalUser0 returned by getUser
+2023-01-22T16:10:38.640+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : List of UserReward returned by getUserRewards with internalUser0
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.6</a> at 22 janv. 2023, 16:10:40</p>
+</div>
+</div>
+</body>
+</html>

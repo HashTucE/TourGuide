@@ -8,6 +8,7 @@ import gpsUtil.location.VisitedLocation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import rewardCentral.RewardCentral;
@@ -20,17 +21,16 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
 public class RewardsServiceTest {
 
 
-    @Spy
+    @Mock
     private GpsUtil gpsUtil;
-    @Spy
+    @Mock
     private RewardCentral rewardCentral;
     @Spy
     @InjectMocks
@@ -61,67 +61,40 @@ public class RewardsServiceTest {
     }
 
 
-//    @Test
-//    public void calculateRewards_shouldCalculateCorrectRewardsForUser() {
-//
-//        // Arrange
-//        User user = new User(UUID.randomUUID(), "a", "a", "a");
-//        VisitedLocation location1 = new VisitedLocation(user.getUserId(), new Location(33.817595, -117.922008), new Date());
-//        VisitedLocation location2 = new VisitedLocation(user.getUserId(), new Location(43.582767, -110.821999), new Date());
-//        user.addToVisitedLocations(location1);
-//        user.addToVisitedLocations(location2);
-//        Attraction attraction1 = new Attraction("a", "a", "a", 33.817595, 117.922008);
-//        Attraction attraction2 = new Attraction("a", "a", "a", 4.1381, 118.3533);
-//        List<Attraction> attractions = new ArrayList<>();
-//        attractions.add(attraction1);
-//        attractions.add(attraction2);
-//        doReturn(attractions).when(gpsUtil).getAttractions();
-//        when(gpsUtil.getAttractions()).thenReturn(attractions);
-//
-//        // Act
-//        rewardsService.calculateRewards(user);
-//        verify(gpsUtil, times(1)).getAttractions();
-//
-//
-//        // Assert
-//        List<UserReward> rewards = user.getUserRewards();
-//        assertEquals(1, rewards.size());
-//        assertEquals("Attraction 1", rewards.get(0).attraction.attractionName);
-//        assertEquals(5, rewards.get(0).getRewardPoints());
-//        assertEquals("Attraction 2", rewards.get(1).attraction.attractionName);
-//        assertEquals(10, rewards.get(1).getRewardPoints());
-//    }
-
-
-
     @Test
-    public void testIsWithinAttractionProximity_withinRange() {
+    public void calculateRewards_shouldCalculateCorrectRewardsForUser() {
 
         // Arrange
-        Attraction attraction = new Attraction("Eiffel Tower", "a", "a",48.8584, 2.2945);
-        Location location = new Location(48.8584, 2.2945);
+        User user = new User(UUID.randomUUID(), "userTest", "a", "a");
+        VisitedLocation location1 = new VisitedLocation(user.getUserId(), new Location(33.817595, -117.922008), new Date());
+        VisitedLocation location2 = new VisitedLocation(user.getUserId(), new Location(4.1381, 118.3533), new Date());
+        user.addToVisitedLocations(location1);
+        user.addToVisitedLocations(location2);
+        Attraction attraction1 = new Attraction("Attraction 1", "a", "a", 33.817595, -117.922008);
+        Attraction attraction2 = new Attraction("Attraction 2", "a", "a", 4.1381, 118.3533);
+        List<Attraction> attractions = new ArrayList<>();
+        attractions.add(attraction1);
+        attractions.add(attraction2);
+        doReturn(attractions).when(rewardsService).getAttractions();
+        doReturn(5).when(rewardsService).getRewardPoints(attraction1, user);
+        doReturn(10).when(rewardsService).getRewardPoints(attraction2, user);
 
         // Act
-        boolean result = rewardsService.isWithinAttractionProximity(attraction, location);
+        rewardsService.calculateRewards(user);
+        verify(gpsUtil, times(1)).getAttractions();
 
         // Assert
-        assertTrue(result);
+        List<UserReward> rewards = user.getUserRewards();
+        assertEquals(2, rewards.size());
+        assertEquals("Attraction 1", rewards.get(0).attraction.attractionName);
+        assertEquals(5, rewards.get(0).getRewardPoints());
+        assertEquals("Attraction 2", rewards.get(1).attraction.attractionName);
+        assertEquals(10, rewards.get(1).getRewardPoints());
     }
 
 
-    @Test
-    public void testIsWithinAttractionProximity_outsideRange() {
 
-        // Arrange
-        Attraction attraction = new Attraction("Eiffel Tower", "a", "a",48.8584, 2.2945);
-        Location location = new Location(-48.8584, -2.2945);
 
-        // Act
-        boolean result = rewardsService.isWithinAttractionProximity(attraction, location);
-
-        // Assert
-        assertFalse(result);
-    }
 
 
     @Test
