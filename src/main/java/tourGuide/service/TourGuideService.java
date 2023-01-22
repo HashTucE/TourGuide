@@ -28,16 +28,17 @@ public class TourGuideService {
 	private final GpsUtil gpsUtil;
 	private final RewardsService rewardsService;
 	private final UserService userService;
-	private final TripPricer tripPricer = new TripPricer();
+	private final TripPricer tripPricer;
 	private static final String tripPricerApiKey = "test-server-api-key";
 
 
 
 
-	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService) {
+	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService, TripPricer tripPricer) {
 		this.gpsUtil = gpsUtil;
 		this.rewardsService = rewardsService;
 		this.userService = userService;
+		this.tripPricer = tripPricer;
 	}
 
 
@@ -149,7 +150,7 @@ public class TourGuideService {
 					attraction.attractionName,
 					new Location(attraction.latitude, attraction.longitude),
 					userLocation,
-					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),
+					rewardsService.getDistance(userLocation, attraction),
 					rewardsService.getAttractionRewardPoints(attraction.attractionId, user.getUserId())
 			));
 		}

@@ -28,17 +28,18 @@ public class TourGuideService {
 	private final GpsUtil gpsUtil;
 	private final RewardsService rewardsService;
 	private final UserService userService;
-<span class="fc" id="L31">	private final TripPricer tripPricer = new TripPricer();</span>
+	private final TripPricer tripPricer;
 	private static final String tripPricerApiKey = &quot;test-server-api-key&quot;;
 
 
 
 
-<span class="fc" id="L37">	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService) {</span>
+<span class="fc" id="L37">	public TourGuideService(GpsUtil gpsUtil, RewardsService rewardsService, UserService userService, TripPricer tripPricer) {</span>
 <span class="fc" id="L38">		this.gpsUtil = gpsUtil;</span>
 <span class="fc" id="L39">		this.rewardsService = rewardsService;</span>
 <span class="fc" id="L40">		this.userService = userService;</span>
-<span class="fc" id="L41">	}</span>
+<span class="fc" id="L41">		this.tripPricer = tripPricer;</span>
+<span class="fc" id="L42">	}</span>
 
 
 
@@ -54,16 +55,16 @@ public class TourGuideService {
 	 */
 	public Attraction getAttractionByName(String attractionName) throws NotExistingAttractionException {
 
-<span class="fc" id="L57">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+<span class="fc" id="L58">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
 
-<span class="fc bfc" id="L59" title="All 2 branches covered.">		for (Attraction attraction : attractions) {</span>
-<span class="fc bfc" id="L60" title="All 2 branches covered.">			if (attraction.attractionName.equals(attractionName)) {</span>
-<span class="fc" id="L61">				log.info(attractionName + &quot;'s objet returned from getAttractionByName&quot;);</span>
-<span class="fc" id="L62">				return attraction;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">		for (Attraction attraction : attractions) {</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">			if (attraction.attractionName.equals(attractionName)) {</span>
+<span class="fc" id="L62">				log.info(attractionName + &quot;'s objet returned from getAttractionByName&quot;);</span>
+<span class="fc" id="L63">				return attraction;</span>
 			}
-<span class="fc" id="L64">		}</span>
-<span class="fc" id="L65">		log.error(&quot;getAttractionByName throw NotExistingAttractionException for &quot; + attractionName);</span>
-<span class="fc" id="L66">		throw new NotExistingAttractionException(attractionName);</span>
+<span class="fc" id="L65">		}</span>
+<span class="fc" id="L66">		log.error(&quot;getAttractionByName throw NotExistingAttractionException for &quot; + attractionName);</span>
+<span class="fc" id="L67">		throw new NotExistingAttractionException(attractionName);</span>
 	}
 
 
@@ -83,24 +84,24 @@ public class TourGuideService {
 	 */
 	public List&lt;Provider&gt; getTripDeals(String userName, String attractionName) throws NotExistingAttractionException, NotExistingUserException {
 
-<span class="fc" id="L86">		User user = userService.getUser(userName);</span>
-<span class="fc" id="L87">		Attraction attraction = getAttractionByName(attractionName);</span>
-<span class="fc" id="L88">		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();</span>
-<span class="fc" id="L89">		List&lt;Provider&gt; providers = tripPricer.getPrice(tripPricerApiKey,</span>
+<span class="fc" id="L87">		User user = userService.getUser(userName);</span>
+<span class="fc" id="L88">		Attraction attraction = getAttractionByName(attractionName);</span>
+<span class="fc" id="L89">		int cumulativeRewardPoints = user.getUserRewards().stream().mapToInt(UserReward::getRewardPoints).sum();</span>
+<span class="fc" id="L90">		List&lt;Provider&gt; providers = tripPricer.getPrice(tripPricerApiKey,</span>
 				attraction.attractionId,
-<span class="fc" id="L91">				user.getUserPreferences().getNumberOfAdults(),</span>
-<span class="fc" id="L92">				user.getUserPreferences().getNumberOfChildren(),</span>
-<span class="fc" id="L93">				user.getUserPreferences().getTripDuration(),</span>
+<span class="fc" id="L92">				user.getUserPreferences().getNumberOfAdults(),</span>
+<span class="fc" id="L93">				user.getUserPreferences().getNumberOfChildren(),</span>
+<span class="fc" id="L94">				user.getUserPreferences().getTripDuration(),</span>
 				cumulativeRewardPoints);
 		// filter providers by price range
-<span class="fc" id="L96">		List&lt;Provider&gt; filteredProviders = providers.stream()</span>
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">				.filter(provider -&gt; provider.price &gt;= user.getUserPreferences().getLowerPricePoint().getNumber().doubleValue()</span>
-<span class="pc bpc" id="L98" title="1 of 2 branches missed.">						&amp;&amp; provider.price &lt;= user.getUserPreferences().getHighPricePoint().getNumber().doubleValue())</span>
-<span class="fc" id="L99">				.collect(Collectors.toList());</span>
+<span class="fc" id="L97">		List&lt;Provider&gt; filteredProviders = providers.stream()</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">				.filter(provider -&gt; provider.price &gt;= user.getUserPreferences().getLowerPricePoint().getNumber().doubleValue()</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">						&amp;&amp; provider.price &lt;= user.getUserPreferences().getHighPricePoint().getNumber().doubleValue())</span>
+<span class="fc" id="L100">				.collect(Collectors.toList());</span>
 
-<span class="fc" id="L101">		user.setTripDeals(filteredProviders);</span>
-<span class="fc" id="L102">		log.info(&quot;Provider List returned from getTripDeals with &quot; + userName + &quot; and &quot; + attractionName);</span>
-<span class="fc" id="L103">		return filteredProviders;</span>
+<span class="fc" id="L102">		user.setTripDeals(filteredProviders);</span>
+<span class="fc" id="L103">		log.info(&quot;Provider List returned from getTripDeals with &quot; + userName + &quot; and &quot; + attractionName);</span>
+<span class="fc" id="L104">		return filteredProviders;</span>
 	}
 
 
@@ -115,13 +116,13 @@ public class TourGuideService {
 	 */
 	public List&lt;Attraction&gt; getNearByAttractions(VisitedLocation visitedLocation) {
 
-<span class="fc" id="L118">		log.info(&quot;getNearByAttractions returned a list of the 5 nearest attractions&quot;);</span>
-<span class="fc" id="L119">		return gpsUtil.getAttractions().parallelStream()</span>
-<span class="fc" id="L120">				.sorted((a1, a2) -&gt; Double.compare(</span>
-<span class="fc" id="L121">						rewardsService.getDistance(visitedLocation.location, a1),</span>
-<span class="fc" id="L122">						rewardsService.getDistance(visitedLocation.location, a2)))</span>
-<span class="fc" id="L123">				.limit(5)</span>
-<span class="fc" id="L124">				.collect(Collectors.toList());</span>
+<span class="fc" id="L119">		log.info(&quot;getNearByAttractions returned a list of the 5 nearest attractions&quot;);</span>
+<span class="fc" id="L120">		return gpsUtil.getAttractions().parallelStream()</span>
+<span class="fc" id="L121">				.sorted((a1, a2) -&gt; Double.compare(</span>
+<span class="fc" id="L122">						rewardsService.getDistance(visitedLocation.location, a1),</span>
+<span class="fc" id="L123">						rewardsService.getDistance(visitedLocation.location, a2)))</span>
+<span class="fc" id="L124">				.limit(5)</span>
+<span class="fc" id="L125">				.collect(Collectors.toList());</span>
 	}
 
 
@@ -139,22 +140,22 @@ public class TourGuideService {
 	 */
 	public List&lt;ClosestAttractionDto&gt; getClosestAttractionDtoList(String userName) throws NotExistingUserException {
 
-<span class="fc" id="L142">		User user = userService.getUser(userName);</span>
-<span class="fc" id="L143">		Location userLocation = user.getLastVisitedLocation().location;</span>
-<span class="fc" id="L144">		List&lt;Attraction&gt; closestAttractions = new ArrayList&lt;&gt;(getNearByAttractions(user.getLastVisitedLocation()));</span>
-<span class="fc" id="L145">		List&lt;ClosestAttractionDto&gt; closestAttractionDtoList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L143">		User user = userService.getUser(userName);</span>
+<span class="fc" id="L144">		Location userLocation = user.getLastVisitedLocation().location;</span>
+<span class="fc" id="L145">		List&lt;Attraction&gt; closestAttractions = new ArrayList&lt;&gt;(getNearByAttractions(user.getLastVisitedLocation()));</span>
+<span class="fc" id="L146">		List&lt;ClosestAttractionDto&gt; closestAttractionDtoList = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L147" title="All 2 branches covered.">		for (Attraction attraction : closestAttractions) {</span>
-<span class="fc" id="L148">			closestAttractionDtoList.add(new ClosestAttractionDto(</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">		for (Attraction attraction : closestAttractions) {</span>
+<span class="fc" id="L149">			closestAttractionDtoList.add(new ClosestAttractionDto(</span>
 					attraction.attractionName,
 					new Location(attraction.latitude, attraction.longitude),
 					userLocation,
-<span class="fc" id="L152">					rewardsService.getDistance(userLocation, new Location(attraction.latitude, attraction.longitude)),</span>
-<span class="fc" id="L153">					rewardsService.getAttractionRewardPoints(attraction.attractionId, user.getUserId())</span>
+<span class="fc" id="L153">					rewardsService.getDistance(userLocation, attraction),</span>
+<span class="fc" id="L154">					rewardsService.getAttractionRewardPoints(attraction.attractionId, user.getUserId())</span>
 			));
-<span class="fc" id="L155">		}</span>
-<span class="fc" id="L156">		log.info(&quot;getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from &quot; + userName);</span>
-<span class="fc" id="L157">		return closestAttractionDtoList;</span>
+<span class="fc" id="L156">		}</span>
+<span class="fc" id="L157">		log.info(&quot;getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from &quot; + userName);</span>
+<span class="fc" id="L158">		return closestAttractionDtoList;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

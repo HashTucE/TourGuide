@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.LocationServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-22T15:10:40" hostname="iMac.local" time="0.027">
+<testsuite name="tourGuide.service.LocationServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-22T17:04:18" hostname="iMac.local" time="0.011">
   <properties/>
-  <testcase name="testGetUserLocation()" classname="tourGuide.service.LocationServiceTest" time="0.018"/>
+  <testcase name="testGetUserLocation()" classname="tourGuide.service.LocationServiceTest" time="0.001"/>
   <testcase name="testGetAllCurrentLocations()" classname="tourGuide.service.LocationServiceTest" time="0.002"/>
   <testcase name="trackUserLocation_invalidUser_exceptionThrown()" classname="tourGuide.service.LocationServiceTest" time="0.002"/>
-  <testcase name="trackUserLocation_validUser_locationTracked()" classname="tourGuide.service.LocationServiceTest" time="0.003"/>
-  <system-out><![CDATA[2023-01-22T16:10:40.482+01:00  INFO 5507 --- [    Test worker] tourGuide.service.LocationService        : VisitedLocation returned by getUserLocation with a
-2023-01-22T16:10:40.485+01:00  INFO 5507 --- [    Test worker] tourGuide.service.LocationService        : All users location returned by getAllCurrentLocations
-2023-01-22T16:10:40.487+01:00  INFO 5507 --- [    Test worker] tourGuide.service.LocationService        : VisitedLocation returned by trackUserLocation
-2023-01-22T16:10:40.490+01:00  INFO 5507 --- [    Test worker] tourGuide.service.LocationService        : VisitedLocation returned by trackUserLocation
+  <testcase name="trackUserLocation_validUser_locationTracked()" classname="tourGuide.service.LocationServiceTest" time="0.004"/>
+  <system-out><![CDATA[2023-01-22T18:04:18.359+01:00  INFO 7233 --- [    Test worker] tourGuide.service.LocationService        : VisitedLocation returned by getUserLocation with a
+2023-01-22T18:04:18.362+01:00  INFO 7233 --- [    Test worker] tourGuide.service.LocationService        : All users location returned by getAllCurrentLocations
+2023-01-22T18:04:18.364+01:00  INFO 7233 --- [    Test worker] tourGuide.service.LocationService        : VisitedLocation returned by trackUserLocation
+2023-01-22T18:04:18.368+01:00  INFO 7233 --- [    Test worker] tourGuide.service.LocationService        : VisitedLocation returned by trackUserLocation
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

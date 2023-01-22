@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.controller.LocationControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-22T15:10:37" hostname="iMac.local" time="0.365">
+<testsuite name="tourGuide.controller.LocationControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-22T17:04:18" hostname="iMac.local" time="0.061">
   <properties/>
-  <testcase name="testGetAllCurrentLocations()" classname="tourGuide.controller.LocationControllerTest" time="0.316"/>
-  <testcase name="testGetLocation_Positive()" classname="tourGuide.controller.LocationControllerTest" time="0.01"/>
-  <testcase name="testGetLocation_Negative()" classname="tourGuide.controller.LocationControllerTest" time="0.007"/>
-  <system-out><![CDATA[2023-01-22T16:10:37.618+01:00  INFO 5507 --- [    Test worker] t.controller.LocationController          : GET request received to /getAllCurrentLocations
-2023-01-22T16:10:37.658+01:00  INFO 5507 --- [    Test worker] t.controller.LocationController          : GET request received to /getLocation
-2023-01-22T16:10:37.670+01:00  INFO 5507 --- [    Test worker] t.controller.LocationController          : GET request received to /getLocation
+  <testcase name="testGetAllCurrentLocations()" classname="tourGuide.controller.LocationControllerTest" time="0.05"/>
+  <testcase name="testGetLocation_Positive()" classname="tourGuide.controller.LocationControllerTest" time="0.005"/>
+  <testcase name="testGetLocation_Negative()" classname="tourGuide.controller.LocationControllerTest" time="0.004"/>
+  <system-out><![CDATA[2023-01-22T18:04:18.239+01:00  INFO 7233 --- [    Test worker] t.controller.LocationController          : GET request received to /getAllCurrentLocations
+2023-01-22T18:04:18.244+01:00  INFO 7233 --- [    Test worker] t.controller.LocationController          : GET request received to /getLocation
+2023-01-22T18:04:18.250+01:00  INFO 7233 --- [    Test worker] t.controller.LocationController          : GET request received to /getLocation
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

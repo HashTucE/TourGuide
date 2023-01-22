@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.597s</div>
+<div class="counter">2.240s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">getNearbyAttractionsIT()</td>
-<td class="success">1.547s</td>
+<td class="success">2.169s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTripDealsIT()</td>
-<td class="success">0.044s</td>
+<td class="success">0.064s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">indexIT()</td>
-<td class="success">0.006s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,217 +97,209 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-01-22T16:10:38.652+01:00  INFO 5507 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.integration.TourGuideIT]: TourGuideIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-01-22T16:10:38.655+01:00  INFO 5507 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.integration.TourGuideIT
-2023-01-22T16:10:38.662+01:00  INFO 5507 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getNearbyAttractions
-2023-01-22T16:10:38.663+01:00  INFO 5507 --- [    Test worker] tourGuide.service.UserService            : internalUser0 returned by getUser
-2023-01-22T16:10:38.663+01:00  INFO 5507 --- [    Test worker] tourGuide.service.TourGuideService       : getNearByAttractions returned a list of the 5 nearest attractions
-2023-01-22T16:10:38.678+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.679+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.680+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.681+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.682+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.683+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.684+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.685+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.686+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:38.686+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
-2023-01-22T16:10:39.041+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:39.041+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
-2023-01-22T16:10:39.263+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:39.263+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
-2023-01-22T16:10:39.368+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:39.368+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
-2023-01-22T16:10:39.690+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
-2023-01-22T16:10:39.690+01:00  INFO 5507 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
-2023-01-22T16:10:40.199+01:00  INFO 5507 --- [    Test worker] tourGuide.service.TourGuideService       : getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from internalUser0
-2023-01-22T16:10:40.210+01:00  INFO 5507 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getTripDeals
-2023-01-22T16:10:40.210+01:00  INFO 5507 --- [    Test worker] tourGuide.service.UserService            : internalUser0 returned by getUser
-2023-01-22T16:10:40.223+01:00  INFO 5507 --- [    Test worker] tourGuide.service.TourGuideService       : Disneyland's objet returned from getAttractionByName
-2023-01-22T16:10:40.245+01:00  INFO 5507 --- [    Test worker] tourGuide.service.TourGuideService       : Provider List returned from getTripDeals with internalUser0 and Disneyland
-2023-01-22T16:10:40.256+01:00  INFO 5507 --- [    Test worker] t.controller.TourGuideController         : GET request received to /
+<pre>2023-01-22T18:04:15.415+01:00  INFO 7233 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [tourGuide.integration.TourGuideIT]: TourGuideIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-01-22T18:04:15.417+01:00  INFO 7233 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.integration.TourGuideIT
+2023-01-22T18:04:15.425+01:00  INFO 7233 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getNearbyAttractions
+2023-01-22T18:04:15.425+01:00  INFO 7233 --- [    Test worker] tourGuide.service.UserService            : internalUser0 returned by getUser
+2023-01-22T18:04:15.425+01:00  INFO 7233 --- [    Test worker] tourGuide.service.TourGuideService       : getNearByAttractions returned a list of the 5 nearest attractions
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.441+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.442+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.444+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.445+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.446+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:15.446+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
+2023-01-22T18:04:16.225+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:16.226+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
+2023-01-22T18:04:16.728+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:16.729+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
+2023-01-22T18:04:16.961+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:16.961+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
+2023-01-22T18:04:17.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getDistance called
+2023-01-22T18:04:17.443+01:00  INFO 7233 --- [    Test worker] tourGuide.service.RewardsService         : getAttractionRewardPoints called from RewardsService
+2023-01-22T18:04:17.584+01:00  INFO 7233 --- [    Test worker] tourGuide.service.TourGuideService       : getClosestAttractionDtoList returned the list of the 5 ClosestAttractionDto from internalUser0
+2023-01-22T18:04:17.595+01:00  INFO 7233 --- [    Test worker] t.controller.TourGuideController         : GET request received to /getTripDeals
+2023-01-22T18:04:17.595+01:00  INFO 7233 --- [    Test worker] tourGuide.service.UserService            : internalUser0 returned by getUser
+2023-01-22T18:04:17.606+01:00  INFO 7233 --- [    Test worker] tourGuide.service.TourGuideService       : Disneyland's objet returned from getAttractionByName
+2023-01-22T18:04:17.649+01:00  INFO 7233 --- [    Test worker] tourGuide.service.TourGuideService       : Provider List returned from getTripDeals with internalUser0 and Disneyland
+2023-01-22T18:04:17.661+01:00  INFO 7233 --- [    Test worker] t.controller.TourGuideController         : GET request received to /
 </pre>
 </span>
 </div>
@@ -319,7 +311,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6</a> at 22 janv. 2023, 16:10:40</p>
+<a href="http://www.gradle.org">Gradle 7.6</a> at 22 janv. 2023, 18:04:18</p>
 </div>
 </div>
 </body>
