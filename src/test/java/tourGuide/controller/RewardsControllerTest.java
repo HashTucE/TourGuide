@@ -1,5 +1,6 @@
 package tourGuide.controller;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -34,7 +35,8 @@ public class RewardsControllerTest {
 
 
     @Test
-    public void testGetRewards_Positive() throws NotExistingUserException {
+    @DisplayName("should return the user rewards list")
+    public void getRewardsTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "a";
@@ -53,7 +55,8 @@ public class RewardsControllerTest {
 
 
     @Test
-    public void testGetRewards_Negative() throws NotExistingUserException {
+    @DisplayName("should throw exception when username invalid")
+    public void getRewardsNegativeTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "a";

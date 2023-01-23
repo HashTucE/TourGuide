@@ -39,8 +39,8 @@ public class RewardsService {
 
 
 	public void setProximityBuffer(int proximityBuffer) {
-<span class="nc" id="L42">		this.proximityBuffer = proximityBuffer;</span>
-<span class="nc" id="L43">	}</span>
+<span class="fc" id="L42">		this.proximityBuffer = proximityBuffer;</span>
+<span class="fc" id="L43">	}</span>
 
 
 
@@ -51,8 +51,8 @@ public class RewardsService {
 	 */
 	public List&lt;UserReward&gt; getUserRewards(User user) {
 
-<span class="nc" id="L54">		log.info(&quot;List of UserReward returned by getUserRewards with &quot; + user.getUserName());</span>
-<span class="nc" id="L55">		return user.getUserRewards();</span>
+<span class="fc" id="L54">		log.info(&quot;List of UserReward returned by getUserRewards with &quot; + user.getUserName());</span>
+<span class="fc" id="L55">		return user.getUserRewards();</span>
 	}
 
 
@@ -81,7 +81,7 @@ public class RewardsService {
 			// For each attraction, create a future task to calculate the user's rewards for that attraction
 <span class="fc" id="L82">			CompletableFuture&lt;Void&gt; future = CompletableFuture.runAsync(() -&gt; {</span>
 <span class="fc bfc" id="L83" title="All 2 branches covered.">				for (VisitedLocation visitedLocation : user.getVisitedLocations()) {</span>
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">					if(user.getUserRewards().stream().noneMatch(r -&gt; r.attraction.attractionName.equals(attraction.attractionName))) {</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">					if(user.getUserRewards().stream().noneMatch(r -&gt; r.attraction.attractionName.equals(attraction.attractionName))) {</span>
 <span class="fc bfc" id="L85" title="All 2 branches covered.">						if (nearAttraction(visitedLocation, attraction)) {</span>
 <span class="fc" id="L86">							int points = getRewardPoints(attraction, user);</span>
 							// Synchronize the user object using the global lock
@@ -166,8 +166,8 @@ public class RewardsService {
 	 */
 	public int getAttractionRewardPoints(UUID attractionId, UUID userId) {
 
-<span class="nc" id="L169">		log.info(&quot;getAttractionRewardPoints called from RewardsService&quot;);</span>
-<span class="nc" id="L170">		return rewardsCentral.getAttractionRewardPoints(attractionId, userId);</span>
+<span class="fc" id="L169">		log.info(&quot;getAttractionRewardPoints called from RewardsService&quot;);</span>
+<span class="fc" id="L170">		return rewardsCentral.getAttractionRewardPoints(attractionId, userId);</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

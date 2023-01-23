@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.controller.RewardsControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:54" hostname="iMac.local" time="0.059">
+  <properties/>
+  <testcase name="should throw exception when username invalid" classname="tourGuide.controller.RewardsControllerTest" time="0.054"/>
+  <testcase name="should return the user rewards list" classname="tourGuide.controller.RewardsControllerTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

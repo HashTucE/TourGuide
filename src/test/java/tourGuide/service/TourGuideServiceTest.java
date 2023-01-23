@@ -6,6 +6,7 @@ import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
 import org.javamoney.moneta.Money;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -49,7 +50,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void testGetAttractionByName_validAttractionName_returnsAttraction() throws NotExistingAttractionException {
+    @DisplayName("should return an attraction when the input is valid")
+    public void getAttractionByNameTest() throws NotExistingAttractionException {
 
         // Arrange
         List<Attraction> attractions = Arrays.asList(
@@ -68,7 +70,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void testGetAttractionByName_InvalidAttractionName_throwsNotExistingAttractionException() {
+    @DisplayName("should throw NotExistingAttractionException when the input is invalid")
+    public void getAttractionByNameNegativeTest() {
 
         // Arrange
         List<Attraction> attractions = Arrays.asList(
@@ -85,7 +88,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void getTripDeals_WhenValidInputs_ShouldReturnFilteredProviders() throws NotExistingAttractionException, NotExistingUserException {
+    @DisplayName("should return filtered providers when inputs are valid")
+    public void getTripDealsTest() throws NotExistingAttractionException, NotExistingUserException {
 
         // Arrange
         String userName = "testUser";
@@ -120,7 +124,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void getTripDeals_WhenInvalidAttraction_ShouldThrowNotExistingAttractionException() throws NotExistingUserException, NotExistingAttractionException {
+    @DisplayName("should throw NotExistingAttractionException when attraction name is invalid")
+    public void getTripDealsNegativeTest() throws NotExistingUserException, NotExistingAttractionException {
 
         // Arrange
         String userName = "testUser";
@@ -136,7 +141,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void getTripDeals_WhenInvalidUser_ShouldThrowNotExistingUserException() throws NotExistingUserException {
+    @DisplayName("should throw NotExistingUserException when user name is invalid")
+    public void getTripDealsNegativeTest2() throws NotExistingUserException {
 
         // Arrange
         String userName = "testUser";
@@ -152,7 +158,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void testGetNearByAttractions_validVisitedLocation_returnsSortedAttractions() {
+    @DisplayName("should return an ordered list of attractions by distance")
+    public void getNearByAttractionsTest() {
 
         // Arrange
         Attraction attraction1 = new Attraction("attraction1", "a", "a", 0.0, 0.0);
@@ -188,7 +195,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void testGetClosestAttractionDtoList_validInput() throws NotExistingUserException {
+    @DisplayName("should return a list of ClosestAttractionDto when inputs are valid")
+    public void getClosestAttractionDtoListTest() throws NotExistingUserException {
 
         // Arrange
         User user = new User(UUID.randomUUID(), "userTest", "a", "a");
@@ -223,7 +231,8 @@ public class TourGuideServiceTest {
 
 
     @Test
-    public void testGetClosestAttractionDtoList_invalidInput() throws NotExistingUserException {
+    @DisplayName("should throw NotExistingUserException when user name is invalid")
+    public void getClosestAttractionDtoListNegativeTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "InvalidUser";

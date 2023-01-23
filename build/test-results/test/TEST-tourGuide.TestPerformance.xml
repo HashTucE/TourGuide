@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.TestPerformance" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-22T20:52:59" hostname="iMac.local" time="825.92">
+<testsuite name="tourGuide.TestPerformance" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:52" hostname="iMac.local" time="1.51">
   <properties/>
-  <testcase name="Up to 100000 users track location tested in less than 15 minutes" classname="tourGuide.TestPerformance" time="104.902"/>
-  <testcase name="Up to 100000 users get rewards tested in less than 20 minutes" classname="tourGuide.TestPerformance" time="721.014"/>
-  <system-out><![CDATA[21:52:46.664 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [TestPerformance]: using SpringBootContextLoader
-21:52:46.733 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.TestPerformance]: no resource found for suffixes {-context.xml, Context.groovy}.
-21:52:46.744 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.TestPerformance]: TestPerformance does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:52:46.831 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [TestPerformance]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-21:52:47.566 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/hashtuce/Library/Mobile Documents/com~apple~CloudDocs/Projets/Projet 8/TourGuide/build/classes/java/main/tourGuide/Application.class]
-21:52:47.569 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestPerformance
-21:52:48.425 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-21:52:48.431 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-21:52:48.473 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [TestPerformance]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-21:52:48.487 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [TestPerformance], class annotated with @DirtiesContext [false] with mode [null]
-
+  <testcase name="Up to 100000 users track location tested in less than 15 minutes" classname="tourGuide.TestPerformance" time="0.194"/>
+  <testcase name="Up to 100000 users get rewards tested in less than 20 minutes" classname="tourGuide.TestPerformance" time="1.314"/>
+  <system-out><![CDATA[
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -32,8 +22,8 @@
  =================================================
  :: APP ::                                (v1.0.0)
  
-100000 users tracked correctly
-highVolumeTrackLocation: Time Elapsed: 99 seconds.
+100 users tracked correctly
+highVolumeTrackLocation: Time Elapsed: 0 seconds.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

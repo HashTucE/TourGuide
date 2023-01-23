@@ -1,6 +1,7 @@
 package tourGuide.controller;
 
 import gpsUtil.location.Location;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,7 +34,8 @@ public class TourGuideControllerTest {
 
 
     @Test
-    public void testIndex_Positive() {
+    @DisplayName("should assert equal when compare to same message")
+    public void indextest() {
 
         // Arrange
         String expectedResponse = "Greetings from TourGuide!";
@@ -47,7 +49,8 @@ public class TourGuideControllerTest {
 
 
     @Test
-    public void testIndex_Negative() {
+    @DisplayName("should assert not equal when compare to other message")
+    public void indexTest2() {
 
         // Arrange
         String expectedResponse = "Welcome to TourGuide!";
@@ -61,6 +64,7 @@ public class TourGuideControllerTest {
 
 
     @Test
+    @DisplayName("should assert equal when compare to other message")
     public void testGetNearbyAttractions_Positive() throws NotExistingUserException {
 
         // Arrange
@@ -84,7 +88,8 @@ public class TourGuideControllerTest {
 
 
     @Test
-    public void testGetNearbyAttractions_Negative() throws NotExistingUserException {
+    @DisplayName("should throw exception when username invalid")
+    public void getNearbyAttractionsNegativeTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "invalid";
@@ -97,7 +102,8 @@ public class TourGuideControllerTest {
 
 
     @Test
-    public void testGetTripDeals_Positive() throws NotExistingAttractionException, NotExistingUserException {
+    @DisplayName("should return providers list")
+    public void getTripDealsTest() throws NotExistingAttractionException, NotExistingUserException {
 
         // Arrange
         String userName = "a";
@@ -119,7 +125,8 @@ public class TourGuideControllerTest {
 
 
     @Test
-    public void testGetTripDeals_Negative() throws NotExistingAttractionException, NotExistingUserException {
+    @DisplayName("should throw exception when username invalid")
+    public void getTripDealsNegativeTest() throws NotExistingAttractionException, NotExistingUserException {
         // Arrange
         String userName = "a";
         String attractionName = "b";
@@ -131,7 +138,8 @@ public class TourGuideControllerTest {
 
 
     @Test
-    public void testGetTripDeals_Negative2() throws NotExistingAttractionException, NotExistingUserException {
+    @DisplayName("should throw exception when attraction name invalid")
+    public void getTripDealsNegativeTest2() throws NotExistingAttractionException, NotExistingUserException {
         // Arrange
         String userName = "a";
         String attractionName = "b";

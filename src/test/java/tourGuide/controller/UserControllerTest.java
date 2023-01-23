@@ -1,5 +1,6 @@
 package tourGuide.controller;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -29,7 +30,8 @@ public class UserControllerTest {
 
 
     @Test
-    public void getUserPreferences_validInput_returnsUserPreferences() throws NotExistingUserException {
+    @DisplayName("should return user preferences when valid input")
+    public void getUserPreferencesTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "john";
@@ -45,7 +47,8 @@ public class UserControllerTest {
 
 
     @Test
-    public void getUserPreferences_invalidInput_throwsNotExistingUserException() throws NotExistingUserException {
+    @DisplayName("should throw NotExistingUserException when username is invalid")
+    public void getUserPreferencesNegativeTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "unknown";
@@ -58,7 +61,8 @@ public class UserControllerTest {
 
 
     @Test
-    public void updateUserPreferences_validInput_returnsSuccessResponse() throws NotExistingUserException {
+    @DisplayName("should return success response when valid input")
+    public void updateUserPreferencesTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "a";
@@ -75,7 +79,8 @@ public class UserControllerTest {
 
 
     @Test
-    public void updateUserPreferences_invalidInput_throwsNotExistingUserException() throws NotExistingUserException {
+    @DisplayName("should throw NotExistingUserException when invalid username")
+    public void updateUserPreferencesNegativeTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "unknown";

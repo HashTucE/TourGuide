@@ -3,6 +3,7 @@ package tourGuide.service;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,7 +34,8 @@ public class LocationServiceTest {
 
 
     @Test
-    public void trackUserLocation_validUser_locationTracked() throws ExecutionException, InterruptedException {
+    @DisplayName("should track location for valid user")
+    public void trackUserLocationTest() throws ExecutionException, InterruptedException {
 
         // Arrange
         UUID id = new UUID(12312, 12312);
@@ -53,7 +55,8 @@ public class LocationServiceTest {
 
 
     @Test
-    public void trackUserLocation_invalidUser_exceptionThrown() {
+    @DisplayName("should throw execution exception when user is invalid")
+    public void trackUserLocationNegativeTest() {
 
         // Arrange
         User user = null;
@@ -67,7 +70,8 @@ public class LocationServiceTest {
 
 
     @Test
-    public void testGetUserLocation() {
+    @DisplayName("should return user's location")
+    public void getUserLocationTest() {
 
         // Arrange
         UUID id = new UUID(12312, 12312);
@@ -89,7 +93,8 @@ public class LocationServiceTest {
 
 
     @Test
-    public void testGetAllCurrentLocations() {
+    @DisplayName("should return all current locations of all users")
+    public void getAllCurrentLocationsTest() {
 
         // Arrange
         UUID id = new UUID(1231, 1231);

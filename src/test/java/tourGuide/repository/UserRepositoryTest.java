@@ -1,5 +1,6 @@
 package tourGuide.repository;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,7 +25,9 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateUserLocationHistory_validUser_addsVisitedLocation() {
+    @DisplayName("should assert size of visited location history equal 3")
+    public void generateUserLocationHistoryTest() {
+
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
         int expectedVisitedLocation = 3;
@@ -39,7 +42,8 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateRandomLongitude_returnsRandomDoubleInRange() {
+    @DisplayName("should return a random longitude in range")
+    public void generateRandomLongitudeTest() {
 
         // Act
         double result = userRepository.generateRandomLongitude();
@@ -50,7 +54,8 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateRandomLongitude_returnsDifferentValueEveryTimeCalled() {
+    @DisplayName("should return a different value every time called")
+    public void generateRandomLongitudeTest2() {
 
         // Act
         double firstResult = userRepository.generateRandomLongitude();
@@ -62,7 +67,8 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateRandomLatitude_returnsRandomDoubleInRange() {
+    @DisplayName("should return a random latitude in range")
+    public void generateRandomLatitudeTest() {
 
         // Act
         double result = userRepository.generateRandomLatitude();
@@ -73,7 +79,8 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void generateRandomLatitude_returnsDifferentValueEveryTimeCalled() {
+    @DisplayName("should return a different value every time called")
+    public void generateRandomLatitudeTest2() {
 
         // Act
         double firstResult = userRepository.generateRandomLatitude();
@@ -85,7 +92,8 @@ public class UserRepositoryTest {
 
 
     @Test
-    public void getRandomTime_returnsValidRandomDate() {
+    @DisplayName("should return valid random date")
+    public void getRandomTimeTest() {
 
         // Arrange
         // Act

@@ -1,5 +1,6 @@
 package tourGuide.service;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,7 +32,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void testGetUser_validInput() throws NotExistingUserException {
+    @DisplayName("should return a user when the input is valid")
+    public void getUserTest() throws NotExistingUserException {
 
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
@@ -47,7 +49,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void testGetUser_InvalidInput() {
+    @DisplayName("should throw exception when the input is invalid")
+    public void getUserNegativeTest() {
 
         // Arrange
         when(userRepository.getInternalUsersMap()).thenReturn(new HashMap<>());
@@ -59,7 +62,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void testGetAllUsers_withUsers() {
+    @DisplayName("should return a list of all users when there are users in the map")
+    public void getAllUsersTest() {
 
         // Arrange
         User user1 = new User(UUID.randomUUID(), "a", "a", "a");
@@ -85,7 +89,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void testGetAllUsers_withEmptyList() {
+    @DisplayName("should return an empty list when there are no users in the map")
+    public void getAllUsersNegativeTest() {
         // Arrange
         Map<String, User> userMap = new HashMap<>();
         when(userRepository.getInternalUsersMap()).thenReturn(userMap);
@@ -101,7 +106,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void addUser_withValidUser_addsUserToMap() {
+    @DisplayName("should add user to the map when given a valid user")
+    public void addUserTest() {
 
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
@@ -119,7 +125,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void addUser_withDuplicateUsername_doesNotAddUser() {
+    @DisplayName("should not add user to the map when given a user with duplicate username")
+    public void addUserNegativeTest() {
 
         // Arrange
         User user1 = new User(UUID.randomUUID(), "a", "a", "a");
@@ -139,7 +146,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void getUserPreferences_withValidUserName_returnsUserPreferences() throws NotExistingUserException {
+    @DisplayName("should return true if the user exists")
+    public void getUserPreferencesTest() throws NotExistingUserException {
         // Arrange
 
         UserPreferences userPreferences = new UserPreferences();
@@ -159,7 +167,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void getUserPreferences_withInvalidUserName_throwsException() {
+    @DisplayName("should return false if the user does not exist")
+    public void getUserPreferencesNegativeTest() {
 
         // Arrange
         Map<String, User> userMap = new HashMap<>();
@@ -174,7 +183,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void updateUserPreferences_withValidInput_updatesUserPreferences() throws NotExistingUserException {
+    @DisplayName("should update user information")
+    public void updateUserPreferencesTest() throws NotExistingUserException {
 
         // Arrange
         User user = new User(UUID.randomUUID(), "a", "a", "a");
@@ -206,7 +216,8 @@ public class UserServiceTest {
 
 
     @Test
-    public void updateUserPreferences_withInvalidUserName_throwsException() {
+    @DisplayName("should throw exception when updating a non-existing user")
+    public void updateUserPreferencesNegativeTest() {
 
         // Arrange
         UserPreferencesDto userPreferencesDto = new UserPreferencesDto();

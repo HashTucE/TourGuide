@@ -2,6 +2,7 @@ package tourGuide.controller;
 
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -34,7 +35,8 @@ public class LocationControllerTest {
     private LocationController locationController;
 
     @Test
-    public void testGetLocation_Positive() throws NotExistingUserException {
+    @DisplayName("should return the last visited location")
+    public void getLocationTest() throws NotExistingUserException {
 
         // Arrange
         UUID id = new UUID(12312, 12312);
@@ -56,7 +58,8 @@ public class LocationControllerTest {
 
 
     @Test
-    public void testGetLocation_Negative() throws NotExistingUserException {
+    @DisplayName("should throw exception when username invalid")
+    public void getLocationNegativeTest() throws NotExistingUserException {
 
         // Arrange
         String userName = "invalid";
@@ -69,7 +72,8 @@ public class LocationControllerTest {
 
 
     @Test
-    public void testGetAllCurrentLocations() {
+    @DisplayName("should return the users location")
+    public void getAllCurrentLocationsTest() {
 
         // Arrange
         UUID id = new UUID(12312, 12312);

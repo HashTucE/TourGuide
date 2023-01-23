@@ -1,5 +1,6 @@
 package tourGuide.controller;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -29,7 +30,8 @@ public class ExceptionHandlerControllerTest {
 
 
     @Test
-    public void handleValidationExceptions_ValidMethodArgumentNotValidException_ReturnsBadRequestWithErrorMessages() {
+    @DisplayName("when handle exception should return messages and status code")
+    public void handleValidationExceptionsTest() {
 
         //Arrange
         BindingResult bindingResult = new BindException(new Object(), "user");
@@ -52,7 +54,8 @@ public class ExceptionHandlerControllerTest {
 
 
     @Test
-    public void handleNotExistingUserException_validNotExistingUserException_returnsNotFound() {
+    @DisplayName("when handle exception should return message and status code")
+    public void handleNotExistingUserExceptionTest() {
 
         // Arrange
         NotExistingUserException exception = new NotExistingUserException("User");
@@ -67,7 +70,8 @@ public class ExceptionHandlerControllerTest {
 
 
     @Test
-    public void handleNotExistingAttractionException_validNotExistingAttractionException_returnsNotFound() {
+    @DisplayName("when handle exception should return message and status code")
+    public void handleNotExistingAttractionExceptionTest() {
 
         // Arrange
         NotExistingAttractionException exception = new NotExistingAttractionException("Attraction");

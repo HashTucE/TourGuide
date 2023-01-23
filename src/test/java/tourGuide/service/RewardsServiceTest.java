@@ -5,6 +5,7 @@ import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -38,7 +39,8 @@ public class RewardsServiceTest {
 
 
     @Test
-    public void testGetUserRewards() {
+    @DisplayName("should return the user rewards")
+    public void getUserRewardsTest() {
 
         // Arrange
         UUID id = new UUID(12312, 12312);
@@ -62,7 +64,8 @@ public class RewardsServiceTest {
 
 
     @Test
-    public void calculateRewards_shouldCalculateCorrectRewardsForUser() {
+    @DisplayName("calculate the rewards for a user")
+    public void calculateRewardsTest() {
 
         // Arrange
         User user = new User(UUID.randomUUID(), "userTest", "a", "a");
@@ -98,7 +101,8 @@ public class RewardsServiceTest {
 
 
     @Test
-    public void testNearAttraction_withinProximityBuffer() {
+    @DisplayName("should return true when proximity buffer")
+    public void nearAttractionTest() {
 
         // Arrange
         Location location = new Location(48.8584, 2.2945);
@@ -115,7 +119,8 @@ public class RewardsServiceTest {
     }
 
     @Test
-    public void testNearAttraction_outsideProximityBuffer() {
+    @DisplayName("should return false when not in proximity buffer")
+    public void nearAttractionNegativeTest() {
 
         // Arrange
         Location location = new Location(48.8584, 2.2945);
@@ -133,7 +138,8 @@ public class RewardsServiceTest {
 
 
     @Test
-    public void testGetRewardPoints() {
+    @DisplayName("should return the number of reward points for an attraction")
+    public void getRewardPointsTest() {
 
         // Arrange
         Attraction attraction = new Attraction("Eiffel Tower", "a", "a",48.8584, 2.2945);
@@ -152,7 +158,8 @@ public class RewardsServiceTest {
 
 
     @Test
-    public void testGetDistance() {
+    @DisplayName("should return the distance between two locations")
+    public void getDistanceTest() {
 
         // Arrange
         double latitude1 = 50.0;
@@ -171,12 +178,4 @@ public class RewardsServiceTest {
         // Assert
         assertEquals(expectedDistance, result, 0.01);
     }
-
-
-
-
-
-
-
-
 }
