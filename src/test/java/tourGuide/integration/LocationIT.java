@@ -15,6 +15,7 @@ import tourGuide.service.UserService;
 
 import java.util.Date;
 
+import static org.hamcrest.core.StringContains.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -70,6 +71,8 @@ public class LocationIT {
     public void getAllCurrentLocationsIT() throws Exception {
 
         mockMvc.perform(get("/getAllCurrentLocations"))
+                .andExpect(content().string(containsString("longitude")))
+                .andExpect(content().string(containsString("latitude")))
                 .andExpect(status().isOk());
     }
 }

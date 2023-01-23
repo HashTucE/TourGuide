@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.integration.LocationIT" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:54" hostname="iMac.local" time="0.076">
+<testsuite name="tourGuide.integration.LocationIT" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:15" hostname="iMac.local" time="0.25">
   <properties/>
-  <testcase name="getAllCurrentLocationsIT()" classname="tourGuide.integration.LocationIT" time="0.028"/>
-  <testcase name="getLocationIT()" classname="tourGuide.integration.LocationIT" time="0.028"/>
-  <testcase name="getLocationNegativeIT()" classname="tourGuide.integration.LocationIT" time="0.015"/>
-  <system-out><![CDATA[2023-01-23T17:49:54.813+01:00 ERROR 5097 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+  <testcase name="getAllCurrentLocationsIT()" classname="tourGuide.integration.LocationIT" time="0.199"/>
+  <testcase name="getLocationIT()" classname="tourGuide.integration.LocationIT" time="0.032"/>
+  <testcase name="getLocationNegativeIT()" classname="tourGuide.integration.LocationIT" time="0.016"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+ 
+  _______                _____       _     _      
+ |__   __|              / ____|     (_)   | |     
+    | | ___  _   _ _ __| |  __ _   _ _  __| | ___ 
+    | |/ _ \| | | | '__| | |_ | | | | |/ _` |/ _ \
+    | | (_) | |_| | |  | |__| | |_| | | (_| |  __/
+    |_|\___/ \__,_|_|   \_____|\__,_|_|\__,_|\___|
+ =================================================
+ :: APP ::                                (v1.0.0)
+ 
+2023-01-23T18:54:15.369+01:00 ERROR 6386 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

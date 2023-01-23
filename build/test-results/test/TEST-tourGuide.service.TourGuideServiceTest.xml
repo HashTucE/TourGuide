@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.TourGuideServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:57" hostname="iMac.local" time="0.081">
+<testsuite name="tourGuide.service.TourGuideServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:18" hostname="iMac.local" time="0.075">
   <properties/>
-  <testcase name="should return an ordered list of attractions by distance" classname="tourGuide.service.TourGuideServiceTest" time="0.039"/>
+  <testcase name="should return an ordered list of attractions by distance" classname="tourGuide.service.TourGuideServiceTest" time="0.032"/>
   <testcase name="should return an attraction when the input is valid" classname="tourGuide.service.TourGuideServiceTest" time="0.004"/>
   <testcase name="should throw NotExistingUserException when user name is invalid" classname="tourGuide.service.TourGuideServiceTest" time="0.006"/>
   <testcase name="should return a list of ClosestAttractionDto when inputs are valid" classname="tourGuide.service.TourGuideServiceTest" time="0.007"/>
-  <testcase name="should throw NotExistingAttractionException when attraction name is invalid" classname="tourGuide.service.TourGuideServiceTest" time="0.004"/>
+  <testcase name="should throw NotExistingAttractionException when attraction name is invalid" classname="tourGuide.service.TourGuideServiceTest" time="0.005"/>
   <testcase name="should throw NotExistingAttractionException when the input is invalid" classname="tourGuide.service.TourGuideServiceTest" time="0.004"/>
-  <testcase name="should return filtered providers when inputs are valid" classname="tourGuide.service.TourGuideServiceTest" time="0.005"/>
-  <testcase name="should throw NotExistingUserException when user name is invalid" classname="tourGuide.service.TourGuideServiceTest" time="0.004"/>
-  <system-out><![CDATA[2023-01-23T17:49:57.154+01:00 ERROR 5097 --- [    Test worker] tourGuide.service.TourGuideService       : getAttractionByName throw NotExistingAttractionException for Invalid Attraction
+  <testcase name="should return filtered providers when inputs are valid" classname="tourGuide.service.TourGuideServiceTest" time="0.008"/>
+  <testcase name="should throw NotExistingUserException when user name is invalid" classname="tourGuide.service.TourGuideServiceTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-23T18:54:18.131+01:00 ERROR 6386 --- [    Test worker] tourGuide.service.TourGuideService       : getAttractionByName throw NotExistingAttractionException for Invalid Attraction
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.integration.TourGuideIT" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:54" hostname="iMac.local" time="2.094">
+<testsuite name="tourGuide.integration.TourGuideIT" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:15" hostname="iMac.local" time="2.38">
   <properties/>
-  <testcase name="getNearbyAttractionsIT()" classname="tourGuide.integration.TourGuideIT" time="2.018"/>
-  <testcase name="getTripDealsIT()" classname="tourGuide.integration.TourGuideIT" time="0.069"/>
-  <testcase name="indexIT()" classname="tourGuide.integration.TourGuideIT" time="0.005"/>
+  <testcase name="getNearbyAttractionsIT()" classname="tourGuide.integration.TourGuideIT" time="2.345"/>
+  <testcase name="getTripDealsIT()" classname="tourGuide.integration.TourGuideIT" time="0.027"/>
+  <testcase name="indexIT()" classname="tourGuide.integration.TourGuideIT" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

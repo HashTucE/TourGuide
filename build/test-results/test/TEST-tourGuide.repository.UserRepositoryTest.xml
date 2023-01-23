@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.repository.UserRepositoryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:56" hostname="iMac.local" time="0.031">
+<testsuite name="tourGuide.repository.UserRepositoryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:17" hostname="iMac.local" time="0.027">
   <properties/>
-  <testcase name="should return a random longitude in range" classname="tourGuide.repository.UserRepositoryTest" time="0.006"/>
+  <testcase name="should return a random longitude in range" classname="tourGuide.repository.UserRepositoryTest" time="0.004"/>
   <testcase name="should assert size of visited location history equal 3" classname="tourGuide.repository.UserRepositoryTest" time="0.004"/>
-  <testcase name="should return a different value every time called" classname="tourGuide.repository.UserRepositoryTest" time="0.005"/>
+  <testcase name="should return a different value every time called" classname="tourGuide.repository.UserRepositoryTest" time="0.003"/>
   <testcase name="should return a different value every time called" classname="tourGuide.repository.UserRepositoryTest" time="0.004"/>
   <testcase name="should return valid random date" classname="tourGuide.repository.UserRepositoryTest" time="0.004"/>
-  <testcase name="should return a random latitude in range" classname="tourGuide.repository.UserRepositoryTest" time="0.004"/>
+  <testcase name="should return a random latitude in range" classname="tourGuide.repository.UserRepositoryTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

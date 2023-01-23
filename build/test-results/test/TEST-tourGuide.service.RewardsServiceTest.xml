@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.RewardsServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:57" hostname="iMac.local" time="0.046">
+<testsuite name="tourGuide.service.RewardsServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:18" hostname="iMac.local" time="0.036">
   <properties/>
-  <testcase name="should return the user rewards" classname="tourGuide.service.RewardsServiceTest" time="0.027"/>
+  <testcase name="should return the user rewards" classname="tourGuide.service.RewardsServiceTest" time="0.018"/>
   <testcase name="calculate the rewards for a user" classname="tourGuide.service.RewardsServiceTest" time="0.005"/>
-  <testcase name="should return the distance between two locations" classname="tourGuide.service.RewardsServiceTest" time="0.002"/>
+  <testcase name="should return the distance between two locations" classname="tourGuide.service.RewardsServiceTest" time="0.001"/>
   <testcase name="should return false when not in proximity buffer" classname="tourGuide.service.RewardsServiceTest" time="0.003"/>
   <testcase name="should return the number of reward points for an attraction" classname="tourGuide.service.RewardsServiceTest" time="0.003"/>
-  <testcase name="should return true when proximity buffer" classname="tourGuide.service.RewardsServiceTest" time="0.003"/>
+  <testcase name="should return true when proximity buffer" classname="tourGuide.service.RewardsServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

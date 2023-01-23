@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.service.UserServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:57" hostname="iMac.local" time="0.075">
+<testsuite name="tourGuide.service.UserServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:18" hostname="iMac.local" time="0.073">
   <properties/>
-  <testcase name="should return true if the user exists" classname="tourGuide.service.UserServiceTest" time="0.044"/>
-  <testcase name="should return an empty list when there are no users in the map" classname="tourGuide.service.UserServiceTest" time="0.002"/>
+  <testcase name="should return true if the user exists" classname="tourGuide.service.UserServiceTest" time="0.037"/>
+  <testcase name="should return an empty list when there are no users in the map" classname="tourGuide.service.UserServiceTest" time="0.003"/>
   <testcase name="should throw exception when the input is invalid" classname="tourGuide.service.UserServiceTest" time="0.003"/>
   <testcase name="should add user to the map when given a valid user" classname="tourGuide.service.UserServiceTest" time="0.003"/>
   <testcase name="should return a list of all users when there are users in the map" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="should return false if the user does not exist" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="should not add user to the map when given a user with duplicate username" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <testcase name="should update user information" classname="tourGuide.service.UserServiceTest" time="0.004"/>
-  <testcase name="should throw exception when updating a non-existing user" classname="tourGuide.service.UserServiceTest" time="0.003"/>
-  <testcase name="should return a user when the input is valid" classname="tourGuide.service.UserServiceTest" time="0.002"/>
-  <system-out><![CDATA[2023-01-23T17:49:57.220+01:00 ERROR 5097 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
-2023-01-23T17:49:57.228+01:00 ERROR 5097 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
-2023-01-23T17:49:57.241+01:00 ERROR 5097 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+  <testcase name="should return false if the user does not exist" classname="tourGuide.service.UserServiceTest" time="0.005"/>
+  <testcase name="should not add user to the map when given a user with duplicate username" classname="tourGuide.service.UserServiceTest" time="0.001"/>
+  <testcase name="should update user information" classname="tourGuide.service.UserServiceTest" time="0.003"/>
+  <testcase name="should throw exception when updating a non-existing user" classname="tourGuide.service.UserServiceTest" time="0.004"/>
+  <testcase name="should return a user when the input is valid" classname="tourGuide.service.UserServiceTest" time="0.003"/>
+  <system-out><![CDATA[2023-01-23T18:54:18.193+01:00 ERROR 6386 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-23T18:54:18.205+01:00 ERROR 6386 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
+2023-01-23T18:54:18.217+01:00 ERROR 6386 --- [    Test worker] tourGuide.service.UserService            : getUser called with wrong userName
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

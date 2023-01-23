@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.controller.TourGuideControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-23T16:49:54" hostname="iMac.local" time="0.053">
+<testsuite name="tourGuide.controller.TourGuideControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-23T17:54:14" hostname="iMac.local" time="0.052">
   <properties/>
-  <testcase name="should assert equal when compare to same message" classname="tourGuide.controller.TourGuideControllerTest" time="0.028"/>
+  <testcase name="should assert equal when compare to same message" classname="tourGuide.controller.TourGuideControllerTest" time="0.032"/>
   <testcase name="should throw exception when attraction name invalid" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
   <testcase name="should throw exception when username invalid" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
-  <testcase name="should assert not equal when compare to other message" classname="tourGuide.controller.TourGuideControllerTest" time="0.004"/>
-  <testcase name="should assert equal when compare to other message" classname="tourGuide.controller.TourGuideControllerTest" time="0.004"/>
-  <testcase name="should throw exception when username invalid" classname="tourGuide.controller.TourGuideControllerTest" time="0.004"/>
+  <testcase name="should assert not equal when compare to other message" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
+  <testcase name="should assert equal when compare to other message" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
+  <testcase name="should throw exception when username invalid" classname="tourGuide.controller.TourGuideControllerTest" time="0.003"/>
   <testcase name="should return providers list" classname="tourGuide.controller.TourGuideControllerTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

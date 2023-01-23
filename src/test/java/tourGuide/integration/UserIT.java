@@ -12,6 +12,7 @@ import tourGuide.dto.UserPreferencesDto;
 import tourGuide.repository.UserRepository;
 import tourGuide.service.UserService;
 
+import static org.hamcrest.core.StringContains.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -43,6 +44,11 @@ public class UserIT {
 
         mockMvc.perform(get("/getPreferences")
                         .param("userName", "internalUser0"))
+                .andExpect(content().string(containsString("lowerPricePoint")))
+                .andExpect(content().string(containsString("highPricePoint")))
+                .andExpect(content().string(containsString("tripDuration")))
+                .andExpect(content().string(containsString("numberOfAdults")))
+                .andExpect(content().string(containsString("numberOfChildren")))
                 .andExpect(status().isOk())
                 .andReturn();
 
