@@ -32,36 +32,36 @@ gradle bootRun
 
 This are additional tasks runnable from root project :
 
-Build tasks
------------
-assemble - Assembles the outputs of this project.
-bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
-build - Assembles and tests this project.
-clean - Deletes the build directory.
-jar - Assembles a jar archive containing the main classes.
+**Build tasks**
 
-Verification tasks
-------------------
-check - Runs all checks.
-jacocoTestCoverageVerification - Verifies code coverage metrics based on specified rules for the test task.
-jacocoTestReport - Generates code coverage report for the test task.
-test - Runs the test suite.
+- assemble - Assembles the outputs of this project.
+- bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+- build - Assembles and tests this project.
+- clean - Deletes the build directory.
+- jar - Assembles a jar archive containing the main classes.
+
+**Verification tasks**
+
+- check - Runs all checks.
+- jacocoTestCoverageVerification - Verifies code coverage metrics based on specified rules for the test task.
+- jacocoTestReport - Generates code coverage report for the test task.
+- test - Runs the test suite.
 
 
 # Requests
 
 - Install [Postman](https://www.postman.com/downloads/)
 
-Endpoints availables
---------------------
-GET : http://localhost:8080/
-GET : http://localhost:8080/getLocation?userName=
-GET : http://localhost:8080/getNearbyAttractions?userName=
-GET : http://localhost:8080/getRewards?userName=
-GET : http://localhost:8080/getAllCurrentLocations
-GET : http://localhost:8080/getTripDeals?userName=&attractionName=
-GET : http://localhost:8080/getPreferences?userName=
-PUT : http://localhost:8080/updatePreferences?userName=
+**Endpoints availables**
+
+- GET : http://localhost:8080/
+- GET : http://localhost:8080/getLocation?userName=
+- GET : http://localhost:8080/getNearbyAttractions?userName=
+- GET : http://localhost:8080/getRewards?userName=
+- GET : http://localhost:8080/getAllCurrentLocations
+- GET : http://localhost:8080/getTripDeals?userName=&attractionName=
+- GET : http://localhost:8080/getPreferences?userName=
+- PUT : http://localhost:8080/updatePreferences?userName=
 
 
 
@@ -75,4 +75,4 @@ PUT : http://localhost:8080/updatePreferences?userName=
 ![coverage](https://imagizer.imageshack.com/img923/108/tD7ULZ.png)
 
 # Technology Stack
-![stack](https://imagizer.imageshack.com/img922/9745/x74LNi.png)
+![stack](https://imagizer.imageshack.com/img922/1429/n2bAFu.png)
