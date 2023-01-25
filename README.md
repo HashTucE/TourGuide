@@ -1,7 +1,7 @@
 # TourGuide
 
 <p align="center">
-  <img src=https://user-images.githubusercontent.com/95872501/208905875-1a8da33a-dc57-4ddc-9342-e7e6ab9bbb8d.png>
+  <img src=https://imagizer.imageshack.com/img923/5501/26aD16.png>
 </p>
 
 TourGuide is an application for tourists. It takes advantage of GPS location to allow its users to discover nearby attractions. It also incorporates a system that rewards visitors with points redeemable for discounts on tourism players.
@@ -14,50 +14,65 @@ Touristic API with the following features :
 - Establish the list of 5 provider offers taking into account user preferences
 
 # Prerequisites
+
 - Java 19
 - Gradle 7.6
 
-# Prepare the Database
-
-- Install [MySQL](https://dev.mysql.com/downloads/mysql/)
-
-- Open a command prompt to start MySQL server :
-  - Enter this command replacing the `???` by your username : 
-    ```
-    mysql -u ??? -p
-    ```
-  - Type your password and press `enter` to start the server.
-  
-- Copy/paste SQL scripts :
-
-  - Use this [script](https://github.com/HashTucE/Poseidon-Inc/blob/develop/src/main/resources/doc/schema.sql) to create the datatbase.
-
-  - Use this [script](https://github.com/HashTucE/Poseidon-Inc/blob/develop/src/main/resources/doc/data.sql) to create an admin and a user.
-
-- Additional informations :
-  - Then to sign in with any of these 2 first account, use the password `&&`.
-  - I recommend to use first the account of `admin` because his role give him access to user management.
 
 # Run the Application
 
-- The datasource is set to `src/main/resources/application.properties` : 
+- Open a command prompt, once located to the root of the project, run the following command : 
+
+Runs this project as a Spring Boot application
 ```
-spring.datasource.url=jdbc:mysql://localhost:3306/paymybuddy?serverTimezone=UTC
+gradle bootRun
 ```
 
-- Open a command prompt, once located to the root of the project, run the following command replacing `???` by your username and your password of datasource : 
-```
-mvn spring-boot:run -Dspring-boot.run.arguments="--spring.datasource.username=??? --spring.datasource.password=???"
-```
-- And finally open your browser to access to this URL : http://localhost:8080/
-- Then you can create a new account or use an existing from data script, ENJOY !
 - Stop the application in the command prompt with : `CTRL + C`
 
+This are additional tasks runnable from root project :
+
+Build tasks
+-----------
+assemble - Assembles the outputs of this project.
+bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+build - Assembles and tests this project.
+clean - Deletes the build directory.
+jar - Assembles a jar archive containing the main classes.
+
+Verification tasks
+------------------
+check - Runs all checks.
+jacocoTestCoverageVerification - Verifies code coverage metrics based on specified rules for the test task.
+jacocoTestReport - Generates code coverage report for the test task.
+test - Runs the test suite.
+
+
+# Requests
+
+- Install [Postman](https://www.postman.com/downloads/)
+
+Endpoints availables
+--------------------
+GET : http://localhost:8080/
+GET : http://localhost:8080/getLocation?userName=
+GET : http://localhost:8080/getNearbyAttractions?userName=
+GET : http://localhost:8080/getRewards?userName=
+GET : http://localhost:8080/getAllCurrentLocations
+GET : http://localhost:8080/getTripDeals?userName=&attractionName=
+GET : http://localhost:8080/getPreferences?userName=
+PUT : http://localhost:8080/updatePreferences?userName=
+
+
+
 # UML Diagram
-![uml](https://user-images.githubusercontent.com/95872501/209088546-ebcaa663-b75a-46ae-bece-fe31cd995b37.png)
+![uml](https://imagizer.imageshack.com/img924/1951/HO29eq.png)
+
+# Tests Report
+![report](https://imagizer.imageshack.com/img923/3599/Y1sEkz.png)
 
 # JaCoCo Code Coverage
-![Capture d’écran 2022-12-22 à 09 19 43](https://user-images.githubusercontent.com/95872501/209089621-20ac00aa-46ea-466f-98a9-ac8d7be3ecbf.png)
+![coverage](https://imagizer.imageshack.com/img923/108/tD7ULZ.png)
 
 # Technology Stack
-![Capture d’écran 2022-12-05 à 01 19 56](https://user-images.githubusercontent.com/95872501/205524881-6a809029-414e-4a1f-b339-15154421f01a.png)
+![stack](https://imagizer.imageshack.com/img922/9745/x74LNi.png)
