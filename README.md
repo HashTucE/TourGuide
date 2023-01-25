@@ -1,7 +1,7 @@
 # TourGuide
 
 <p align="center">
-  <img src=https://imagizer.imageshack.com/img923/5501/26aD16.png>
+  <img src="https://imagizer.imageshack.com/img923/5501/26aD16.png">
 </p>
 
 TourGuide is an application for tourists. It takes advantage of GPS location to allow its users to discover nearby attractions. It also incorporates a system that rewards visitors with points redeemable for discounts on tourism players.
