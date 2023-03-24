@@ -15,6 +15,17 @@ Touristic API with the following features :
 - Show users location
 - Establish the list of 5 provider offers taking into account user preferences
 
+# Goal
+
+As part of this project, I achieved the following objectives :
+1. Fork this [project](https://github.com/OpenClassrooms-Student-Center/JavaPathENProject8)
+2. Fix unit tests that fail intermittently
+3. Correct the code so that user preferences are taken into account when making travel offers
+4. Correct the code so that users receive attraction recommendations regardless of the distance between them
+5. Add functionality to group all locations of all users
+6. Cover changes and new features with unit tests
+7. Optimize TourGuide so that performance tests pass in less than 15 and 20 minutes respectively
+
 # Prerequisites
 
 - Java 19
