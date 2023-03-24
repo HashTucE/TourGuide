@@ -50,21 +50,22 @@ This are additional tasks runnable from root project :
 - test - Runs the test suite.
 
 
-# Requests
+# Send request to the API
 
-- Install [Postman](https://www.postman.com/downloads/)
+1. Install [Postman](https://www.postman.com/downloads/)
+2. Save this json [collection](https://gist.githubusercontent.com/HashTucE/4ac302bf9ff9b7b5a06a8106d02400d0/raw/c9c2ef6b06622df8a92bfa5263a295dff949f88c/P7.json)
+4. Import this HTTP requests collection into `Postman`
 
-**Endpoints availables**
+Now you should be able to run the following requests :
 
-- GET : http://localhost:8080/
-- GET : http://localhost:8080/getLocation?userName=
-- GET : http://localhost:8080/getNearbyAttractions?userName=
-- GET : http://localhost:8080/getRewards?userName=
-- GET : http://localhost:8080/getAllCurrentLocations
-- GET : http://localhost:8080/getTripDeals?userName=&attractionName=
-- GET : http://localhost:8080/getPreferences?userName=
-- PUT : http://localhost:8080/updatePreferences?userName=
-
+    - GET : http://localhost:8080/
+    - GET : http://localhost:8080/getLocation?userName=
+    - GET : http://localhost:8080/getNearbyAttractions?userName=
+    - GET : http://localhost:8080/getRewards?userName=
+    - GET : http://localhost:8080/getAllCurrentLocations
+    - GET : http://localhost:8080/getTripDeals?userName=&attractionName=
+    - GET : http://localhost:8080/getPreferences?userName=
+    - PUT : http://localhost:8080/updatePreferences?userName=
 
 
 # UML Diagram
