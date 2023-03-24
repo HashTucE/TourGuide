@@ -1,7 +1,7 @@
 # TourGuide
 
 <div align="center">
-![logo](https://imagizer.imageshack.com/img923/5501/26aD16.png)
+<img src=https://imagizer.imageshack.com/img923/5501/26aD16.png>
 </div>
 
 # 
