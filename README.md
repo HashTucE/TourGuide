@@ -53,7 +53,7 @@ This are additional tasks runnable from root project :
 # Send request to the API
 
 1. Install [Postman](https://www.postman.com/downloads/)
-2. Save this json [collection](https://gist.githubusercontent.com/HashTucE/4ac302bf9ff9b7b5a06a8106d02400d0/raw/c9c2ef6b06622df8a92bfa5263a295dff949f88c/P7.json)
+2. Save this json [collection](https://gist.githubusercontent.com/HashTucE/c3695ded4ccf54702bfc919f4b18a9f6/raw/42d8d0c8e4394d89a6fd65316aa562bbda9337d1/P8.json)
 4. Import this HTTP requests collection into `Postman`
 
 Now you should be able to run the following requests :
