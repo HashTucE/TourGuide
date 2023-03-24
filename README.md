@@ -34,14 +34,14 @@ As part of this project, I achieved the following objectives :
 
 # Run the Application
 
-- Open a command prompt, once located to the root of the project : 
+Open a command prompt, once located to the root of the project : 
 
-    - Compile, test, package and install this project with :
+- Compile, test, package and install this project with :
 ```
 gradle clean build
 ```
 
-    - Runs this project as a Spring Boot application with :
+- Runs this project as a Spring Boot application with :
 ```
 gradle bootRun
 ```
