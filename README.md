@@ -47,18 +47,18 @@ This are additional tasks runnable from root project :
 
 **Build tasks**
 
-- assemble - Assembles the outputs of this project.
-- bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
-- build - Assembles and tests this project.
-- clean - Deletes the build directory.
-- jar - Assembles a jar archive containing the main classes.
+- `assemble` - Assembles the outputs of this project.
+- `bootJar` - Assembles an executable jar archive containing the main classes and their dependencies.
+- `build` - Assembles and tests this project.
+- `clean` - Deletes the build directory.
+- `jar` - Assembles a jar archive containing the main classes.
 
 **Verification tasks**
 
-- check - Runs all checks.
-- jacocoTestCoverageVerification - Verifies code coverage metrics based on specified rules for the test task.
-- jacocoTestReport - Generates code coverage report for the test task.
-- test - Runs the test suite.
+- `check` - Runs all checks.
+- `jacocoTestCoverageVerification` - Verifies code coverage metrics based on specified rules for the test task.
+- `jacocoTestReport` - Generates code coverage report for the test task.
+- `test` - Runs the test suite.
 
 
 # Send request to the API
